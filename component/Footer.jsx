@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from 'next/link';
 
-export default function Header() {
+export default function Footer() {
   return (
-    <>
+   
       <footer id="footer">
         <div className="tf-container">
           <div className="row">
@@ -23,35 +24,35 @@ export default function Header() {
                   <div className="contact-item">
                     <div className="content">
                       <h6>
-                        <a href="#">Home</a>
+                        <Link href="/">Home</Link>
                       </h6>
                     </div>
                   </div>
                   <div className="contact-item">
                     <div className="content">
                       <h6>
-                        <a href="#">About</a>
+                        <Link href="/about">About</Link>
                       </h6>
                     </div>
                   </div>
                   <div className="contact-item">
                     <div className="content">
                       <h6>
-                        <a href="#">Projects</a>
+                        <Link href="/projects">Projects</Link>
                       </h6>
                     </div>
                   </div>
                   <div className="contact-item">
                     <div className="content">
                       <h6>
-                        <a href="#">Services</a>
+                        <Link href="/service">Services</Link>
                       </h6>
                     </div>
                   </div>
                   <div className="contact-item">
                     <div className="content">
                       <h6>
-                        <a href="#">Contact</a>
+                        <Link href="/contact">Contact</Link>
                       </h6>
                     </div>
                   </div>
@@ -124,6 +125,6 @@ export default function Header() {
           </div>
         </div>
       </footer>
-    </>
+    
   );
 }

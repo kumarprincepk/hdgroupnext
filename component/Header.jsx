@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from 'next/link';
 
 export default function Header() {
   return (
@@ -18,7 +19,7 @@ export default function Header() {
                                     <nav className="main-menu">
                                         <ul className="navigation">
                                             <li className="current-menu"><a href="#">Home</a></li>
-                                            <li><a href="#">About</a></li>
+                                            <li><Link href="/about">About</Link></li>
                                             <li className="has-child style-2"><a href="#">Projects</a>
                                                 <ul className="submenu">
                                                     <li>
