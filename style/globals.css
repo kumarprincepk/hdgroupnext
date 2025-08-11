@@ -581,3 +581,83 @@ body {
   transform: rotate(-90deg);
 }
 /* what we do end */
+
+
+/* why trust us start */
+
+.tf-spacing-2 {
+  padding-top: 72px;
+  padding-bottom: 104px;
+}
+
+.counter-item span {
+  /* font-family: "Lexend", sans-serif; */
+    font-family: "MyHelvetica", sans-serif;
+
+}
+.counter-item .counter-number {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  width: max-content;
+  max-height: max-content;
+}
+.counter-item .odometer-formatting-mark {
+  display: none;
+}
+.counter-item .odometer .odometer-value {
+  width: 100%;
+  text-align: right !important;
+}
+.counter-item .odometer .odometer-digit {
+  vertical-align: unset !important;
+}
+.counter-item .sub {
+  position: relative;
+  top: -2px;
+  left: -2px;
+}
+.counter-item .sub.plus {
+  top: -14px;
+  font-size: 40px;
+}
+.counter-item.style-4 span {
+  font-size: 60px;
+  font-weight: 500;
+  line-height: 90px;
+  color: var(--Heading);
+}
+.wrap-counter {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  gap: 24px;
+}
+ .wrap-counter.style-1 {
+    gap: 0;
+  }
+  .wrap-counter.style-1 .counter-item:not(:last-child) {
+    border-right: 1px solid var(--Line);
+  }
+
+@media (max-width: 767px) {
+  .tf-spacing-3,
+  .tf-spacing-2 {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+}
+
+/* why trust us end */
+
+/* openion section start */
+.tf-spacing-3 {
+  padding-top: 64px;
+  padding-bottom: 80px;
+}
+
+/* openion section end */
