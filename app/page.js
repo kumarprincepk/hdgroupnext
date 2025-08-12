@@ -8,6 +8,7 @@ import AboutSection from "@/component/AboutSection";
 import WhatWeDoSection from "@/component/WhatWeDoSection";
 import WhyTrustUsSection from "@/component/WhyTrustUsSection";
 import ReadMoreSection from "@/component/ReadMoreSection";
+import TestimonialsSection from "@/component/TestimonialsSection";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         <AboutSection />
         <WhatWeDoSection />
         <WhyTrustUsSection />
+        <TestimonialsSection/>
         <ReadMoreSection />
         <Footer className="" />
       </div>
