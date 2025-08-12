@@ -11,72 +11,59 @@ export default function Header() {
                         <div className="col-12">
                             <div className="header-inner-wrap">
                                 <div className="header-logo">
-                                    <a href="" className="site-logo">
-                                        <Image className="img-default" alt="" src="/images/logo-white.png" width={50} height={50}/>
-                                    </a>
+                                    <Link href="/" className="site-logo">
+                                        <Image className="img-default" alt="header-image" src="/images/logo-white.png" width={50} height={50}/>
+                                    </Link>
                                 </div>
                                 <div className="header-right">
                                     <nav className="main-menu">
                                         <ul className="navigation">
-                                            <li className="current-menu"><a href="#">Home</a></li>
+                                            <li className="current-menu"><Link href="/">Home</Link></li>
                                             <li><Link href="/about">About</Link></li>
-                                            <li className="has-child style-2"><a href="#">Projects</a>
+                                            <li className="has-child style-2"><Link href="/">Projects</Link>
                                                 <ul className="submenu">
                                                     <li>
                                                         <ul className="submenu2">
                                                             <li>
-                                                                <a href="#">
-                                                                    <Image src="/images/residential.jpg" width={50} height={50}/>
-                                                                </a>
+                                                                <Link href="/">
+                                                                    <Image src="/images/residential.jpg" width={50} height={50} alt="header-image"/>
+                                                                </Link>
                                                             </li>
                                                         </ul>
-                                                        <a href="#">Residential</a>
+                                                        <Link href="/">Residential</Link>
                                                     </li>
                                                     <li>
                                                         <ul className="submenu2">
                                                             <li>
-                                                                <a href="#">
-                                                                    <Image src="/images/commercial.jpg" width={50} height={50}/>
-                                                                </a>
+                                                                <Link href="/">
+                                                                    <Image src="/images/commercial.jpg" width={50} height={50} alt="header-image"/>
+                                                                </Link>
                                                             </li>
                                                         </ul>
-                                                        <a href="#">Commercial</a>
+                                                        <Link href="/">Commercial</Link>
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li className="has-child "><a href="#">Services</a>
+                                            <li className="has-child "><Link href="/">Services</Link>
                                                 <ul className="submenu">
                                                     <li>
-                                                        <a href="#">Consultancy </a>
+                                                        <Link href="/">Sales &amp;  Collaboration</Link>
                                                     </li>
                                                     <li>
-                                                        <a href="#">Interior design</a>
+                                                        <Link href="/">Interior Design</Link>
+                                                    </li>
+                                                     <li>
+                                                        <Link href="/">Turnkey Execution</Link>
                                                     </li>
                                                     <li>
-                                                        <a href="#">Turnkey Execution</a>
+                                                        <Link href="/">Commercial Leasing</Link>
                                                     </li>
                                                     <li>
-                                                        <a href="#">FIT OUT </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Commercial Leasing</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Commercial Development
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Builders Floor</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Building Management </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Residence Sales &amp;  Collaboration </a>
+                                                        <Link href="/">Building Management </Link>
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li><a href="#">Contact</a></li>
+                                            <li><Link href="/">Contact</Link></li>
                                         </ul>
                                     </nav>
                                     <div className="box-user linkOnHover">
@@ -103,72 +90,59 @@ export default function Header() {
                         <div className="col-12">
                             <div className="header-inner-wrap">
                                 <div className="header-logo">
-                                    <a href="" className="site-logo">
-                                        <Image className="img-default" alt="" src="/images/logo-white.png" width={50} height={50}/>
-                                    </a>
+                                    <Link href="/" className="site-logo">
+                                        <Image className="img-default" alt="header-image" src="/images/logo-white.png" width={50} height={50}/>
+                                    </Link>
                                 </div>
                                 <div className="header-right">
                                     <nav className="main-menu">
                                         <ul className="navigation">
-                                            <li className="current-menu"><a href="#">Home</a></li>
-                                            <li><a href="#">About</a></li>
-                                            <li className="has-child style-2"><a href="#">Projects</a>
+                                            <li className="current-menu"><Link href="/">Home</Link></li>
+                                            <li><Link href="/">About</Link></li>
+                                            <li className="has-child style-2"><Link href="/">Projects</Link>
                                                 <ul className="submenu">
                                                     <li>
                                                         <ul className="submenu2">
                                                             <li>
-                                                                <a href="#">
-                                                                    <Image src="/images/residential.jpg" width={50} height={50}/>
-                                                                </a>
+                                                                <Link href="/">
+                                                                    <Image src="/images/residential.jpg" width={50} height={50} alt="header-image"/>
+                                                                </Link>
                                                             </li>
                                                         </ul>
-                                                        <a href="#">Residential</a>
+                                                        <Link href="/">Residential</Link>
                                                     </li>
                                                     <li>
                                                         <ul className="submenu2">
                                                             <li>
-                                                                <a href="#">
-                                                                    <Image src="/images/commercial.jpg" width={50} height={50}/>
-                                                                </a>
+                                                                <Link href="/">
+                                                                    <Image src="/images/commercial.jpg" width={50} height={50} alt="header-image"/>
+                                                                </Link>
                                                             </li>
                                                         </ul>
-                                                        <a href="#">Commercial</a>
+                                                        <Link href="/">Commercial</Link>
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li className="has-child "><a href="#">Services</a>
+                                            <li className="has-child "><Link href="/">Services</Link>
                                                 <ul className="submenu">
-                                                    <li>
-                                                        <a href="#">Consultancy </a>
+                                                     <li>
+                                                        <Link href="/">Sales &amp;  Collaboration</Link>
                                                     </li>
                                                     <li>
-                                                        <a href="#">Interior design</a>
+                                                        <Link href="/">Interior Design</Link>
+                                                    </li>
+                                                     <li>
+                                                        <Link href="/">Turnkey Execution</Link>
+                                                    </li>
+                                                     <li>
+                                                        <Link href="/">Commercial Leasing</Link>
                                                     </li>
                                                     <li>
-                                                        <a href="#">Turnkey Execution</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">FIT OUT </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Commercial Leasing</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Commercial Development
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Builders Floor</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Building Management </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Residence Sales &amp;  Collaboration </a>
+                                                        <Link href="/">Building Management </Link>
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li><a href="#">Contact</a></li>
+                                            <li><Link href="/">Contact</Link></li>
                                         </ul>
                                     </nav>
                                     <div className="box-user linkOnHover">
@@ -184,9 +158,9 @@ export default function Header() {
                             </div>
                            <div className="header-inner-wrap">
                                 <div className="header-logo">
-                                    <a href="#" className="site-logo">
-                                        <Image className="img-default" alt="" src="/images/logo.png" width={50} height={50}/>
-                                    </a>
+                                    <Link href="/" className="site-logo">
+                                        <Image className="img-default" alt="header-image" src="/images/logo.png" width={50} height={50}/>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -199,9 +173,9 @@ export default function Header() {
         aria-labelledby="menu-mobile">
         <div className="offcanvas-header top-nav-mobile">
             <div className="offcanvas-title">
-                <a href="#">
-                  <Image src="/images/logo.png" alt="" width={150} height={50}/>
-                  </a>
+                <Link href="/">
+                  <Image src="/images/logo.png" alt="header-image" width={150} height={50}/>
+                  </Link>
             </div>
             <div data-bs-dismiss="offcanvas" aria-label="Close">
                 <i className="icon-close"></i>
@@ -211,114 +185,97 @@ export default function Header() {
             <div className="mb-body">
                 <ul id="menu-mobile-menu">
                     <li className="menu-item current-menu-item">
-                        <a href="#dropdown-menu-one" className="item-menu-mobile collapsed" data-bs-toggle="collapse"
+                        <Link href="#dropdown-menu-one" className="item-menu-mobile collapsed" data-bs-toggle="collapse"
                             aria-expanded="true" aria-controls="dropdown-menu-one">
                             Home
-                        </a>
+                        </Link>
                     </li>
                      <li className="menu-item">
-                        <a href="#dropdown-menu-one" className="item-menu-mobile collapsed" data-bs-toggle="collapse"
+                        <Link href="#dropdown-menu-one" className="item-menu-mobile collapsed" data-bs-toggle="collapse"
                             aria-expanded="true" aria-controls="dropdown-menu-one">
                             About
-                        </a>
+                        </Link>
                     </li>
                     <li className="menu-item menu-item-has-children-mobile">
-                        <a href="#dropdown-menu-two" className="item-menu-mobile collapsed" data-bs-toggle="collapse"
+                        <Link href="#dropdown-menu-two" className="item-menu-mobile collapsed" data-bs-toggle="collapse"
                             aria-expanded="true" aria-controls="dropdown-menu-two">
                             Projects
-                        </a>
+                        </Link>
                         <div id="dropdown-menu-two" className="collapse" data-bs-parent="#menu-mobile-menu">
                             <ul className="sub-mobile">
                                 <li className="menu-item">
-                                    <a href="#sub-layout" className="item-menu-mobile  collapsed" data-bs-toggle="collapse"
-                                        aria-expanded="true" aria-controls="sub-agents">Residential</a>
+                                    <Link href="#sub-layout" className="item-menu-mobile  collapsed" data-bs-toggle="collapse"
+                                        aria-expanded="true" aria-controls="sub-agents">Residential</Link>
                                 </li>
                                 <li className="menu-item">
-                                    <a href="#sub-feaure" className="item-menu-mobile collapsed" data-bs-toggle="collapse"
-                                        aria-expanded="true" aria-controls="sub-agents">Commercial</a>
+                                    <Link href="#sub-feaure" className="item-menu-mobile collapsed" data-bs-toggle="collapse"
+                                        aria-expanded="true" aria-controls="sub-agents">Commercial</Link>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li className="menu-item menu-item-has-children-mobile">
-                        <a href="#dropdown-menu-four" className="item-menu-mobile collapsed" data-bs-toggle="collapse"
+                        <Link href="#dropdown-menu-four" className="item-menu-mobile collapsed" data-bs-toggle="collapse"
                             aria-expanded="true" aria-controls="dropdown-menu-four">
                             Services
-                        </a>
+                        </Link>
                         <div id="dropdown-menu-four" className="collapse" data-bs-parent="#menu-mobile-menu">
                             <ul className="sub-mobile">
-                                                    <li className="menu-item">
-                                                        <a href="#" className="item-menu-mobile  collapsed" data-bs-toggle="collapse"
-                                        aria-expanded="true" aria-controls="sub-agents">Consultancy </a>
+                                <li className="menu-item">
+                                                        <Link href="/" className="item-menu-mobile  collapsed" data-bs-toggle="collapse"
+                                        aria-expanded="true" aria-controls="sub-agents">Sales &amp;  Collaboration</Link>
                                                     </li>
                                                     <li className="menu-item">
-                                                        <a href="#" className="item-menu-mobile  collapsed" data-bs-toggle="collapse"
-                                        aria-expanded="true" aria-controls="sub-agents">Interior design</a>
+                                                        <Link href="/" className="item-menu-mobile  collapsed" data-bs-toggle="collapse"
+                                        aria-expanded="true" aria-controls="sub-agents">Interior Design</Link>
                                                     </li>
                                                     <li className="menu-item">
-                                                        <a href="#" className="item-menu-mobile  collapsed" data-bs-toggle="collapse"
-                                        aria-expanded="true" aria-controls="sub-agents">Turnkey Execution</a>
+                                                        <Link href="/" className="item-menu-mobile  collapsed" data-bs-toggle="collapse"
+                                        aria-expanded="true" aria-controls="sub-agents">Turnkey Execution</Link>
                                                     </li>
                                                     <li className="menu-item">
-                                                        <a href="#" className="item-menu-mobile  collapsed" data-bs-toggle="collapse"
-                                        aria-expanded="true" aria-controls="sub-agents">FIT OUT </a>
+                                                        <Link href="/" className="item-menu-mobile  collapsed" data-bs-toggle="collapse"
+                                        aria-expanded="true" aria-controls="sub-agents">Commercial Leasing</Link>
                                                     </li>
-                                                    <li className="menu-item">
-                                                        <a href="#" className="item-menu-mobile  collapsed" data-bs-toggle="collapse"
-                                        aria-expanded="true" aria-controls="sub-agents">Commercial Leasing</a>
-                                                    </li>
-                                                    <li className="menu-item">
-                                                        <a href="#" className="item-menu-mobile  collapsed" data-bs-toggle="collapse"
-                                        aria-expanded="true" aria-controls="sub-agents">Commercial Development
-                                                        </a>
-                                                    </li>
-                                                    <li className="menu-item">
-                                                        <a href="#" className="item-menu-mobile  collapsed" data-bs-toggle="collapse"
-                                        aria-expanded="true" aria-controls="sub-agents">Builders Floor</a>
-                                                    </li>
-                                                    <li className="menu-item">
-                                                        <a href="#" className="item-menu-mobile  collapsed" data-bs-toggle="collapse"
-                                        aria-expanded="true" aria-controls="sub-agents">Building Management </a>
-                                                    </li>
-                                                    <li className="menu-item">
-                                                        <a href="#" className="item-menu-mobile  collapsed" data-bs-toggle="collapse"
-                                        aria-expanded="true" aria-controls="sub-agents">Residence Sales &amp;  Collaboration </a>
-                                                    </li>
+                                                     <li className="menu-item">
+                                                        <Link href="/" className="item-menu-mobile  collapsed" data-bs-toggle="collapse"
+                                        aria-expanded="true" aria-controls="sub-agents">Building Management </Link>
+                                                    </li> 
                             </ul>
                         </div>
                     </li>
                     <li className="menu-item ">
-                        <a href="#" className="tem-menu-mobile "> Contact</a>
+                        <Link href="/" className="tem-menu-mobile "> Contact</Link>
                     </li>
                 </ul>
                 <div className="support">
-                    <a href="#" className="text-need"> Need help?</a>
+                    <Link href="/" className="text-need"> Need help?</Link>
                     <ul className="mb-info">
                         <li>Call Us Now: <span className="number">91932-56985</span></li>
-                        <li>Support 24/7: <a href="#">info@homedevelopersgroup.com</a></li>
+                        <li>Support 24/7: <Link href="/">info@homedevelopersgroup.com</Link></li>
                         <li>
                             <div className="wrap-social">
                                 <p>Follow us:</p>
                                 <ul className="tf-social  style-2">
                                     <li>
-                                        <a href="#">
+                                        <Link href="/">
                                             <i className="icon-fb"></i>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <Link href="/">
                                             <i className="icon-X"></i>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <Link href="/">
                                             <i className="icon-linked"></i>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <Link href="/">
                                             <i className="icon-ins"></i>
-                                        </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>

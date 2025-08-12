@@ -10,7 +10,7 @@ export default function Footer() {
             <div className="col-12">
               <div className="footer-top">
                 <div className="footer-logo">
-                  <a>
+                  <Link href="/">
                     <Image
                       id="logo_footer"
                       src="/images/logo-white.png"
@@ -18,7 +18,7 @@ export default function Footer() {
                       width={50} 
                       height={50}
                     />
-                  </a>
+                  </Link>
                 </div>
                 <div className="wrap-contact-item">
                   <div className="contact-item">
@@ -81,24 +81,24 @@ export default function Footer() {
                   <div className="footer-menu-list footer-col-block">
                     <ul className="tf-social mb-20">
                       <li>
-                        <a href="#">
+                        <Link href="/">
                           <i className="icon-fb"></i>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="#">
+                        <Link href="/">
                           <i className="icon-X"></i>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="#">
+                        <Link href="/">
                           <i className="icon-linked"></i>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="#">
+                        <Link href="/">
                           <i className="icon-ins"></i>
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                     <p className="text-white mb-10">+91-91932-56985</p>
@@ -109,15 +109,16 @@ export default function Footer() {
                 <div className="col-lg-5 col-md-6">
                   <div
                     className="footer-menu-list newsletter text-right"
-                    style={{display:"flex"}}
+                    style={{display:"inline-block"}}
                   >
-                    <Image
-                      src="/images/icon.png"
+                     <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7002.552378388211!2d77.4803739155954!3d28.651447852211042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf3a4d3e503d9%3A0x4bae765955c98d20!2sPark%20Town%20Commercial!5e0!3m2!1sen!2sin!4v1693298092117!5m2!1sen!2sin"
                       className="img-default"
-                      style={{maxWidth:"300px", marginLeft: "auto"}}
-                      width={50}
-                      height={50}
-                    />
+                      style={{maxWidth:"800px", marginLeft: "auto"}}
+                      width={550}
+                      height={250}
+                      title="park-title"
+                      ></iframe>
                   </div>
                 </div>
               </div>
