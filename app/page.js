@@ -13,9 +13,9 @@ import GalleryImage from "@/component/GalleryImage";
 
 export default function Home() {
   return (
-    <div>
+    <div className="counter-scroll theme-color-1">
       {/* <div className="theme-color-1"> */}
-      <div>
+      <div id="wrapper">
         {/* <Loader />
         <CounterScroll /> */}
         <Header />
