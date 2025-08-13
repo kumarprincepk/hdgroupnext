@@ -35,7 +35,7 @@ export default function VideoSection() {
                 <span style={{ "--i": 21 }}>i</span>
                 <span style={{ "--i": 22 }}>e</span>
                 <span style={{ "--i": 23 }}>s</span>
-                <span style={{ "--i": 15 }}>.</span>
+                <span style={{ "--i": 24 }}>.</span>
               </div>
             </div>
 
