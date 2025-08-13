@@ -559,6 +559,106 @@
   color: var(--Primary);
 }
 
+
+
+
+/* Custom CSS */
+
+.ui-banner__scrollButton {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  width: -moz-max-content;
+  width: max-content;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  animation: fadeIn 1s ease 1.5s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.ui-banner__scrollButtonScrollbar {
+  height: 60px;
+  margin-top: 8px;
+  overflow: hidden;
+  position: relative;
+  width: 1px;
+}
+
+.ui-banner__scrollButtonScrollbarBg {
+  background: #ffffff4d;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.ui-banner__scrollButtonScrollbarFg {
+  animation: animateScrollLine 2s cubic-bezier(.86,0,.07,1) infinite;
+  background: var(--White);
+  height: 30px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+
+.ui-banner__scrollButtonText {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: -.13px;
+  text-align: center;
+  color: var(--White);
+}
+
+@keyframes animateScrollLine {
+
+  0% {
+      transform: translate3d(0, -100%, 0);
+  }
+  100% {
+      transform: translate3d(0, 200%, 0);
+  }
+
+}
+
+.header .header-right:has(.linkOnHover):hover .main-menu {
+  display: block;
+  -webkit-transform: none;
+                transform: none;
+}
+
+.main-menu .navigation > li.has-child.style-2 > .submenu li a {
+  padding: 0;
+  margin:  10px 0;
+  text-align: center;
+}
+
+.main-menu .navigation > li.has-child.style-2 > .submenu li a img {
+  border-radius: 10px;
+  border: 1px solid rgb(201 152 80 / 56%);
+}
+
+
+.main-menu .navigation > li.has-child.style-2 > .submenu li a:hover img {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
 /* menu-moblie
 ============================================================================*/
 .mobile-nav-wrap {
