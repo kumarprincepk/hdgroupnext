@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import url(./header.css);
 @import url(./footer.css);
+@import url(./videoSection.css);
 
 :root {
   --background: #ffffff;
