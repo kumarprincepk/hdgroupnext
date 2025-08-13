@@ -9,6 +9,7 @@ import WhatWeDoSection from "@/component/WhatWeDoSection";
 import WhyTrustUsSection from "@/component/WhyTrustUsSection";
 import ReadMoreSection from "@/component/ReadMoreSection";
 import TestimonialsSection from "@/component/TestimonialsSection";
+import GalleryImage from "@/component/GalleryImage";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <Header />
         <VideoSection />
         <AboutSection />
+        <GalleryImage/>
         <WhatWeDoSection />
         <WhyTrustUsSection />
         <TestimonialsSection/>
