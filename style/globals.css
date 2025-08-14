@@ -14,6 +14,13 @@
   --Line: #ececec;
   --Secondary: #2c2e33;
   --Note: #a8abae;
+  --Heading: #2c2e33;
+}
+
+.theme-color-1 {
+  --Primary: #c99850;
+  --Sub-primary-1: rgba(215, 241, 236, 1);
+  --Sub-primary-2: rgba(6, 167, 136, 0.16);
 }
 
 @theme inline {
@@ -35,162 +42,6 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-
-/* video */
-
-.page-title {
-  position: relative;
-  z-index: 10;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-.page-title.home02 {
-  /* padding: 350px 0 280px; */
-  padding: 0 0 280px;
-  background-size: cover;
-  height: 100vh;
-}
-
-.hero-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font-family: "Helvetica", sans-serif;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.animated-line {
-  white-space: nowrap;
-  display: block;
-}
-
-.animated-line span {
-  display: inline-block;
-  font-size: clamp(2rem, 8vw, 9rem);
-  font-weight: 300;
-  color: white;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.6s ease-out forwards;
-  animation-delay: calc(var(--i) * 0.1s);
-}
-
-.animated-line + .animated-line {
-  margin-top: clamp(1rem, 2vw, 2.5rem);
-}
-
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.page-title.home02 video {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
-.page-title.home02 .heading-title {
-  margin-bottom: 80px;
-}
-.page-title.home02 .form-title {
-  padding: 16px;
-  gap: 12px;
-}
-.page-title.home02 form {
-  flex-grow: 1;
-}
-.page-title.home02 .nice-select {
-  flex-grow: 1;
-}
-.page-title.home02 .btn-filter {
-  background: var(--Sub-primary-2);
-}
-.page-title.home02 .btn-filter svg path {
-  stroke: var(--Primary);
-}
-.page-title.home02 .checkbox-item label input:checked ~ .btn-checkbox {
-  background-color: var(--Primary);
-  border-color: var(--Primary);
-}
-.ui-banner__scrollButton {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  width: -moz-max-content;
-  width: max-content;
-  margin-inline: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  animation: fadeIn 1s ease 1.5s forwards;
-  opacity: 0;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-.ui-banner__scrollButtonScrollbar {
-  height: 60px;
-  margin-top: 8px;
-  overflow: hidden;
-  position: relative;
-  width: 1px;
-}
-
-.ui-banner__scrollButtonScrollbarBg {
-  background: #ffffff4d;
-  height: 100%;
-  left: 0;
-  position: absolute;
-  width: 100%;
-  z-index: 1;
-}
-
-.ui-banner__scrollButtonScrollbarFg {
-  animation: animateScrollLine 2s cubic-bezier(0.86, 0, 0.07, 1) infinite;
-  background: var(--White);
-  height: 30px;
-  left: 0;
-  position: absolute;
-  width: 100%;
-  z-index: 2;
-}
-
-.ui-banner__scrollButtonText {
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 130%;
-  letter-spacing: -0.13px;
-  text-align: center;
-  color: var(--White);
-}
-
-@keyframes animateScrollLine {
-  0% {
-    transform: translate3d(0, -100%, 0);
-  }
-  100% {
-    transform: translate3d(0, 200%, 0);
-  }
-}
-/* video end */
 
 /* about us start */
 .tf-spacing-1 {
