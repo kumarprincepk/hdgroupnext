@@ -127,26 +127,6 @@
   stroke: var(--White);
 }
 
-.tf-container {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  padding-right: 15px;
-  padding-left: 15px;
-  width: 1320px;
-  max-width: 100%;
-}
-
-.tf-container .row {
-  margin-left: -15px !important;
-  margin-right: -15px !important;
-}
-
-.tf-container .row > * {
-  padding-left: 15px !important;
-  padding-right: 15px !important;
-}
-
 .header .header-right:has(.linkOnHover):hover .main-menu {
   display: block;
   transform: none;

@@ -1,15 +1,19 @@
+"use client";
+
+import styles from "./VideoSection.module.css";
+
 
 export default function VideoSection() {
   return (
-     <main className="page-title home02 mb-96">
-          <div className="hero-bg-video">
+     <main className={`${styles.pageTitle} ${styles.home02} mb-96`}>
+          <div className={styles.heroBgVideo}>
             <video autoPlay muted loop>
               <source src="images/hd_group.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
 
-            <div className="hero-text">
-              <div className="animated-line">
+            <div className={styles.heroText}>
+              <div className={styles.animatedLine}>
                 <span style={{ "--i": 0 }}>B</span>
                 <span style={{ "--i": 1 }}>u</span>
                 <span style={{ "--i": 2 }}>i</span>
@@ -39,12 +43,12 @@ export default function VideoSection() {
               </div>
             </div>
 
-            <div className="ui-banner__scrollButton">
-              <div className="ui-banner__scrollButtonScrollbar">
-                <span className="ui-banner__scrollButtonScrollbarBg"></span>
-                <span className="ui-banner__scrollButtonScrollbarFg"></span>
+            <div className={styles.uiBanner__scrollButton}>
+              <div className={styles.uiBanner__scrollButtonScrollbar}>
+                <span className={styles.uiBanner__scrollButtonScrollbarBg}></span>
+                <span className={styles.uiBanner__scrollButtonScrollbarFg}></span>
               </div>
-              <p className="ui-banner__scrollButtonText">Find out how</p>
+              <p className={styles.uiBanner__scrollButtonText}>Find out how</p>
             </div>
           </div>
         </main>
