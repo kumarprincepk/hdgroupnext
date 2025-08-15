@@ -13,7 +13,7 @@ export default function Footer() {
                 id="logo_footer"
                 src="/images/logo-white.png"
                 alt="logo-footer"
-                width={50}
+                width={300}
                 height={50}
               />
             </Link>

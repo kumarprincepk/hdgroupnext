@@ -320,9 +320,6 @@
   transition: all 0.3s ease;
   position: absolute;
   right: 0;
-  font-family: "icomoon";
-  content: "\e902";
-  font-size: 14px;
   cursor: pointer;
 }
 
@@ -416,8 +413,6 @@
 }
 
 .hasChild.style2 > .submenu > li > a {
-  font-size: 20px;
-  font-weight: 600;
   padding-left: 0 !important;
   color: var(--Heading) !important;
 }

@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from './HeaderSection.module.css';
+import { FaAngleDown } from "react-icons/fa6";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -43,7 +44,7 @@ export default function Header() {
 
                         {/* Projects Dropdown */}
                         <li className={`${styles.hasChild} ${styles.style2} relative group`}>
-                          <Link className={styles.a} href="/">Projects</Link>
+                          <Link className={`${styles.a}`} href="/">Projects <FaAngleDown className="inline-block"/></Link>
                           <ul className={`${styles.submenu} absolute left-0 bg-white shadow-lg transform opacity-0 translate-y-2 pointer-events-none transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto`}>
                             <li>
                               <ul className={styles.submenu2}>
@@ -70,7 +71,7 @@ export default function Header() {
 
                         {/* Services Dropdown */}
                         <li className={`${styles.hasChild} relative group`}>
-                          <Link className={styles.a} href="/">Services</Link>
+                          <Link className={styles.a} href="/">Services <FaAngleDown className="inline-block"/></Link>
                           <ul className={`${styles.submenu} absolute left-0 bg-white shadow-lg transform opacity-0 translate-y-2 pointer-events-none transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto`}>
                             <li><Link className={styles.a} href="/">Sales &amp; Collaboration</Link></li>
                             <li><Link className={styles.a} href="/">Interior Design</Link></li>
