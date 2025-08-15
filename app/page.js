@@ -6,7 +6,7 @@ import Footer from "@/component/footerSection/Footer";
 import VideoSection from "@/component/heroSection/VideoSection";
 import AboutSection from "@/component/AboutSection";
 import WhatWeDoSection from "@/component/WhatWeDoSection";
-import WhyTrustUsSection from "@/component/WhyTrustUsSection";
+import WhyTrustUsSection from "@/component/whyTrustUsSection/WhyTrustUsSection";
 import ReadMoreSection from "@/component/ReadMoreSection";
 import TestimonialsSection from "@/component/TestimonialsSection";
 import GalleryImage from "@/component/GalleryImage";

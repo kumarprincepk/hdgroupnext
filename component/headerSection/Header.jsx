@@ -28,7 +28,7 @@ export default function Header() {
                         className={styles.imgDefault}
                         alt="header-image"
                         src="/images/logo-white.png"
-                        width={50}
+                        width={300}
                         height={50}
                       />
                     </Link>
