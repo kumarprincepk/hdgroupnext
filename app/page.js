@@ -1,7 +1,7 @@
 "use client";
 import Loader from "@/component/Loader";
 import CounterScroll from "@/component/CounterScroll";
-import Header from "@/component/Header";
+import Header from "@/component/headerSection/Header";
 import Footer from "@/component/footerSection/Footer";
 import VideoSection from "@/component/heroSection/VideoSection";
 import AboutSection from "@/component/AboutSection";
