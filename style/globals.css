@@ -700,3 +700,85 @@ body {
 .animate-slide-in-left {
   animation: slideInLeft 0.7s ease forwards;
 }
+
+.leadership-section {
+  display: flex;
+  align-items: stretch;
+  background: #fff;
+  width: 100%;
+}
+
+.leadership-left {
+  flex: 0 0 25%;
+  background: #111;
+  color: #fff;
+  padding: 60px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.leadership-left h2 {
+  font-size: 42px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.leader-nav {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.leader-prev,
+.leader-next {
+  width: 45px;
+  height: 45px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  background: #f2f2f2;
+  color: #000;
+}
+
+.leader-next {
+  background: #aaa;
+}
+
+.leadership-right {
+  flex: 1;
+  padding: 40px;
+}
+
+.leader-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.leader-img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.leader-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 4px;
+}
+
+.leader-overlay h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.leader-overlay p {
+  margin: 5px 0 0;
+  font-size: 14px;
+}

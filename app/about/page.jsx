@@ -19,6 +19,11 @@ import Footer from "@/component/footerSection/Footer";
 import Header from "@/component/headerSection/Header";
 import Image from "next/image";
 import { FaAnglesDown } from "react-icons/fa6";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/autoplay";
 
 const AboutUs = () => {
   const [activeTab, setActiveTab] = useState("founder");
@@ -124,10 +129,33 @@ next-generation workspaces.`,
     { id: "chairman", label: "MEET OUR CHAIRMAN" },
   ];
 
+  const leaders = [
+    {
+      name: "Mr. Devinder Singh",
+      role: "Managing Director",
+      image: "/images/section-pre-approved1.jpg",
+    },
+    {
+      name: "Mr. Rajesh Kumar",
+      role: "Chairman",
+      image: "/images/residential.jpg",
+    },
+    {
+      name: "Mr. Amit Verma",
+      role: "CEO",
+      image: "/images/section-pre-approved1.jpg",
+    },
+    {
+      name: "Ms. Anjali Sharma",
+      role: "CFO",
+      image: "/images/residential.jpg",
+    },
+  ];
+
   return (
     <>
       <Header />
-      <section className="bg-gray-50 text-gray-900 font-serif">
+      <section className="bg-gray-50 text-gray-900 mb-30">
         <div className="max-w-7xl mx-auto px-6 py-20">
           {/* About Section (top) */}
           <div className="max-w-7xl mx-auto px-6 py-20">
@@ -180,30 +208,34 @@ next-generation workspaces.`,
               </span>
             </div>{" "}
           </div>
+        </div>
+      </section>
 
-          {/* Tabs */}
-          <div className="max-w-4xl mx-auto">
-            <div className="flex justify-center border border-gray-300">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  className={`px-6 py-3 text-sm font-medium w-full ${
-                    activeTab === tab.id
-                      ? "bg-black text-white"
-                      : "text-gray-600 hover:bg-gray-100"
-                  }`}
-                  onClick={() => {
-                    setActiveTab(tab.id);
-                    setSlide(0);
-                  }}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
+      {/* Tabs */}
+      <>
+        <div className="max-w-4xl mx-auto">
+          <div className="flex justify-center border border-gray-300">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                className={`px-6 py-3 text-sm font-medium w-full ${
+                  activeTab === tab.id
+                    ? "bg-black text-white"
+                    : "text-gray-600 hover:bg-gray-100"
+                }`}
+                onClick={() => {
+                  setActiveTab(tab.id);
+                  setSlide(0);
+                }}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
+        </div>
 
-          {/* Content */}
+        {/* Content */}
+        <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-6 mt-10 bg-gray-100">
             {/* Left Image */}
             <div className="relative h-[400px] md:h-auto">
@@ -262,6 +294,63 @@ next-generation workspaces.`,
               </div>
             </div>
           </div>
+        </div>
+      </>
+      <section className="max-w-7xl mx-auto py-20 flex flex-col md:flex-row items-center gap-8">
+        {/* Left Section with Black BG */}
+        <div className="md:w-1/4 bg-black text-white p-8 flex flex-col justify-between relative left-[-121px] h-[600px]">
+          <h2 className="text-4xl font-bold mb-8">
+            Our <br /> leadership
+          </h2>
+          <div className="flex gap-4">
+            <button className="leader-prev w-12 h-12 flex items-center justify-center bg-white text-black hover:bg-gray-300">
+              ←
+            </button>
+            <button className="leader-next w-12 h-12 flex items-center justify-center bg-white text-black hover:bg-gray-300">
+              →
+            </button>
+          </div>
+        </div>
+
+        {/* Right Section */}
+        <div className="md:w-3/4 relative left-[30px]">
+          <Swiper
+            modules={[Autoplay, Navigation]}
+            slidesPerView={1}
+            spaceBetween={20}
+            loop={true}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            navigation={{
+              nextEl: ".leader-next",
+              prevEl: ".leader-prev",
+            }}
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            className="h-[400px]"
+          >
+            {leaders.map((leader, index) => (
+              <SwiperSlide key={index}>
+                <div className="relative h-full group cursor-pointer">
+                  <Image
+                    src={leader.image}
+                    alt={leader.name}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-xl font-semibold">{leader.name}</h3>
+                    <p className="text-sm text-gray-300">{leader.role}</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </section>
       <Footer />
