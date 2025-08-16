@@ -668,3 +668,35 @@ body {
 }
 
 /* openion section end */
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.7s ease forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.7s ease forwards;
+}
