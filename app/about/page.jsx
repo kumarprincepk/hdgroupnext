@@ -43,82 +43,82 @@ const AboutUs = () => {
   const tabData = {
     founder: [
       {
-        heading: "Founder, DLF",
-        content: `Chaudhary Raghvendra Singh founded DLF in 1946, in pre-independent India.
-A born businessman, he began his real estate career by transforming the urban landscape of Delhi's National Capital Region,
-providing millions of homes to families displaced by partition who settled in the capital.
+        heading: "Founder",
+        content: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero cupiditate rem deleniti hic, eos consequuntur consectetur voluptatibus explicabo laborum. 
+                Doloribus ea id, assumenda atque cumque, fugiat, eum consequatur itaque quis perspiciatis ratione commodi repellat quaerat! Laboriosam placeat vero voluptatem 
+                dolorem culpa itaque qua.
 
-Born on September 19, 1910 and originally a graduate of St. Stephen's College, Delhi, Chaudhary Saheb went on to join the Indian Army
-where he rose to the rank of Major and was decorated with an MBE for exemplary service.`,
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero cupiditate rem deleniti hic, eos consequuntur consectetur voluptatibus explicabo laborum. 
+                Doloribus ea id, assumenda atque cumque, fugiat, eum consequatur itaque quis perspiciatis ratione commodi repellat quaerat! Laboriosam placeat vero voluptatem 
+                dolorem culpa itaque qua.`,
         image: "/images/section-pre-approved1.jpg",
         caption: "Chaudhary Raghvendra Singh",
-        subcaption: "Founder DLF",
+        subcaption: "Founder ",
       },
       {
         heading: "Achievements",
-        content: `Chaudhary Raghvendra Singh’s vision transformed the Indian real estate industry.
-
-- Development of 22 urban colonies in Delhi before independence.  
-- Expansion into Gurugram in 1985, creating a modern business hub.  
-- Establishing DLF as India's largest publicly listed real estate company.  
-- Contributions to education, philanthropy and welfare for ex-servicemen.`,
+        content: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+        
+        
+        - Vero cupiditate rem deleniti hic, eos consequuntur consectetur 
+        - Voluptatibus explicabo laborum. Doloribus ea id, assumenda atque cumque, 
+        - Fugiat, eum consequatur itaque quis perspiciatis ratione commodi repellat 
+        - Quaerat! Laboriosam placeat vero voluptatem 
+        `,
         image: "/images/section-pre-approved1.jpg",
         caption: "Chaudhary Raghvendra Singh",
-        subcaption: "Founder DLF",
+        subcaption: "Founder",
       },
     ],
 
     emeritus: [
       {
-        heading: "Chairman Emeritus, DLF",
-        content: `K.P. Singh, Chairman Emeritus of DLF, is widely regarded as the man who
-transformed Gurugram into a global business destination. His leadership turned DLF
-into a powerhouse in Indian real estate.
-
-Educated at DSOE (UK), he joined DLF in 1979 and spearheaded expansion into commercial,
-retail, and IT parks that reshaped India's corporate infrastructure.`,
+        heading: "Chairman Emeritus, HDG",
+        content: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero cupiditate rem deleniti hic, eos consequuntur consectetur voluptatibus explicabo laborum. 
+                
+          Doloribus ea id, assumenda atque cumque, fugiat, eum consequatur itaque quis perspiciatis ratione commodi repellat quaerat! Laboriosam placeat vero voluptatem 
+                dolorem culpa itaque qua.`,
         image: "/images/residential.jpg",
         caption: "K.P. Singh",
-        subcaption: "Chairman Emeritus, DLF",
+        subcaption: "Chairman Emeritus",
       },
       {
         heading: "Achievements",
-        content: `K.P. Singh’s visionary leadership reshaped modern India.  
+        content: `Doloribus ea id, assumenda atque cumque, fugiat,
 
-- Pioneered Gurugram as India’s financial & technology hub.  
-- Expanded DLF’s footprint across residential, retail, and IT parks.  
-- Credited with creating millions of jobs through infrastructure growth.  
-- Honored globally for entrepreneurship and leadership in real estate.`,
+- Doloribus ea id, assumenda atque cumque, fugiat,  
+- eum consequatur itaque quis perspiciatis ratione.
+- eum consequatur itaque quis perspiciatis ratione commodi repellat. 
+- eum consequatur itaque quis perspiciatis ratione commodi repellat quaerat! Laboriosam placeat.`,
         image: "/images/residential.jpg",
         caption: "K.P. Singh",
-        subcaption: "Chairman Emeritus, DLF",
+        subcaption: "Chairman Emeritus",
       },
     ],
 
     chairman: [
       {
-        heading: "Chairman, DLF",
-        content: `Rajiv Singh, the current Chairman of DLF, continues the legacy with a
-forward-looking vision. He has been instrumental in steering DLF into sustainable
-development, luxury housing, and green building initiatives.
+        heading: "Chairman",
+        content: `eum consequatur itaque quis perspiciatis ratione commodi repellat quaerat! Laboriosam placeat vero voluptatem 
+                dolorem culpa itaque qua.
 
-Under his leadership, DLF has embraced technology-driven projects, urban mobility, and
-next-generation workspaces.`,
+Doloribus ea id, assumenda atque cumque, fugiat, eum consequatur itaque quis perspiciatis ratione commodi repellat quaerat! Laboriosam placeat vero voluptatem 
+                dolorem culpa itaque qua.`,
         image: "/images/section-pre-approved1.jpg",
         caption: "Rajiv Singh",
-        subcaption: "Chairman, DLF",
+        subcaption: "Chairman, HDG",
       },
       {
         heading: "Achievements",
-        content: `Rajiv Singh has strengthened DLF’s position in India’s real estate sector.  
+        content: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero cupiditate rem deleniti hic.  
 
 - Led expansion into sustainable, eco-friendly projects.  
 - Spearheaded luxury housing & green building initiatives.  
-- Positioned DLF as a leader in modern urban infrastructure.  
+- Positioned HDG as a leader in modern urban infrastructure.  
 - Driving innovation through smart cities and next-gen technology hubs.`,
         image: "/images/section-pre-approved1.jpg",
         caption: "Rajiv Singh",
-        subcaption: "Chairman, DLF",
+        subcaption: "Chairman, HDG",
       },
     ],
   };
@@ -165,11 +165,9 @@ next-generation workspaces.`,
                 — About Us
               </span>
               <h1 className="text-2xl md:text-3xl font-bold leading-snug">
-                At DLF, we take pride in our unwavering integrity in customer
-                engagement and quality assurance. Throughout our over 78-year
-                legacy, it has been our core mission to deliver real-estate
-                development, management, and investment services of the highest
-                calibre.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero cupiditate rem deleniti hic, eos consequuntur consectetur voluptatibus explicabo laborum. 
+                Doloribus ea id, assumenda atque cumque, fugiat, eum consequatur itaque quis perspiciatis ratione commodi repellat quaerat! Laboriosam placeat vero voluptatem 
+                dolorem culpa itaque qua.
               </h1>
             </div>
             {/* Divider */}
@@ -177,23 +175,16 @@ next-generation workspaces.`,
             {/* Paragraphs */}
             <div className="space-y-6 text-lg leading-relaxed text-gray-700">
               <p>
-                Founded in 1946 by Chaudhary Raghvendra Singh, DLF began with
-                the development of 22 urban colonies in Delhi. In 1985, the
-                company expanded into the then-unknown region of Gurugram,
-                creating exceptional living and working spaces for India’s
-                emerging global professionals. Today, DLF is the largest
-                publicly listed real estate company in India, with residential,
-                commercial, and retail properties spanning 15 states and 24
-                cities.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit dicta sapiente modi veniam quisquam, natus, eius quae inventore assumenda nobis 
+                repellat alias totam, animi praesentium omnis hic nulla non facere blanditiis ullam! Quis quia nulla nesciunt quam? Corporis vitae consequuntur cum tempora 
+                nesciunt suscipit obcaecati asperiores expedita necessitatibus excepturi, voluptatem repudiandae, ducimus architecto maxime.
               </p>
 
               <p>
-                Our diverse verticals reflect our dedication to developing
-                ecosystems for India’s evolving needs. However, our true
-                foundation lies in our employees, customers, stakeholders, and
-                shareholders. We invest in spearheading innovation through
-                empowerment and optimism, to build the foundation of India’s
-                future grounded in the legacy of our past.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et nemo, repudiandae, perferendis 
+                nostrum ipsam hic veniam, vel architecto molestias distinctio repellendus rerum quaerat 
+                cumque! Dignissimos eos laborum vel, aut qui itaque quidem voluptatem tempora illo ad commodi! Impedit 
+                iusto maxime commodi asperiores repellat temporibus illo. Nisi doloribus minima rem dignissimos.
               </p>
             </div>
             {/* Down Arrow */}
