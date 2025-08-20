@@ -1,160 +1,236 @@
 "use client";
 
-import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
-import ImageGallery from "react-image-gallery";
-import "react-image-gallery/styles/css/image-gallery.css";
+import Image from "next/image";
+
+const PlayIcon = () => <span aria-hidden="true">▶</span>;
+const PauseIcon = () => <span aria-hidden="true">⏸</span>;
+const FullscreenIcon = () => <span aria-hidden="true">⛶</span>;
+const ExitFullscreenIcon = () => <span aria-hidden="true">⛶</span>;
+const CloseIcon = () => <span aria-hidden="true">×</span>;
+const PrevIcon = () => <span aria-hidden="true">◀</span>;
+const NextIcon = () => <span aria-hidden="true">▶</span>;
 
 export default function GalleryImage() {
-  const galleryRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isFullScreen, setIsFullScreen] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const galleryRef = useRef(null);
+  const intervalRef = useRef(null);
 
   const images = [
-    { original: "/images/icon.png", thumbnail: "/images/icon.png" },
+    { original: "/images/blog-grid-1.jpg", thumbnail: "/images/blog-grid-1.jpg" },
     { original: "/images/agent-item.jpg", thumbnail: "/images/agent-item.jpg" },
+    { original: "/images/commercial.jpg", thumbnail: "/images/commercial.jpg" },
     { original: "/images/blog-grid-2.jpg", thumbnail: "/images/blog-grid-2.jpg" },
-    { original: "/images/blog-grid-3.jpg", thumbnail: "/images/blog-grid-3.jpg" },
+    { original: "/images/blog-grid-1.jpg", thumbnail: "/images/blog-grid-1.jpg" },
+    { original: "/images/agent-item.jpg", thumbnail: "/images/agent-item.jpg" },
+    { original: "/images/commercial.jpg", thumbnail: "/images/commercial.jpg" },
+    { original: "/images/blog-grid-2.jpg", thumbnail: "/images/blog-grid-2.jpg" },
   ];
 
+  const visibleThumbnails = images.slice(0, 4);
+  const hiddenImagesCount = images.length - 4;
+
   const openGalleryAt = (index) => {
+    setCurrentIndex(index);
     setIsOpen(true);
-    setTimeout(() => {
-      if (galleryRef.current) {
-        galleryRef.current.slideToIndex(index);
-      }
-    }, 50);
   };
 
-  const handlePlayPause = () => {
-    if (!galleryRef.current) return;
-    
+  const togglePlayPause = () => {
     if (isPlaying) {
-      galleryRef.current.pause();
+      clearInterval(intervalRef.current);
     } else {
-      galleryRef.current.play();
+      intervalRef.current = setInterval(() => {
+        goToNext();
+      }, 3000);
     }
     setIsPlaying(!isPlaying);
   };
 
-  const handleFullScreenToggle = () => {
-    const galleryElement = document.querySelector('.image-gallery');
-    if (!galleryElement) return;
-
-    if (document.fullscreenElement || 
-        document.webkitFullscreenElement || 
-        document.mozFullScreenElement ||
-        document.msFullscreenElement) {
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(err => {
+        console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+      });
+      setIsFullscreen(true);
+    } else {
       if (document.exitFullscreen) {
         document.exitFullscreen();
-      } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
-      } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen();
-      } else if (document.msExitFullscreen) {
-        document.msExitFullscreen();
-      }
-    } else {
-      if (galleryElement.requestFullscreen) {
-        galleryElement.requestFullscreen();
-      } else if (galleryElement.webkitRequestFullscreen) {
-        galleryElement.webkitRequestFullscreen();
-      } else if (galleryElement.mozRequestFullScreen) {
-        galleryElement.mozRequestFullScreen();
-      } else if (galleryElement.msRequestFullscreen) {
-        galleryElement.msRequestFullscreen();
+        setIsFullscreen(false);
       }
     }
-    setIsFullScreen(!isFullScreen);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+    setIsPlaying(false);
+    clearInterval(intervalRef.current);
+  };
+
+  const goToPrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
   };
 
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!isOpen) return;
+      
+      if (e.key === 'Escape') {
+        handleClose();
+      } else if (e.key === 'ArrowLeft') {
+        goToPrev();
+      } else if (e.key === 'ArrowRight') {
+        goToNext();
+      } else if (e.key === ' ') {
+        togglePlayPause();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, isPlaying]);
+
+  useEffect(() => {
     const handleFullscreenChange = () => {
-      setIsFullScreen(!!(document.fullscreenElement || 
-                        document.webkitFullscreenElement || 
-                        document.mozFullScreenElement ||
-                        document.msFullscreenElement));
+      setIsFullscreen(!!document.fullscreenElement);
     };
 
     document.addEventListener('fullscreenchange', handleFullscreenChange);
-    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
-    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
-    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
-
     return () => {
       document.removeEventListener('fullscreenchange', handleFullscreenChange);
-      document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
-      document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
-      document.removeEventListener('MSFullscreenChange', handleFullscreenChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      clearInterval(intervalRef.current);
     };
   }, []);
 
   return (
-    <div className="p-4">
-      {/* Thumbnails */}
-      <div className="grid grid-cols-2 gap-4">
-        {images.map((img, index) => (
-          <Image
-            key={index}
-            src={img.thumbnail}
-            alt={`Image ${index + 1}`}
-            className="cursor-pointer rounded shadow-md hover:scale-105 transition-transform"
+    <div className="p-4 max-w-6xl mx-auto">
+      <h1 className="text-2xl font-bold text-center mb-6">Spotlight</h1>
+      
+      {/* Thumbnail Grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        {visibleThumbnails.map((img, index) => (
+          <div 
+            key={index} 
+            className="relative aspect-square overflow-hidden rounded-lg shadow-md cursor-pointer transition-transform duration-300 hover:scale-105"
             onClick={() => openGalleryAt(index)}
-            width={500}
-            height={500}
-          />
+          >
+            <Image
+              src={img.thumbnail}
+              alt={`Thumbnail ${index + 1}`}
+              fill
+              className="object-cover"
+            />
+          </div>
         ))}
+        
+        {/* View More Button */}
+        {hiddenImagesCount > 0 && (
+          <div 
+            className="relative aspect-square bg-gray-200 rounded-lg shadow-md flex flex-col items-center justify-center cursor-pointer transition-transform duration-300 hover:scale-105"
+            onClick={() => openGalleryAt(4)}
+          >
+            <div className="text-4xl font-bold text-gray-700">+{hiddenImagesCount}</div>
+            <div className="text-gray-600 mt-2">View More</div>
+          </div>
+        )}
       </div>
 
-      {/* Fullscreen Gallery */}
+      {/* Fullscreen Gallery Modal */}
       {isOpen && (
-        <div className="fixed inset-0 bg-black z-50">
-          <ImageGallery
-            ref={galleryRef}
-            items={images}
-            showThumbnails={true}
-            showNav={true}
-            showPlayButton={false}
-            showFullscreenButton={false}
-            onPlay={() => setIsPlaying(true)}
-            onPause={() => setIsPlaying(false)}
-            renderCustomControls={() => (
-              <div className="absolute top-4 right-4 flex gap-3 text-white text-2xl z-50">
-                <button
-                  onClick={handlePlayPause}
-                  className="hover:scale-110 transition-transform p-2 rounded-full bg-black/50"
-                  aria-label={isPlaying ? "Pause" : "Play"}
-                >
-                  {isPlaying ? "⏸" : "▶"}
-                </button>
+        <div className="fixed inset-0 bg-black bg-opacity-95 z-50 flex flex-col">
+          {/* Top Controls */}
+          <div className="flex justify-between items-center p-4 bg-black bg-opacity-70 text-white">
+            <div className="text-lg">
+              {currentIndex + 1} / {images.length}
+            </div>
+            <div className="flex gap-2">
+              <button
+                onClick={togglePlayPause}
+                className="w-10 h-10 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded focus:outline-none"
+                aria-label={isPlaying ? "Pause slideshow" : "Play slideshow"}
+              >
+                {isPlaying ? <PauseIcon /> : <PlayIcon />}
+              </button>
+              
+              <button
+                onClick={toggleFullscreen}
+                className="w-10 h-10 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded focus:outline-none"
+                aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+              >
+                {isFullscreen ? <ExitFullscreenIcon /> : <FullscreenIcon />}
+              </button>
+              
+              <button
+                onClick={handleClose}
+                className="w-10 h-10 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded focus:outline-none"
+                aria-label="Close gallery"
+              >
+                <CloseIcon />
+              </button>
+            </div>
+          </div>
 
-                <button
-                  onClick={handleFullScreenToggle}
-                  className="hover:scale-110 transition-transform p-2 rounded-full bg-black/50"
-                  aria-label={isFullScreen ? "Exit Fullscreen" : "Enter Fullscreen"}
-                >
-                  {isFullScreen ? "🗗" : "⛶"}
-                </button>
+          {/* Main Image */}
+          <div className="flex-grow flex items-center justify-center relative">
+            <button
+              onClick={goToPrev}
+              className="absolute left-4 z-10 w-10 h-10 flex items-center justify-center text-white bg-black bg-opacity-50 rounded-full hover:bg-opacity-70 focus:outline-none"
+              aria-label="Previous image"
+            >
+              <PrevIcon />
+            </button>
+            
+            <div className="relative w-full h-full flex items-center justify-center">
+              <Image
+                src={images[currentIndex].original}
+                alt={`Image ${currentIndex + 1}`}
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+            
+            <button
+              onClick={goToNext}
+              className="absolute right-4 z-10 w-10 h-10 flex items-center justify-center text-white bg-black bg-opacity-50 rounded-full hover:bg-opacity-70 focus:outline-none"
+              aria-label="Next image"
+            >
+              <NextIcon />
+            </button>
+          </div>
 
-                <button
-                  onClick={() => {
-                    if (isPlaying) galleryRef.current?.pause();
-                    if (isFullScreen && document.exitFullscreen) {
-                      document.exitFullscreen();
-                    }
-                    setIsOpen(false);
-                    setIsPlaying(false);
-                    setIsFullScreen(false);
-                  }}
-                  className="hover:scale-110 transition-transform p-2 rounded-full bg-black/50"
-                  aria-label="Close"
+          {/* Thumbnail Strip */}
+          <div className="p-4 bg-black bg-opacity-70 overflow-x-auto">
+            <div className="flex gap-2 justify-center">
+              {images.map((img, index) => (
+                <div
+                  key={index}
+                  className={`relative w-16 h-16 flex-shrink-0 cursor-pointer border-2 ${index === currentIndex ? 'border-white' : 'border-transparent'}`}
+                  onClick={() => setCurrentIndex(index)}
                 >
-                  ✕
-                </button>
-              </div>
-            )}
-          />
+                  <Image
+                    src={img.thumbnail}
+                    alt={`Thumbnail ${index + 1}`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       )}
     </div>
