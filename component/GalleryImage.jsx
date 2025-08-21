@@ -18,7 +18,7 @@ export default function GalleryImage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideDirection, setSlideDirection] = useState(null);
   const [key, setKey] = useState(0);
-  const galleryRef = useRef(null);
+  const overlayRef = useRef(null);
   const intervalRef = useRef(null);
   const touchStartX = useRef(null);
   const touchEndX = useRef(null);
@@ -34,13 +34,14 @@ export default function GalleryImage() {
     { original: "/images/blog-grid-2.jpg", thumbnail: "/images/blog-grid-2.jpg" },
   ];
 
-  const visibleThumbnails = images.slice(0, 4);
-  const hiddenImagesCount = images.length - 4;
+  const MAX_VISIBLE = 6;
+  const visibleThumbnails = images.slice(0, MAX_VISIBLE);
+  const hiddenImagesCount = Math.max(0, images.length - MAX_VISIBLE);
 
   const openGalleryAt = (index) => {
     setCurrentIndex(index);
     setIsOpen(true);
-    setSlideDirection('right');
+    setSlideDirection("right");
   };
 
   const handleTouchStart = (e) => {
@@ -52,8 +53,7 @@ export default function GalleryImage() {
   };
 
   const handleTouchEnd = () => {
-    if (!touchStartX.current || !touchEndX.current) return;
-
+    if (touchStartX.current == null || touchEndX.current == null) return;
     const diff = touchStartX.current - touchEndX.current;
     const threshold = 50;
 
@@ -80,20 +80,20 @@ export default function GalleryImage() {
         goToNext();
       }, 3000);
     }
-    setIsPlaying(!isPlaying);
+    setIsPlaying((p) => !p);
   };
 
   const toggleFullscreen = () => {
+    const el = overlayRef.current || document.documentElement;
     if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch(err => {
-        console.error(`Error attempting to enable full-screen mode: ${err.message}`);
-      });
-      setIsFullscreen(true);
+      el
+        .requestFullscreen?.()
+        .then(() => setIsFullscreen(true))
+        .catch((err) =>
+          console.error(`Error enabling fullscreen: ${err?.message || err}`)
+        );
     } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-        setIsFullscreen(false);
-      }
+      document.exitFullscreen?.().then(() => setIsFullscreen(false));
     }
   };
 
@@ -105,20 +105,20 @@ export default function GalleryImage() {
 
   const goToPrev = () => {
     setSlideDirection('right');
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
-    setKey(prev => prev + 1);
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    setKey((prev) => prev + 1);
   };
 
   const goToNext = () => {
-    setSlideDirection('left'); 
-    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
-    setKey(prev => prev + 1);
+    setSlideDirection('left');
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    setKey((prev) => prev + 1);
   };
 
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (!isOpen) return;
-      
+
       if (e.key === 'Escape') {
         handleClose();
       } else if (e.key === 'ArrowLeft') {
@@ -127,95 +127,112 @@ export default function GalleryImage() {
       } else if (e.key === 'ArrowRight') {
         setSlideDirection('left');
         goToNext();
-      } else if (e.key === ' ') {
+      } else if (e.code === 'Space') {
+        e.preventDefault();
         togglePlayPause();
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isOpen, isPlaying]);
+    window.addEventListener("keydown", handleKeyDown, { passive: false });
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, isPlaying, images.length]);
 
   useEffect(() => {
     const handleFullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement);
     };
-
-    document.addEventListener('fullscreenchange', handleFullscreenChange);
-    return () => {
-      document.removeEventListener('fullscreenchange', handleFullscreenChange);
-    };
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    return () =>
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
   }, []);
 
   useEffect(() => {
-    return () => {
-      clearInterval(intervalRef.current);
-    };
+    return () => clearInterval(intervalRef.current);
   }, []);
 
   return (
-    <div className="p-4 max-w-6xl mx-auto">
-      <h1 className="text-2xl font-bold text-center mb-6">Spotlight</h1>
-      
-      {/* Thumbnail Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+    <div className="p-4 md:p-8 max-w-7xl mx-auto">
+    
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
         {visibleThumbnails.map((img, index) => (
-          <div 
-            key={index} 
-            className="relative aspect-square overflow-hidden rounded-lg shadow-md cursor-pointer group"
+          <button
+            key={index}
+            type="button"
+            className="relative aspect-square overflow-hidden rounded-xl shadow-md focus:outline-none focus:ring-2 focus:ring-black/30 group"
             onClick={() => openGalleryAt(index)}
+            aria-label={`Open image ${index + 1}`}
           >
             <Image
               src={img.thumbnail}
               alt={`Thumbnail ${index + 1}`}
               fill
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
               className="object-cover transition-transform duration-300 group-hover:scale-105"
+              priority={index < 2}
             />
-          </div>
+          </button>
         ))}
-        
-        {/* View More Button */}
-        {hiddenImagesCount > 0 && (
-          <div 
-            className="relative aspect-square bg-gradient-to-br from-blue-400 to-purple-500 rounded-lg shadow-md flex flex-col items-center justify-center cursor-pointer transition-all duration-300 hover:scale-105 group"
-            onClick={() => openGalleryAt(4)}
+
+        {/* "+N View More" tile (only if more than 6 images) */}
+        {/* {hiddenImagesCount > 0 && (
+          <button
+            type="button"
+            className="relative aspect-square rounded-xl shadow-md bg-gradient-to-br from-blue-500 to-purple-600 text-white flex flex-col items-center justify-center hover:opacity-95 transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-white/50"
+            onClick={() => openGalleryAt(MAX_VISIBLE)}
+            aria-label={`View ${hiddenImagesCount} more images`}
           >
-            <div className="text-4xl font-bold text-white transition-transform duration-300 group-hover:scale-110">+{hiddenImagesCount}</div>
-            <div className="text-white mt-2 transition-transform duration-300 group-hover:scale-105">View More</div>
-          </div>
-        )}
+            <span className="text-3xl md:text-4xl font-bold">
+              +{hiddenImagesCount}
+            </span>
+            <span className="mt-1 md:mt-2 text-xs md:text-sm">View More</span>
+          </button>
+        )} */}
+      </div>
+
+      <div className="max-w-3xl mx-auto text-center mb-8 md:mb-10">
+        <h2 className="text-2xl md:text-4xl font-bold tracking-tight">
+          Our Visual Story
+        </h2>
+        <p className="mt-3 md:mt-4 text-sm md:text-base text-gray-600">
+          Explore a curated selection of our latest shots. Tap any tile to open
+          the immersive gallery, swipe or use the arrows to navigate, and hit
+          play for a smooth slideshow experience.
+        </p>
       </div>
 
       {/* Fullscreen Gallery Modal */}
       {isOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-95 z-50 flex flex-col">
+        <div
+          ref={overlayRef}
+          className="fixed inset-0 bg-black/95 z-50 flex flex-col"
+          role="dialog"
+          aria-modal="true"
+        >
           {/* Top Controls */}
-          <div className="flex justify-between items-center p-4 bg-black bg-opacity-70 text-white">
-            <div className="text-lg">
+          <div className="flex items-center justify-between p-3 sm:p-4 text-white">
+            <div className="text-sm sm:text-base">
               {currentIndex + 1} / {images.length}
             </div>
             <div className="flex gap-2">
               <button
                 onClick={togglePlayPause}
-                className="w-10 h-10 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded focus:outline-none transition-all duration-200 hover:scale-110"
+                className="w-10 h-10 flex items-center justify-center hover:bg-white/20 rounded transition-all duration-200 hover:scale-110 focus:outline-none"
                 aria-label={isPlaying ? "Pause slideshow" : "Play slideshow"}
               >
                 {isPlaying ? <PauseIcon /> : <PlayIcon />}
               </button>
-              
+
               <button
                 onClick={toggleFullscreen}
-                className="w-10 h-10 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded focus:outline-none transition-all duration-200 hover:scale-110"
+                className="w-10 h-10 flex items-center justify-center hover:bg-white/20 rounded transition-all duration-200 hover:scale-110 focus:outline-none"
                 aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
               >
                 {isFullscreen ? <ExitFullscreenIcon /> : <FullscreenIcon />}
               </button>
-              
+
               <button
                 onClick={handleClose}
-                className="w-10 h-10 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded focus:outline-none transition-all duration-200 hover:scale-110"
+                className="w-10 h-10 flex items-center justify-center hover:bg-white/20 rounded transition-all duration-200 hover:scale-110 focus:outline-none"
                 aria-label="Close gallery"
               >
                 <CloseIcon />
@@ -223,8 +240,7 @@ export default function GalleryImage() {
             </div>
           </div>
 
-          {/* Main Image */}
-          <div 
+          <div
             className="flex-grow flex items-center justify-center relative"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
@@ -232,35 +248,37 @@ export default function GalleryImage() {
           >
             <button
               onClick={goToPrev}
-              className="absolute left-4 z-10 w-10 h-10 flex items-center justify-center text-white bg-black bg-opacity-50 rounded-full hover:bg-opacity-70 focus:outline-none transition-all duration-200 hover:scale-110"
+              className="absolute left-3 sm:left-4 z-10 w-10 h-10 flex items-center justify-center text-white bg-black/50 rounded-full hover:bg-black/70 transition-all duration-200 hover:scale-110 focus:outline-none"
               aria-label="Previous image"
             >
               <PrevIcon />
             </button>
-            
-             <div 
-                    className="relative w-full h-full flex items-center justify-center overflow-hidden"
-                    data-direction={slideDirection}
-                  >
-                    <Image
-                      key={key}
-                      src={images[currentIndex].original}
-                      alt={`Image ${currentIndex + 1}`}
-                      fill
-                      className={`object-contain transition-transform duration-500 ${
-                        slideDirection === 'left' ? 'animate-slide-left' : 
-                        slideDirection === 'right' ? 'animate-slide-right' : 
-                        'animate-slide-in'
-                      }`}
-                      priority
-                      onTransitionEnd={() => setSlideDirection(null)}
-                    />
-                  </div>
-            
-            
+
+            <div
+              className="relative w-full h-full flex items-center justify-center overflow-hidden"
+              data-direction={slideDirection}
+            >
+              <Image
+                key={key}
+                src={images[currentIndex].original}
+                alt={`Image ${currentIndex + 1}`}
+                fill
+                sizes="100vw"
+                className={`object-contain transition-transform duration-500 ${
+                  slideDirection === "left"
+                    ? "animate-slide-left"
+                    : slideDirection === "right"
+                    ? "animate-slide-right"
+                    : "animate-slide-in"
+                }`}
+                priority
+                onTransitionEnd={() => setSlideDirection(null)}
+              />
+            </div>
+
             <button
               onClick={goToNext}
-              className="absolute right-4 z-10 w-10 h-10 flex items-center justify-center text-white bg-black bg-opacity-50 rounded-full hover:bg-opacity-70 focus:outline-none transition-all duration-200 hover:scale-110"
+              className="absolute right-3 sm:right-4 z-10 w-10 h-10 flex items-center justify-center text-white bg-black/50 rounded-full hover:bg-black/70 transition-all duration-200 hover:scale-110 focus:outline-none"
               aria-label="Next image"
             >
               <NextIcon />
@@ -268,13 +286,19 @@ export default function GalleryImage() {
           </div>
 
           {/* Thumbnail Strip */}
-          <div className="p-4 bg-black bg-opacity-70 overflow-x-auto">
-            <div className="flex gap-2 justify-center">
+          <div className="p-3 sm:p-4 bg-black/70 overflow-x-auto">
+            <div className="flex gap-2 sm:gap-3 justify-center">
               {images.map((img, index) => (
-                <div
+                <button
                   key={index}
-                  className={`relative w-16 h-16 flex-shrink-0 cursor-pointer border-2 transition-all duration-200 ${index === currentIndex ? 'border-white scale-110' : 'border-transparent hover:scale-105'}`}
+                  type="button"
+                  className={`relative w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded overflow-hidden border-2 transition-all duration-200 focus:outline-none ${
+                    index === currentIndex
+                      ? "border-white scale-110"
+                      : "border-transparent hover:scale-105"
+                  }`}
                   onClick={() => setCurrentIndex(index)}
+                  aria-label={`Go to image ${index + 1}`}
                 >
                   <Image
                     src={img.thumbnail}
@@ -282,80 +306,70 @@ export default function GalleryImage() {
                     fill
                     className="object-cover"
                   />
-                </div>
+                </button>
               ))}
             </div>
           </div>
         </div>
       )}
 
-      {/* <style jsx global>{`
-        @keyframes slide-left {
-          from { transform: translateX(0); opacity: 1; }
-          to { transform: translateX(-100%); opacity: 0; }
+      <style jsx global>{`
+        @keyframes slideIn {
+          from {
+            opacity: 0;
+            transform: scale(0.96);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
         }
-        
-        @keyframes slide-right {
-          from { transform: translateX(0); opacity: 1; }
-          to { transform: translateX(100%); opacity: 0; }
+        @keyframes slideLeft {
+          from {
+            transform: translateX(100%);
+            opacity: 0;
+          }
+          to {
+            transform: translateX(0);
+            opacity: 1;
+          }
         }
-
-        @keyframes slide-in {
-          from { transform: translateX(100%); opacity: 0; }
-          to { transform: translateX(0); opacity: 1; }
+        @keyframes slideRight {
+          from {
+            transform: translateX(-100%);
+            opacity: 0;
+          }
+          to {
+            transform: translateX(0);
+            opacity: 1;
+          }
         }
-        
-        .animate-slide-left {
-          animation: slide-left 0.5s ease-in-out;
-        }
-        
-        .animate-slide-right {
-          animation: slide-right 0.5s ease-in-out;
-        }
-
         .animate-slide-in {
-          animation: slide-in 0.5s ease-in-out;
+          animation: slideIn 0.3s ease-out forwards;
         }
-      `}</style> */}
-       <style jsx global>{`
-        @keyframes slide-left {
-          from { transform: translateX(0); opacity: 1; }
-          to { transform: translateX(-100%); opacity: 0; }
-        }
-        
-        @keyframes slide-right {
-          from { transform: translateX(0); opacity: 1; }
-          to { transform: translateX(100%); opacity: 0; }
-        }
-
-        @keyframes slide-in-from-right {
-          from { transform: translateX(100%); opacity: 0; }
-          to { transform: translateX(0); opacity: 1; }
-        }
-
-        @keyframes slide-in-from-left {
-          from { transform: translateX(-100%); opacity: 0; }
-          to { transform: translateX(0); opacity: 1; }
-        }
-        
         .animate-slide-left {
-          animation: slide-left 0.5s ease-in-out;
+          animation: slideLeft 0.45s ease-out forwards;
         }
-        
         .animate-slide-right {
-          animation: slide-right 0.5s ease-in-out;
+          animation: slideRight 0.45s ease-out forwards;
         }
 
-        .animate-slide-in {
-          animation: slide-in-from-right 0.5s ease-in-out;
+        /* Cross-browser fullscreen sizing */
+        :-webkit-full-screen {
+          width: 100%;
+          height: 100%;
         }
-
-        [data-direction="left"] .animate-slide-in {
-          animation: slide-in-from-right 0.5s ease-in-out;
+        :-moz-full-screen {
+          width: 100%;
+          height: 100%;
         }
-
-        [data-direction="right"] .animate-slide-in {
-          animation: slide-in-from-left 0.5s ease-in-out;
+        :-ms-fullscreen {
+          width: 100%;
+          height: 100%;
+        }
+        :fullscreen {
+          width: 100%;
+          height: 100%;
         }
       `}</style>
     </div>
