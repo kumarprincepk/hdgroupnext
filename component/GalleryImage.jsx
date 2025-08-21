@@ -17,6 +17,7 @@ export default function GalleryImage() {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideDirection, setSlideDirection] = useState(null);
+  const [key, setKey] = useState(0);
   const galleryRef = useRef(null);
   const intervalRef = useRef(null);
   const touchStartX = useRef(null);
@@ -39,6 +40,7 @@ export default function GalleryImage() {
   const openGalleryAt = (index) => {
     setCurrentIndex(index);
     setIsOpen(true);
+    setSlideDirection('right');
   };
 
   const handleTouchStart = (e) => {
@@ -104,11 +106,13 @@ export default function GalleryImage() {
   const goToPrev = () => {
     setSlideDirection('right');
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+    setKey(prev => prev + 1);
   };
 
   const goToNext = () => {
-    setSlideDirection('left');
+    setSlideDirection('left'); 
     setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+    setKey(prev => prev + 1);
   };
 
   useEffect(() => {
@@ -234,19 +238,25 @@ export default function GalleryImage() {
               <PrevIcon />
             </button>
             
-            <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
-              <Image
-                src={images[currentIndex].original}
-                alt={`Image ${currentIndex + 1}`}
-                fill
-                className={`object-contain transition-transform duration-500 ${
-                  slideDirection === 'left' ? 'animate-slide-left' : 
-                  slideDirection === 'right' ? 'animate-slide-right' : ''
-                }`}
-                priority
-                onTransitionEnd={() => setSlideDirection(null)}
-              />
-            </div>
+             <div 
+                    className="relative w-full h-full flex items-center justify-center overflow-hidden"
+                    data-direction={slideDirection}
+                  >
+                    <Image
+                      key={key}
+                      src={images[currentIndex].original}
+                      alt={`Image ${currentIndex + 1}`}
+                      fill
+                      className={`object-contain transition-transform duration-500 ${
+                        slideDirection === 'left' ? 'animate-slide-left' : 
+                        slideDirection === 'right' ? 'animate-slide-right' : 
+                        'animate-slide-in'
+                      }`}
+                      priority
+                      onTransitionEnd={() => setSlideDirection(null)}
+                    />
+                  </div>
+            
             
             <button
               onClick={goToNext}
@@ -279,15 +289,20 @@ export default function GalleryImage() {
         </div>
       )}
 
-      <style jsx global>{`
+      {/* <style jsx global>{`
         @keyframes slide-left {
-          from { transform: translateX(0); }
-          to { transform: translateX(-100%); }
+          from { transform: translateX(0); opacity: 1; }
+          to { transform: translateX(-100%); opacity: 0; }
         }
         
         @keyframes slide-right {
-          from { transform: translateX(0); }
-          to { transform: translateX(100%); }
+          from { transform: translateX(0); opacity: 1; }
+          to { transform: translateX(100%); opacity: 0; }
+        }
+
+        @keyframes slide-in {
+          from { transform: translateX(100%); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
         }
         
         .animate-slide-left {
@@ -296,6 +311,51 @@ export default function GalleryImage() {
         
         .animate-slide-right {
           animation: slide-right 0.5s ease-in-out;
+        }
+
+        .animate-slide-in {
+          animation: slide-in 0.5s ease-in-out;
+        }
+      `}</style> */}
+       <style jsx global>{`
+        @keyframes slide-left {
+          from { transform: translateX(0); opacity: 1; }
+          to { transform: translateX(-100%); opacity: 0; }
+        }
+        
+        @keyframes slide-right {
+          from { transform: translateX(0); opacity: 1; }
+          to { transform: translateX(100%); opacity: 0; }
+        }
+
+        @keyframes slide-in-from-right {
+          from { transform: translateX(100%); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slide-in-from-left {
+          from { transform: translateX(-100%); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .animate-slide-left {
+          animation: slide-left 0.5s ease-in-out;
+        }
+        
+        .animate-slide-right {
+          animation: slide-right 0.5s ease-in-out;
+        }
+
+        .animate-slide-in {
+          animation: slide-in-from-right 0.5s ease-in-out;
+        }
+
+        [data-direction="left"] .animate-slide-in {
+          animation: slide-in-from-right 0.5s ease-in-out;
+        }
+
+        [data-direction="right"] .animate-slide-in {
+          animation: slide-in-from-left 0.5s ease-in-out;
         }
       `}</style>
     </div>
