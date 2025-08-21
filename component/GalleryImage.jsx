@@ -16,8 +16,11 @@ export default function GalleryImage() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState(null);
   const galleryRef = useRef(null);
   const intervalRef = useRef(null);
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
 
   const images = [
     { original: "/images/blog-grid-1.jpg", thumbnail: "/images/blog-grid-1.jpg" },
@@ -38,11 +41,40 @@ export default function GalleryImage() {
     setIsOpen(true);
   };
 
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+
+    const diff = touchStartX.current - touchEndX.current;
+    const threshold = 50;
+
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0) {
+        setSlideDirection('left');
+        goToNext();
+      } else {
+        setSlideDirection('right');
+        goToPrev();
+      }
+    }
+
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   const togglePlayPause = () => {
     if (isPlaying) {
       clearInterval(intervalRef.current);
     } else {
       intervalRef.current = setInterval(() => {
+        setSlideDirection('left');
         goToNext();
       }, 3000);
     }
@@ -70,10 +102,12 @@ export default function GalleryImage() {
   };
 
   const goToPrev = () => {
+    setSlideDirection('right');
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
   };
 
   const goToNext = () => {
+    setSlideDirection('left');
     setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
   };
 
@@ -84,8 +118,10 @@ export default function GalleryImage() {
       if (e.key === 'Escape') {
         handleClose();
       } else if (e.key === 'ArrowLeft') {
+        setSlideDirection('right');
         goToPrev();
       } else if (e.key === 'ArrowRight') {
+        setSlideDirection('left');
         goToNext();
       } else if (e.key === ' ') {
         togglePlayPause();
@@ -184,7 +220,12 @@ export default function GalleryImage() {
           </div>
 
           {/* Main Image */}
-          <div className="flex-grow flex items-center justify-center relative">
+          <div 
+            className="flex-grow flex items-center justify-center relative"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <button
               onClick={goToPrev}
               className="absolute left-4 z-10 w-10 h-10 flex items-center justify-center text-white bg-black bg-opacity-50 rounded-full hover:bg-opacity-70 focus:outline-none transition-all duration-200 hover:scale-110"
@@ -193,13 +234,17 @@ export default function GalleryImage() {
               <PrevIcon />
             </button>
             
-            <div className="relative w-full h-full flex items-center justify-center">
+            <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
               <Image
                 src={images[currentIndex].original}
                 alt={`Image ${currentIndex + 1}`}
                 fill
-                className="object-contain transition-transform duration-300"
+                className={`object-contain transition-transform duration-500 ${
+                  slideDirection === 'left' ? 'animate-slide-left' : 
+                  slideDirection === 'right' ? 'animate-slide-right' : ''
+                }`}
                 priority
+                onTransitionEnd={() => setSlideDirection(null)}
               />
             </div>
             
@@ -233,6 +278,26 @@ export default function GalleryImage() {
           </div>
         </div>
       )}
+
+      <style jsx global>{`
+        @keyframes slide-left {
+          from { transform: translateX(0); }
+          to { transform: translateX(-100%); }
+        }
+        
+        @keyframes slide-right {
+          from { transform: translateX(0); }
+          to { transform: translateX(100%); }
+        }
+        
+        .animate-slide-left {
+          animation: slide-left 0.5s ease-in-out;
+        }
+        
+        .animate-slide-right {
+          animation: slide-right 0.5s ease-in-out;
+        }
+      `}</style>
     </div>
   );
 }
