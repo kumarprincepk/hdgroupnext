@@ -4,42 +4,55 @@ import dynamic from "next/dynamic";
 import styles from "./WhyTrustUs.module.css";
 
 const Odometer = dynamic(() => import("react-odometerjs"), { ssr: false });
-
 import "odometer/themes/odometer-theme-default.css";
 
 function Counter({ target, label }) {
   const [count, setCount] = useState(() => {
     const randomOffset = Math.floor(Math.random() * target * 0.6);
-    return target - randomOffset;
+    return Math.max(0, target - randomOffset);
   });
+
   const ref = useRef(null);
   const started = useRef(false);
 
   useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+      setCount(target);
+      return;
+    }
+
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+      setCount(target);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !started.current) {
           started.current = true;
-          setTimeout(() => {
-            setCount(target);
-          }, 200);
+            setTimeout(() => setCount(target), 200);
         }
       },
-      { threshold: 0.5 }
+      {
+        threshold: 0.35,
+        rootMargin: "0px 0px -10% 0px",
+      }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    const el = ref.current;
+    if (el) observer.observe(el);
+
     return () => observer.disconnect();
   }, [target]);
 
   return (
-    <div className={`${styles.counterItem} ${styles.style4} text-center`} ref={ref}>
-      <div className="count">
-        <div className={`${styles.counterNumber} mx-auto`}>
+    <div className={styles.counterItem} ref={ref}>
+      <div className={styles.countWrap} aria-live="polite" aria-atomic="true">
+        <div className={styles.counterNumber}>
           <Odometer value={count} format="d" duration={2500} />
-          <span className={`${styles.sub} ${styles.plus}`}>+</span>
+          <span className={styles.plus} aria-hidden="true">+</span>
         </div>
-        <p className="text-1 mt_-9">{label}</p>
+        <p className={styles.counterLabel}>{label}</p>
       </div>
     </div>
   );
@@ -47,22 +60,19 @@ function Counter({ target, label }) {
 
 export default function WhyTrustUsSection() {
   return (
-    <div className="tf-spacing-2">
-      <div className="tf-container">
-        <div className="flex flex-wrap">
-          <div className="heading-section mb-30 text-left">
-            <h4 className="text-1 split-text effect-right">Why Trust Us</h4>
-          </div>
-          <div className="w-full">
-            <div className={`${styles.wrapCounter} ${styles.style1} tf-grid-layout-2 lg-col-4`}>
-              <Counter target={500000} label="Sq. Ft. Delivered" />
-              <Counter target={30} label="Years of Experience" />
-              <Counter target={300} label="Satisfied Client" />
-              <Counter target={200} label="Team Member" />
-            </div>
-          </div>
+    <section className={styles.section} role="region" aria-labelledby="why-trust-us-heading">
+      <div className={styles.container}>
+        <header className={styles.header}>
+          <h4 id="why-trust-us-heading" className={styles.title}>Why Trust Us</h4>
+        </header>
+
+        <div className={styles.wrapCounter}>
+          <Counter target={500000} label="Sq. Ft. Delivered" />
+          <Counter target={30}      label="Years of Experience" />
+          <Counter target={300}     label="Satisfied Client" />
+          <Counter target={200}     label="Team Member" />
         </div>
       </div>
-    </div>
+    </section>
   );
 }
