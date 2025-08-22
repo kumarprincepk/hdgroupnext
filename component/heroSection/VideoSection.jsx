@@ -5,7 +5,7 @@ import styles from "./VideoSection.module.css";
 
 export default function VideoSection() {
   return (
-     <main className={`${styles.pageTitle} ${styles.home02} mb-96`}>
+     <main className={`${styles.pageTitle} ${styles.home02}`}>
           <div className={styles.heroBgVideo}>
             <video autoPlay muted loop>
               <source src="images/hd_group.mp4" type="video/mp4" />
