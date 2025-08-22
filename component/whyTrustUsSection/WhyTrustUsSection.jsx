@@ -68,9 +68,9 @@ export default function WhyTrustUsSection() {
 
         <div className={styles.wrapCounter}>
           <Counter target={500000} label="Sq. Ft. Delivered" />
-          <Counter target={30}      label="Years of Experience" />
-          <Counter target={300}     label="Satisfied Client" />
-          <Counter target={200}     label="Team Member" />
+          <Counter target={30} label="Years of Experience" />
+          <Counter target={300} label="Satisfied Client" />
+          <Counter target={200} label="Team Member" />
         </div>
       </div>
     </section>
