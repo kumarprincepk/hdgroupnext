@@ -71,6 +71,23 @@
   text-wrap: balance;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  /* .counterItem:hover {
+    border-color: #DBDBDB;
+    box-shadow: 0 4px 14px #0000000F;
+    transform: translateY(-1px);
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+  } */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .counterItem,
+  .counterItem:hover {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   .counterItem {
     /* background: hsl(0 0% 7%); */
