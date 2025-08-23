@@ -24,14 +24,14 @@ export default function GalleryImage() {
   const touchEndX = useRef(null);
 
   const images = [
-    { original: "/images/blog-grid-1.jpg", thumbnail: "/images/blog-grid-1.jpg" },
-    { original: "/images/agent-item.jpg", thumbnail: "/images/agent-item.jpg" },
-    { original: "/images/commercial.jpg", thumbnail: "/images/commercial.jpg" },
-    { original: "/images/blog-grid-2.jpg", thumbnail: "/images/blog-grid-2.jpg" },
-    { original: "/images/blog-grid-1.jpg", thumbnail: "/images/blog-grid-1.jpg" },
-    { original: "/images/agent-item.jpg", thumbnail: "/images/agent-item.jpg" },
-    { original: "/images/commercial.jpg", thumbnail: "/images/commercial.jpg" },
-    { original: "/images/blog-grid-2.jpg", thumbnail: "/images/blog-grid-2.jpg" },
+    { original: "/images/picture1.jpg", thumbnail: "/images/picture1.jpg" },
+    { original: "/images/picture2.jpeg", thumbnail: "/images/picture2.jpeg" },
+    { original: "/images/picture3.jpg", thumbnail: "/images/picture3.jpg" },
+    { original: "/images/picture4.jpg", thumbnail: "/images/picture4.jpg" },
+    { original: "/images/picture5.jpg", thumbnail: "/images/picture5.jpg" },
+    { original: "/images/picture6.jpeg", thumbnail: "/images/agent-item.jpg" },
+    { original: "/images/picture7.jpeg", thumbnail: "/images/picture7.jpeg" },
+    { original: "/images/picture8.jpeg", thumbnail: "/images/picture8.jpeg" },
   ];
 
   const MAX_VISIBLE = 6;

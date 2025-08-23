@@ -43,9 +43,9 @@ export default function Header() {
                         <li><Link className={styles.a} href="/about">About</Link></li>
 
                         {/* Projects Dropdown */}
-                        <li className={`${styles.hasChild} ${styles.style2} relative group`}>
+                        <li className={`${styles.hasChild} ${styles.style2} relative left-3 group`}>
                           <Link className={`${styles.a}`} href="/">Projects <FaAngleDown className="inline-block"/></Link>
-                          <ul className={`${styles.submenu} absolute left-0 bg-white shadow-lg transform opacity-0 translate-y-2 pointer-events-none transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto`}>
+                          <ul className={`${styles.submenu} absolute right-0 bg-white shadow-lg transform opacity-0 translate-y-2 pointer-events-none transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto`}>
                             <li>
                               <ul className={styles.submenu2}>
                                 <li>
@@ -70,7 +70,7 @@ export default function Header() {
                         </li>
 
                         {/* Services Dropdown */}
-                        <li className={`${styles.hasChild} relative group`}>
+                        <li className={`${styles.hasChild}`}>
                           <Link className={styles.a} href="/">Services <FaAngleDown className="inline-block"/></Link>
                           <ul className={`${styles.submenu} absolute left-0 bg-white shadow-lg transform opacity-0 translate-y-2 pointer-events-none transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto`}>
                             <li><Link className={styles.a} href="/">Sales &amp; Collaboration</Link></li>
@@ -85,7 +85,7 @@ export default function Header() {
                       </ul>
                     </nav>
                     <div className={`${styles.boxUser} ${styles.linkOnHover} ml-6`}>
-                      <div className={`${styles.name} text-white`}>Menu</div>
+                      <div className={`${styles.name} text-white relative left-3 group`}>Menu</div>
                     </div>
                   </div>
 

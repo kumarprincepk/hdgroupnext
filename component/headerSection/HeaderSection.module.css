@@ -61,7 +61,7 @@
   line-height: 20px;
   align-items: center;
   gap: 6px;
-  color: var(--Heading);
+  color: var(--White);
 }
 
 .header .headerRight .boxUser .name i {
