@@ -42,7 +42,7 @@ export default function WhatWeDoSection() {
 
   return (
     <section className="section-local-agent">
-      <div className="tf-container">
+      <div>
         <div className="flex flex-wrap">
           <div className="w-full">
             <div className="heading-section mb-7 text-left">

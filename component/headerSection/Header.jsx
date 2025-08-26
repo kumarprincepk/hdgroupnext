@@ -18,7 +18,7 @@ export default function Header() {
       {/* Desktop Header */}
       <header className={`${styles.header} ${styles.style2} ${styles.headerSticky}`}>
         <div className={styles.headerInner}>
-          <div className="tf-container">
+          <div>
             <div className="flex flex-wrap">
               <div className="w-full">
                 <div className={`${styles.headerInnerWrap} flex items-center justify-between`}>
@@ -45,7 +45,7 @@ export default function Header() {
                         {/* Projects Dropdown */}
                         <li className={`${styles.hasChild} ${styles.style2} relative left-2 group`}>
                           <Link className={`${styles.a}`} href="/">Projects <FaAngleDown className="inline-block"/></Link>
-                          <ul className={`${styles.submenu} absolute left-0 bg-white shadow-lg transform opacity-0 translate-y-2 pointer-events-none transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto`}>
+                          <ul className={`${styles.submenu} absolute right-7 bg-white shadow-lg transform opacity-0 translate-y-2 pointer-events-none transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto`}>
                             <li>
                               <ul className={styles.submenu2}>
                                 <li>

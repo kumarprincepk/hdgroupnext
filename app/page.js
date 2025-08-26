@@ -18,14 +18,18 @@ export default function Home() {
       <div id="wrapper">
         {/* <Loader />
         <CounterScroll /> */}
-        <Header />
+        <div className="tf-container">
+          <Header />
+        </div>
         <VideoSection />
-        <AboutSection />
-        <GalleryImage/>
-        <WhatWeDoSection />
-        <WhyTrustUsSection />
-        <TestimonialsSection/>
-        <ReadMoreSection />
+        <div className="tf-container">
+          <AboutSection />
+          <GalleryImage />
+          <WhatWeDoSection />
+          <WhyTrustUsSection />
+          <TestimonialsSection />
+          <ReadMoreSection />
+        </div>
         <Footer className="" />
       </div>
     </div>
