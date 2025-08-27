@@ -185,7 +185,6 @@ Doloribus ea id, assumenda atque cumque, fugiat, eum consequatur itaque quis per
         </div>
       </section>
 
-      {/* Tabs */}
       <>
         <div className="max-w-4xl mx-auto">
           <div className="flex justify-center border border-gray-300">
@@ -208,10 +207,8 @@ Doloribus ea id, assumenda atque cumque, fugiat, eum consequatur itaque quis per
           </div>
         </div>
 
-        {/* Content */}
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-6 mt-10 bg-gray-100">
-            {/* Left Image */}
             <div className="relative h-[400px] md:h-auto">
               <Image
                 src={tabData[activeTab][slide].image}
@@ -229,7 +226,6 @@ Doloribus ea id, assumenda atque cumque, fugiat, eum consequatur itaque quis per
                 </p>
               </div>
             </div>
-            {/* Right Content*/}
             <div className="p-8 flex flex-col justify-between h-[600px] overflow-hidden relative">
               <div className="relative h-full pr-4">
                 <div
@@ -251,7 +247,6 @@ Doloribus ea id, assumenda atque cumque, fugiat, eum consequatur itaque quis per
                 </div>
               </div>
 
-              {/* Navigation Buttons */}
               <div className="flex justify-end space-x-4 mt-8">
                 <button
                   onClick={() => handlePrev(tabData[activeTab].length)}
@@ -271,7 +266,6 @@ Doloribus ea id, assumenda atque cumque, fugiat, eum consequatur itaque quis per
         </div>
       </>
       <section className="max-w-7xl mx-auto py-20 flex flex-col md:flex-row items-center gap-8">
-        {/* Left Section with Black BG */}
         <div className="md:w-1/4 bg-black text-white p-8 flex flex-col justify-between relative left-[-121px] h-[600px]">
           <h2 className="text-4xl font-bold mb-8">
             Our <br /> leadership
@@ -286,7 +280,6 @@ Doloribus ea id, assumenda atque cumque, fugiat, eum consequatur itaque quis per
           </div>
         </div>
 
-        {/* Right Section */}
         <div className="md:w-3/4 relative left-[30px]">
           <Swiper
             modules={[Autoplay, Navigation]}

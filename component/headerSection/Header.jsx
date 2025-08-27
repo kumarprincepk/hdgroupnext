@@ -21,7 +21,8 @@ export default function Header() {
           <div>
             <div className="flex flex-wrap">
               <div className="w-full">
-                <div className={`${styles.headerInnerWrap} flex items-center justify-between`}>
+                {/* <div className={`${styles.headerInnerWrap} flex items-center justify-between`}> */}
+                <div className={`tf-container flex items-center justify-between`}>
                   {/* Logo */}
                   <div className={styles.headerLogo}>
                     <Link className={`${styles.a} ${styles.siteLogo}`} href="/">
