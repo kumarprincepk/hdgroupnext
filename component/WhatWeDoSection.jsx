@@ -41,7 +41,7 @@ export default function WhatWeDoSection() {
 
   return (
     <section className="py-12">
-      <div className="max-w-7xl mx-auto">
+      <div className="mx-auto">
         <div className="heading-section mb-7 text-left">
           <h4 className="text-1 split-text effect-right">What we do</h4>
         </div>

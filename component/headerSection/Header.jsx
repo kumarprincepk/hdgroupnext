@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from './HeaderSection.module.css';
+import '@/style/globals.css'
 import { FaAngleDown } from "react-icons/fa6";
 
 export default function Header() {
@@ -19,7 +20,7 @@ export default function Header() {
       <header className={`${styles.header} ${styles.style2} ${styles.headerSticky}`}>
         <div className={styles.headerInner}>
           <div>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap w-full">
               <div className="w-full">
                 {/* <div className={`${styles.headerInnerWrap} flex items-center justify-between`}> */}
                 <div className={`tf-container flex items-center justify-between`}>
@@ -39,12 +40,12 @@ export default function Header() {
                   {/* Desktop Menu */}
                   <div className={`${styles.headerRight} hidden lg:flex items-center`}>
                     <nav className={styles.mainMenu}>
-                      <ul className={`${styles.navigation} flex space-x-6`}>
+                      <ul className={`${styles.navigation} flex space-x-1`}>
                         <li className={styles.currentMenu}><Link className={styles.a} href="/">Home</Link></li>
                         <li><Link className={styles.a} href="/about">About</Link></li>
 
                         {/* Projects Dropdown */}
-                        <li className={`${styles.hasChild} ${styles.style2} relative left-2 group`}>
+                        <li className={`${styles.hasChild} ${styles.style2} relative group`}>
                           <Link className={`${styles.a}`} href="/">Projects <FaAngleDown className="inline-block"/></Link>
                           <ul className={`${styles.submenu} absolute right-7 bg-white shadow-lg transform opacity-0 translate-y-2 pointer-events-none transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto`}>
                             <li>
@@ -73,7 +74,7 @@ export default function Header() {
                         {/* Services Dropdown */}
                         <li className={`${styles.hasChild} relative group`}>
                           <Link className={styles.a} href="/">Services <FaAngleDown className="inline-block"/></Link>
-                          <ul className={`${styles.submenu} absolute left-0 bg-white shadow-lg transform opacity-0 translate-y-2 pointer-events-none transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto`}>
+                          <ul className={`${styles.submenu} absolute bg-white shadow-lg transform opacity-0 translate-y-2 pointer-events-none transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto`}>
                             <li><Link className={styles.a} href="/">Sales &amp; Collaboration</Link></li>
                             <li><Link className={styles.a} href="/">Interior Design</Link></li>
                             <li><Link className={styles.a} href="/">Turnkey Execution</Link></li>
@@ -85,7 +86,7 @@ export default function Header() {
                         <li><Link className={styles.a} href="/">Contact</Link></li>
                       </ul>
                     </nav>
-                    <div className={`${styles.boxUser} ${styles.linkOnHover} ml-6`}>
+                    <div className={`${styles.boxUser} ${styles.linkOnHover} ml-12`}>
                       <div className={`${styles.name} text-white`}>Menu</div>
                     </div>
                   </div>
