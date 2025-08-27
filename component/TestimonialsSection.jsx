@@ -29,7 +29,7 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section className="py-20 relative">
+    <section className="pt-20 relative">
       <div className="container mx-auto px-4">
         <div className="heading-section mb-8 text-left">
           <h4 className="text-1 split-text effect-right">

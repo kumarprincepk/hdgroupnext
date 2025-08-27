@@ -51,7 +51,10 @@ body {
   width: 1320px;
   max-width: 100%;
 }
-
+.tf-container-all{
+  padding-left: 30px;
+  padding-right: 30px;
+}
 
 /* about us start */
 .tf-spacing-1 {
