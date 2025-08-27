@@ -5,7 +5,7 @@ import styles from "./FooterSection.module.css";
 export default function Footer() {
   return (
     <footer id={styles.footer} className="bg-black text-white">
-      <div className="tf-container">
+      <div className="tf-container-all">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 py-6">
           <div className={`${styles.footerLogo} flex justify-center lg:justify-start`}>
             <Link href="/">

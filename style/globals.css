@@ -48,12 +48,13 @@ body {
   margin-right: auto;
   padding-right: 0px;
   padding-left: 0px;
-  width: 1320px;
+  /* width: 1320px; */
+  width: 103rem;
   max-width: 100%;
 }
 .tf-container-all{
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 120px;
+  padding-right: 120px;
 }
 
 /* about us start */
@@ -112,6 +113,14 @@ body {
 /* about us end */
 
 @media (max-width: 991px) {
+  .tf-container {
+    padding-right: 12px;
+    padding-left: 12px;
+}
+  .tf-container-all{
+  padding-left: 30px;
+  padding-right: 30px;
+}
  .heading-section {
     gap: 12px !important;
     flex-direction: column !important;
@@ -655,6 +664,14 @@ body {
 }
 
 @media screen and (max-width: 767px) {
+    .tf-container {
+      padding-right: 12px;
+      padding-left: 12px;
+}
+  .tf-container-all{
+  padding-left: 30px;
+  padding-right: 30px;
+}
     .nav-prev-layout,
     .nav-next-layout {
         display: none;
