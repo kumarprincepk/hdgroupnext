@@ -401,11 +401,11 @@
 }
 
 .hasChild.style2 > .submenu {
-  right: -55% !important;
+  right: -295% !important;
   left: auto;
   display: flex;
   justify-content: space-between;
-  width: calc(100vw - 4%);
+  width: calc(100vw - 100%);
 }
 
 .hasChild.style2 > .submenu::before {
