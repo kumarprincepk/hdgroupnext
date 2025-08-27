@@ -51,7 +51,7 @@ export default function Header() {
                               <ul className={styles.submenu2}>
                                 <li>
                                   <Link className={styles.a} href="/">
-                                    <Image className={styles.linkImg} src="/images/residential.jpg" width={50} height={50} alt="header-image" />
+                                    <Image className={styles.linkImg} src="/images/residential.jpg" width={635} height={350} alt="header-image" />
                                   </Link>
                                 </li>
                               </ul>
@@ -61,7 +61,7 @@ export default function Header() {
                               <ul className={styles.submenu2}>
                                 <li>
                                   <Link className={styles.a} href="/">
-                                    <Image className={styles.linkImg} src="/images/commercial.jpg" width={50} height={50} alt="header-image" />
+                                    <Image className={styles.linkImg} src="/images/commercial.jpg" width={635} height={350} alt="header-image" />
                                   </Link>
                                 </li>
                               </ul>
