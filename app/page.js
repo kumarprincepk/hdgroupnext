@@ -22,7 +22,7 @@ export default function Home() {
           <Header />
         </div>
         <VideoSection />
-        <div className="tf-container">
+        <div className="tf-container-all">
           <AboutSection />
           <GalleryImage />
           <WhatWeDoSection />
