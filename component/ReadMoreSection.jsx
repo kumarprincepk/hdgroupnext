@@ -3,7 +3,9 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-
+import { CiStopwatch } from "react-icons/ci";
+import { GrFormNextLink } from "react-icons/gr";
+import Link from "next/link";
 import "swiper/css";
 
 export default function ReadMoreSection() {
@@ -37,14 +39,16 @@ export default function ReadMoreSection() {
         <div className="flex flex-wrap">
           <div className="w-full">
             <div className="heading-section mb-7 text-left">
-              <h4 className="text-1 split-text effect-right">Insight & Opinion</h4>
+              <h4 className="text-1 split-text effect-right">
+                Insight & Opinion
+              </h4>
             </div>
 
             <Swiper
               modules={[Autoplay]}
               spaceBetween={40}
               loop={true}
-              grabCursor={true} 
+              grabCursor={true}
               autoplay={{
                 delay: 2000,
                 disableOnInteraction: false,
@@ -56,44 +60,68 @@ export default function ReadMoreSection() {
                 1024: { slidesPerView: 3, spaceBetween: 40 },
               }}
               style={{
-                WebkitOverflowScrolling: "touch", 
+                WebkitOverflowScrolling: "touch",
               }}
             >
               {blogPosts.map((post) => (
                 <SwiperSlide key={post.id}>
                   <div className="blog-article-item style-2 hover-img">
-                    <div className="image-wrap">
-                      <a href="blog-details.html">
+                    {/* image-wrap: rounded + overflow-hidden so image scales inside rounded corners */}
+                    <div className="image-wrap relative overflow-hidden rounded-md">
+                      {/* use group so child img reacts on hover while container keeps rounded corners */}
+                      <a
+                        href="blog-details.html"
+                        className="block group"
+                        aria-label={post.title}
+                      >
                         <Image
                           src={post.image}
                           alt={post.title}
                           width={500}
                           height={300}
-                          className="lazyload"
+                          // apply transform on the img only; rounded corners preserved by parent overflow-hidden
+                          className="block w-full h-[200px] object-cover transform transition-transform duration-500 group-hover:scale-105"
                         />
                       </a>
-                      <div className="box-tag">
-                        <div className="tag-item text-4 text_white fw-6">
+
+                      <div className="box-tag absolute top-4 left-4 z-10">
+                        <div className="tag-item text-sm text-white font-semibold bg-[#C99855] px-3 py-1 rounded-full">
                           {post.category}
                         </div>
                       </div>
                     </div>
-                    <div className="article-content">
-                      <div className="time">
+
+                    {/* article-content: use flex-col and consistent gaps.
+                        Put Read More at the end using mt-auto so spacing between elements is consistent */}
+                    <div className="article-content flex flex-col mt-3">
+                      <div className="time flex items-center gap-2 text-sm text-gray-500">
                         <div className="icons">
-                          <i className="icon-clock"></i>
+                          <CiStopwatch size={18} />
                         </div>
                         <p className="fw-5">{post.date}</p>
                       </div>
-                      <h4 className="title">
-                        <a href="blog-details.html" className="line-clamp-2">
+
+                      <h4 className="title mt-2 text-lg md:text-xl font-bold leading-tight">
+                        <Link
+                          href="/"
+                          className="line-clamp-2 hover:text-[#C99855]"
+                        >
                           {post.title}
-                        </a>
+                        </Link>
                       </h4>
-                      <a href="blog-details.html" className="tf-btn-link">
-                        <span>Read More</span>{" "}
-                        <i className="icon-circle-arrow"></i>
-                      </a>
+
+                      <div className="mt-2">
+                        <Link
+                          href="/"
+                          className="tf-btn-link group inline-flex items-center text-sm font-semibold"
+                        >
+                          <span>Read More</span>
+                          <GrFormNextLink
+                            size={18}
+                            className="ml-2 transition-transform group-hover:translate-x-1"
+                          />
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </SwiperSlide>
