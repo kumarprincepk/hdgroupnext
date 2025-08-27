@@ -191,11 +191,10 @@ Doloribus ea id, assumenda atque cumque, fugiat, eum consequatur itaque quis per
             {tabs.map((tab) => (
               <button
                 key={tab.id}
-                className={`px-6 py-3 text-sm font-medium w-full ${
-                  activeTab === tab.id
+                className={`px-6 py-3 text-sm font-medium w-full ${activeTab === tab.id
                     ? "bg-black text-white"
                     : "text-gray-600 hover:bg-gray-100"
-                }`}
+                  }`}
                 onClick={() => {
                   setActiveTab(tab.id);
                   setSlide(0);
@@ -230,11 +229,10 @@ Doloribus ea id, assumenda atque cumque, fugiat, eum consequatur itaque quis per
               <div className="relative h-full pr-4">
                 <div
                   key={slide}
-                  className={`absolute w-full transition-all duration-700 ${
-                    direction === "next"
+                  className={`absolute w-full transition-all duration-700 ${direction === "next"
                       ? "animate-slide-in-right"
                       : "animate-slide-in-left"
-                  }`}
+                    }`}
                 >
                   <h2 className="text-3xl font-bold mb-6">
                     {tabData[activeTab][slide].heading}
@@ -265,59 +263,85 @@ Doloribus ea id, assumenda atque cumque, fugiat, eum consequatur itaque quis per
           </div>
         </div>
       </>
-      <section className="max-w-7xl mx-auto py-20 flex flex-col md:flex-row items-center gap-8">
-        <div className="md:w-1/4 bg-black text-white p-8 flex flex-col justify-between relative left-[-121px] h-[600px]">
-          <h2 className="text-4xl font-bold mb-8">
-            Our <br /> leadership
-          </h2>
-          <div className="flex gap-4">
-            <button className="leader-prev w-12 h-12 flex items-center justify-center bg-white text-black hover:bg-gray-300">
-              ←
-            </button>
-            <button className="leader-next w-12 h-12 flex items-center justify-center bg-white text-black hover:bg-gray-300">
-              →
-            </button>
-          </div>
-        </div>
 
-        <div className="md:w-3/4 relative left-[30px]">
-          <Swiper
-            modules={[Autoplay, Navigation]}
-            slidesPerView={1}
-            spaceBetween={20}
-            loop={true}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
-            navigation={{
-              nextEl: ".leader-next",
-              prevEl: ".leader-prev",
-            }}
-            breakpoints={{
-              640: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-            className="h-[400px]"
+
+      <section className="relative">
+        <div className="max-w-7xl mx-auto py-20 relative">
+          <div
+            className="hidden md:flex absolute left-[-80px] top-[42px] w-[280px] h-[480px] bg-black text-white p-8 flex-col justify-between z-40 rounded-r-lg"
+            aria-hidden="true"
           >
-            {leaders.map((leader, index) => (
-              <SwiperSlide key={index}>
-                <div className="relative h-full group cursor-pointer">
-                  <Image
-                    src={leader.image}
-                    alt={leader.name}
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-xl font-semibold">{leader.name}</h3>
-                    <p className="text-sm text-gray-300">{leader.role}</p>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6 leading-tight">
+              Our <br /> leadership
+            </h2>
+
+            <div className="flex gap-4">
+              <button className="leader-prev w-12 h-12 flex items-center justify-center bg-white text-black hover:bg-gray-300 rounded">
+                ←
+              </button>
+              <button className="leader-next w-12 h-12 flex items-center justify-center bg-white text-black hover:bg-gray-300 rounded">
+                →
+              </button>
+            </div>
+          </div>
+
+          <div className="block md:hidden mb-6 px-4">
+            <div className="w-full bg-black text-white p-6 rounded">
+              <h2 className="text-2xl font-bold">Our leadership</h2>
+            </div>
+            <div className="flex gap-3 mt-3">
+              <button className="leader-prev w-10 h-10 flex items-center justify-center bg-black text-white border border-white rounded">
+                ←
+              </button>
+              <button className="leader-next w-10 h-10 flex items-center justify-center bg-black text-white border border-white rounded">
+                →
+              </button>
+            </div>
+          </div>
+
+          <div className="relative md:pl-[280px]">
+            <Swiper
+              modules={[Autoplay, Navigation]}
+              slidesPerView={1}
+              spaceBetween={20}
+              loop={true}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
+              navigation={{
+                nextEl: ".leader-next",
+                prevEl: ".leader-prev",
+              }}
+              breakpoints={{
+                640: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+              }}
+              className="h-[400px]"
+            >
+              {leaders.map((leader, index) => (
+                <SwiperSlide key={index}>
+                  <div className="relative h-full group cursor-pointer overflow-hidden rounded-lg">
+                    <div className="relative w-full h-[400px]">
+                      <Image
+                        src={leader.image}
+                        alt={leader.name}
+                        fill
+                        style={{ objectFit: "cover" }}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        priority={index < 3}
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 className="text-xl font-semibold">{leader.name}</h3>
+                        <p className="text-sm text-gray-300">{leader.role}</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
       </section>
       <Footer />
