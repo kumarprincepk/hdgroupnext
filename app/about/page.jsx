@@ -142,37 +142,35 @@ Doloribus ea id, assumenda atque cumque, fugiat, eum consequatur itaque quis per
       <Header />
       <section className="bg-gray-50 text-gray-900 mb-30">
         <div className="max-w-7xl mx-auto px-6 py-20">
-          {/* About Section (top) */}
           <div className="max-w-7xl mx-auto px-6 py-20">
-            {/* Section Heading */}
             <div className="mb-10">
               <span className="block text-gray-500 italic mb-4 text-lg">
                 — About Us
               </span>
               <h1 className="text-2xl md:text-3xl font-bold leading-snug">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero cupiditate rem deleniti hic, eos consequuntur consectetur voluptatibus explicabo laborum. 
-                Doloribus ea id, assumenda atque cumque, fugiat, eum consequatur itaque quis perspiciatis ratione commodi repellat quaerat! Laboriosam placeat vero voluptatem 
-                dolorem culpa itaque qua.
+                Home Developers Group is a "wholistic" group specializing in
+                residential, commercial building and interior design. With over
+                25 years of expertise, we have passionately curated premium
+                projects, including luxury apartments, commercial complexes, and
+                IT parks in South Delhi and beyond.
               </h1>
             </div>
-            {/* Divider */}
             <div className="border-t border-gray-300 my-8"></div>
-            {/* Paragraphs */}
             <div className="space-y-6 text-lg leading-relaxed text-gray-700">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit dicta sapiente modi veniam quisquam, natus, eius quae inventore assumenda nobis 
-                repellat alias totam, animi praesentium omnis hic nulla non facere blanditiis ullam! Quis quia nulla nesciunt quam? Corporis vitae consequuntur cum tempora 
-                nesciunt suscipit obcaecati asperiores expedita necessitatibus excepturi, voluptatem repudiandae, ducimus architecto maxime.
+                From the foundation to the furnishings, every project reflects
+                our love for creating spaces that enhance the way people live
+                and work
               </p>
 
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et nemo, repudiandae, perferendis 
-                nostrum ipsam hic veniam, vel architecto molestias distinctio repellendus rerum quaerat 
-                cumque! Dignissimos eos laborum vel, aut qui itaque quidem voluptatem tempora illo ad commodi! Impedit 
-                iusto maxime commodi asperiores repellat temporibus illo. Nisi doloribus minima rem dignissimos.
+                Our team of experts combines innovative real estate development
+                with sophisticated interior design to deliver spaces that
+                inspire. By identifying opportunities and partnering with
+                leading professionals, we add value to every asset while
+                unlocking new possibilities for our clients and partners.
               </p>
             </div>
-            {/* Down Arrow */}
             <div className="flex justify-center mt-12">
               <span
                 className="text-3xl cursor-pointer"
