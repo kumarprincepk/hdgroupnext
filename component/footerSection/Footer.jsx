@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./FooterSection.module.css";
+import { FaFacebook } from "react-icons/fa";
+import { RiTwitterXLine } from "react-icons/ri";
+import { FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -59,22 +62,17 @@ export default function Footer() {
               <ul className={`${styles.tfSocial} mb-5 flex justify-center lg:justify-start gap-4`}>
                 <li>
                   <Link href="/">
-                    <i className="icon-fb"></i>
+                    <FaFacebook />
                   </Link>
                 </li>
                 <li>
                   <Link href="/">
-                    <i className="icon-X"></i>
+                    <RiTwitterXLine />
                   </Link>
                 </li>
                 <li>
                   <Link href="/">
-                    <i className="icon-linked"></i>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <i className="icon-ins"></i>
+                    <FaLinkedin />
                   </Link>
                 </li>
               </ul>
