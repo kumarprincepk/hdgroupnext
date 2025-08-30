@@ -45,8 +45,8 @@ export default function Footer() {
                 Home Developers Group
               </h5>
               <p>
-                19, Sector 38 <br />
-                Gurugram, Haryana
+                D - 22 <br />
+                Defence Colony, New Delhi
               </p>
               <div className="mt-6">
                 <h5>
@@ -84,7 +84,7 @@ export default function Footer() {
 
             <div className={`${styles.footerMenuList} ${styles.newsletter} w-full lg:w-5/12 flex justify-center lg:justify-end`}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7002.552378388211!2d77.4803739155954!3d28.651447852211042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf3a4d3e503d9%3A0x4bae765955c98d20!2sPark%20Town%20Commercial!5e0!3m2!1sen!2sin!4v1693298092117!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56055.88806164287!2d77.15092854480741!3d28.584983353358897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce25a04d8f1f1%3A0xeea20a333b35542d!2sHome%20Developers%20India!5e0!3m2!1sen!2sin!4v1756556221088!5m2!1sen!2sin"
                 className={`${styles.imgDefault} w-full max-w-[800px] rounded-md shadow-md`}
                 height={250}
                 title="park-title"
