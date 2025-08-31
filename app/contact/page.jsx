@@ -107,14 +107,12 @@ export default function Contact() {
             <div>
               <h2 className="text-xl font-bold mb-2 text-white">OUR ADDRESS</h2>
               <h3 className="text-lg font-medium text-white mb-1">
-                Head Office
+                Office
               </h3>
               <p className="text-gray-300 leading-relaxed">
-                G-178, Sector 44,
+                D - 22,
                 <br />
-                Opposite Amity University,
-                <br />
-                Noida (NCR), Pin -201301, India
+                Defence Colony, New Delhi
               </p>
             </div>
 
