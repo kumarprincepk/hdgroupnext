@@ -32,7 +32,7 @@ export default function Header() {
   const isDarkHeader = scrolled || pathname !== "/";
   const isSticky = scrolled || pathname !== "/";
 
-  const logoSrc = isDarkHeader ? "/images/logo-white.png" : "/images/logo-white.png";
+  const logoSrc = isDarkHeader ? "/images/HDwhite.png" : "/images/HDwhite.png";
 
   const headerPositionClass = isSticky ? "fixed top-0 left-0 right-0 z-50" : "relative";
   const headerBgClass = isDarkHeader ? "bg-black text-white shadow-md" : "bg-transparent text-white";
@@ -46,7 +46,7 @@ export default function Header() {
       <header className={headerClassName}>
         <div className={styles.headerInner}
           style={{
-            backgroundColor: isDarkHeader ? "black" : "transparent",
+            backgroundColor: isDarkHeader ? "rgb(44 46 51)" : "transparent",
           }}>
           <div className="flex flex-wrap w-full">
             <div className="w-full">
