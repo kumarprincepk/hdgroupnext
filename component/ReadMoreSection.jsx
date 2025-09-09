@@ -39,7 +39,7 @@ export default function ReadMoreSection() {
         <div className="flex flex-wrap">
           <div className="w-full">
             <div className="heading-section mb-7 text-left">
-              <h4 className="text-1 split-text effect-right">
+              <h4 className="text-1 split-text effect-right text-black">
                 Insight & Opinion
               </h4>
             </div>

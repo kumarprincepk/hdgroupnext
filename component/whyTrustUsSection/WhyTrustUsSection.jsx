@@ -48,8 +48,8 @@ function Counter({ target, label }) {
   return (
     <div className={styles.counterItem} ref={ref}>
       <div className={styles.countWrap} aria-live="polite" aria-atomic="true">
-        <div className={styles.counterNumber}>
-          <Odometer value={count} format="d" duration={2500} />
+        <div className={`${styles.counterNumber} text-black`}>
+          <Odometer value={count} format="d" className="text-black" duration={2500} />
           <span className={styles.plus} aria-hidden="true">+</span>
         </div>
         <p className={styles.counterLabel}>{label}</p>
@@ -63,14 +63,14 @@ export default function WhyTrustUsSection() {
     <section className={styles.section} role="region" aria-labelledby="why-trust-us-heading">
       <div className={styles.container}>
         <header className={styles.header}>
-          <h4 id="why-trust-us-heading" className={styles.title}>Why Trust Us</h4>
+          <h4 id="why-trust-us-heading" className={`${styles.title} text-black`}>Why Trust Us</h4>
         </header>
 
-        <div className={styles.wrapCounter}>
-          <Counter target={500000} label="Sq. Ft. Delivered" />
-          <Counter target={30} label="Years of Experience" />
-          <Counter target={300} label="Satisfied Client" />
-          <Counter target={200} label="Team Member" />
+        <div className={`${styles.wrapCounter} text-black`}>
+          <Counter className='text-black' target={500000} label="Sq. Ft. Delivered" />
+          <Counter className='text-black' target={30} label="Years of Experience" />
+          <Counter className='text-black' target={300} label="Satisfied Client" />
+          <Counter className='text-black' target={200} label="Team Member" />
         </div>
       </div>
     </section>
