@@ -43,7 +43,7 @@ export default function WhatWeDoSection() {
     <section className="py-12">
       <div className="mx-auto">
         <div className="heading-section mb-7 text-left">
-          <h4 className="text-1 split-text effect-right">What we do</h4>
+          <h4 className="text-1 split-text effect-right text-black">What we do</h4>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

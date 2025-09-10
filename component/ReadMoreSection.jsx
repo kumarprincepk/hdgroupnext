@@ -69,8 +69,8 @@ export default function ReadMoreSection() {
                     {/* image-wrap: rounded + overflow-hidden so image scales inside rounded corners */}
                     <div className="image-wrap relative overflow-hidden rounded-md">
                       {/* use group so child img reacts on hover while container keeps rounded corners */}
-                      <a
-                        href="blog-details.html"
+                      <Link
+                        href="/"
                         className="block group"
                         aria-label={post.title}
                       >
@@ -82,7 +82,7 @@ export default function ReadMoreSection() {
                           // apply transform on the img only; rounded corners preserved by parent overflow-hidden
                           className="block w-full h-[200px] object-cover transform transition-transform duration-500 group-hover:scale-105"
                         />
-                      </a>
+                      </Link>
 
                       <div className="box-tag absolute top-4 left-4 z-10">
                         <div className="tag-item text-sm text-white font-semibold bg-[#C99855] px-3 py-1 rounded-full">
@@ -104,7 +104,7 @@ export default function ReadMoreSection() {
                       <h4 className="title mt-2 text-lg md:text-xl font-bold leading-tight">
                         <Link
                           href="/"
-                          className="line-clamp-2 hover:text-[#C99855]"
+                          className="line-clamp-2 text-black hover:text-[#C99855]"
                         >
                           {post.title}
                         </Link>

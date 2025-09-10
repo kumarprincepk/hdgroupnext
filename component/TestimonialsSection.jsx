@@ -32,7 +32,7 @@ export default function TestimonialsSection() {
     <section className="pt-20 relative">
       <div className="container mx-auto px-4">
         <div className="heading-section mb-8 text-left">
-          <h4 className="text-1 split-text effect-right">
+          <h4 className="text-1 split-text effect-right text-black">
             Clients Testimonials
           </h4>
         </div>
@@ -77,7 +77,7 @@ export default function TestimonialsSection() {
           </Swiper>
 
           <button
-            className="testimonial-prev absolute top-1/2 -translate-y-1/2 -left-6 bg-white shadow-md w-12 h-12 flex items-center justify-center rounded-full text-black-600 hover:bg-blue-50 transition"
+            className="testimonial-prev text-black absolute top-1/2 -translate-y-1/2 -left-6 bg-white shadow-md w-12 h-12 flex items-center justify-center rounded-full text-black-600 hover:bg-blue-50 transition"
             aria-label="Previous"
           >
             <svg
@@ -97,7 +97,7 @@ export default function TestimonialsSection() {
           </button>
 
           <button
-            className="testimonial-next absolute top-1/2 -translate-y-1/2 -right-6 bg-white shadow-md w-12 h-12 flex items-center justify-center rounded-full text-black-600 hover:bg-blue-50 transition"
+            className="testimonial-next text-black absolute top-1/2 -translate-y-1/2 -right-6 bg-white shadow-md w-12 h-12 flex items-center justify-center rounded-full text-black-600 hover:bg-blue-50 transition"
             aria-label="Next"
           >
             <svg

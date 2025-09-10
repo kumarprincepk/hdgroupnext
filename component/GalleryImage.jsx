@@ -183,7 +183,7 @@ export default function GalleryImage() {
 
       <div className="text-start mb-7 mt-5 md:mb-10">
         <div className="heading-section mb-4 text-left">
-          <h4 className="text-1 split-text effect-right"> Spotlight</h4>
+          <h4 className="text-1 split-text effect-right text-black"> Spotlight</h4>
         </div>
         <p className="text-sm md:text-base text-start text-gray-900">
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Explore a curated selection of our latest shots. Tap any tile to open
