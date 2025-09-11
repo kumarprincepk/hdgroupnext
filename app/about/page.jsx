@@ -144,10 +144,10 @@ Doloribus ea id, assumenda atque cumque, fugiat, eum consequatur itaque quis per
         <div className="max-w-7xl mx-auto px-6 py-20">
           <div className="max-w-7xl mx-auto px-6 py-20">
             <div className="mb-10">
-              <span className="block text-gray-500 italic mb-4 text-lg">
+              <span className="block text-gray-500 italic mb-4 text-lg text-black">
                 — About Us
               </span>
-              <h1 className="text-2xl md:text-3xl font-bold leading-snug">
+              <h1 className="text-2xl md:text-3xl font-bold leading-snug text-black">
                 Home Developers Group is a "wholistic" group specializing in
                 residential, commercial building and interior design. With over
                 25 years of expertise, we have passionately curated premium
@@ -234,10 +234,10 @@ Doloribus ea id, assumenda atque cumque, fugiat, eum consequatur itaque quis per
                       : "animate-slide-in-left"
                     }`}
                 >
-                  <h2 className="text-3xl font-bold mb-6">
+                  <h2 className="text-3xl font-bold mb-6 text-black">
                     {tabData[activeTab][slide].heading}
                   </h2>
-                  <div className="prose prose-lg">
+                  <div className="prose prose-lg text-black">
                     <p className="text-gray-700 whitespace-pre-line leading-relaxed">
                       {tabData[activeTab][slide].content}
                     </p>
