@@ -148,8 +148,8 @@ Doloribus ea id, assumenda atque cumque, fugiat, eum consequatur itaque quis per
                 — About Us
               </span>
               <h1 className="text-2xl md:text-3xl font-bold leading-snug text-black">
-                Home Developers Group is a "wholistic" group specializing in
-                residential, commercial building and interior design.
+                Home Developers Group is a wholistic group specializing in
+                turnkey design and build services, as well as collaborations with plot owners for redeveloping and monetizing their assets.
                 <br/>
                  With over 25 years of expertise, we have curated premium
                 projects, luxury apartments, commercial complexes, and
