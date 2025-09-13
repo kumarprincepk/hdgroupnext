@@ -49,8 +49,8 @@ export default function Footer() {
                 Home Developers Group
               </h5>
               <p>
-                D - 22 <br />
-                Defence Colony, New Delhi
+                D - 22, Defence Colony <br />
+                New Delhi - 110024
               </p>
               <div className="mt-6">
                 <h5>
@@ -82,7 +82,7 @@ export default function Footer() {
                   </Link>
                 </li>
               </ul>
-              <p className="text-center lg:text-left mb-1">+91-91932-56985</p>
+              <p className="text-center lg:text-left mb-1">+91-93549-40979</p>
               <p className="text-center lg:text-left">info@homedevelopersgroup.com</p>
             </div>
 

@@ -132,10 +132,10 @@ export default function Contact() {
                     <FaEnvelope className="mr-2" /> info@homedevelopersgroup.com
                   </p>
                   <p className="text-gray-300 flex items-center mb-2">
-                    <FaPhone className="mr-2" /> +91 9310359993
+                    <FaPhone className="mr-2" /> +91 9354940979
                   </p>
                   <p className="text-gray-300 flex items-center">
-                    <FaPhone className="mr-2" /> +91 0120 4371060
+                    <FaPhone className="mr-2" /> +91 11-49051697 
                   </p>
                 </div>
 
