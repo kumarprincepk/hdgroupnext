@@ -149,10 +149,11 @@ Doloribus ea id, assumenda atque cumque, fugiat, eum consequatur itaque quis per
               </span>
               <h1 className="text-2xl md:text-3xl font-bold leading-snug text-black">
                 Home Developers Group is a "wholistic" group specializing in
-                residential, commercial building and interior design. With over
-                25 years of expertise, we have passionately curated premium
-                projects, including luxury apartments, commercial complexes, and
-                IT parks in South Delhi and beyond.
+                residential, commercial building and interior design.
+                <br/>
+                 With over 25 years of expertise, we have curated premium
+                projects, luxury apartments, commercial complexes, and
+                IT parks in New Delhi & beyond.
               </h1>
             </div>
             <div className="border-t border-gray-300 my-8"></div>
