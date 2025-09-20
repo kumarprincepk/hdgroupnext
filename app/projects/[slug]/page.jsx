@@ -1,20 +1,20 @@
 import Footer from "@/component/footerSection/Footer";
 import Header from "@/component/headerSection/Header";
-import serviceDetails from "@/public/data/pageInfo";
+import projectInfo from "@/public/data/projectInfo";
 import Image from "next/image";
 import Link from "next/link";
 
 export function generateStaticParams() {
-  return serviceDetails.map((service) => ({
-    slug: service.slug,
+  return projectInfo.map((projectData) => ({
+    slug: projectData.slug,
   }));
 }
 
 export default async function ServicePage({ params }) {
   const { slug } = await params;
-  const service = serviceDetails.find((item) => item.slug === slug);
+  const projectData = projectInfo.find((item) => item.slug === slug);
 
-  if (!service) {
+  if (!projectData) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md text-center">
@@ -41,23 +41,35 @@ export default async function ServicePage({ params }) {
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
           <h1 className="text-4xl font-bold text-gray-800 mb-6">
-            {service.heading}
+            {projectData.heading}
           </h1>
 
-          <div className="relative h-96 mb-8 rounded-lg overflow-hidden">
-            <Image
-              src={service.image}
-              alt={service.heading}
-              fill
-              className="object-cover"
-            />
-          </div>
+          {/* 🔥 Use projectData.data instead of projectInfo */}
+          {projectData.data.map((subProject) => (
+            <div key={subProject.id} className="mb-12">
+              <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+                {subProject.title}
+              </h2>
+              <p className="text-gray-600 mb-6">{subProject.details}</p>
 
-          <div className="prose prose-lg max-w-none">
-            <p className="text-gray-700 leading-relaxed mb-8">
-              {service.details}
-            </p>
-          </div>
+              {/* Images gallery */}
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                {subProject.images.map((img, index) => (
+                  <div
+                    key={index}
+                    className="relative h-48 rounded-lg overflow-hidden"
+                  >
+                    <Image
+                      src={img.original}
+                      alt={subProject.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
 
           <Link
             href="/"

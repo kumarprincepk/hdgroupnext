@@ -7,6 +7,7 @@ import styles from "./HeaderSection.module.css";
 import "@/style/globals.css";
 import { FaAngleDown } from "react-icons/fa6";
 import serviceDetails from "@/public/data/pageInfo";
+import projectInfo from "@/public/data/projectInfo";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -99,42 +100,26 @@ export default function Header() {
                         <ul
                           className={`${styles.submenu} absolute right-7 bg-white shadow-lg transform opacity-0 translate-y-2 pointer-events-none transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto`}
                         >
-                          <li>
+                          {projectInfo.map((project) => (
+                            <li key={project.id}>
                             <ul className={styles.submenu2}>
                               <li>
-                                <Link className={styles.a} href="/">
+                                <Link className={styles.a} href={`/projects/${project?.slug}`}>
                                   <Image
                                     className={styles.linkImg}
-                                    src="/images/residential.jpg"
+                                    src={project?.image}
                                     width={635}
                                     height={350}
-                                    alt="residential"
+                                    alt={project?.heading}
                                   />
                                 </Link>
                               </li>
                             </ul>
-                            <Link className={styles.a} href="/">
-                              Residential
+                            <Link className={styles.a} href={`/projects/${project?.slug}`}>
+                              {project.heading}
                             </Link>
                           </li>
-                          <li>
-                            <ul className={styles.submenu2}>
-                              <li>
-                                <Link className={styles.a} href="/">
-                                  <Image
-                                    className={styles.linkImg}
-                                    src="/images/commercial.jpg"
-                                    width={635}
-                                    height={350}
-                                    alt="commercial"
-                                  />
-                                </Link>
-                              </li>
-                            </ul>
-                            <Link className={styles.a} href="/">
-                              Commercial
-                            </Link>
-                          </li>
+                          ))}
                         </ul>
                       </li>
 
