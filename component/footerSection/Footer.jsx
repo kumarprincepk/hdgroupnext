@@ -49,7 +49,7 @@ export default function Footer() {
                 Home Developers Group
               </h5>
               <p>
-                D - 22, Defence Colony <br />
+                D - 22, Defence Colony, <br />
                 New Delhi - 110024
               </p>
               <div className="mt-6">

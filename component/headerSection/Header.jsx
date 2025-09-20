@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import styles from "./HeaderSection.module.css";
 import "@/style/globals.css";
 import { FaAngleDown } from "react-icons/fa6";
+import serviceDetails from "@/public/data/pageInfo";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,8 +35,12 @@ export default function Header() {
 
   const logoSrc = isDarkHeader ? "/images/HDwhite.png" : "/images/HDwhite.png";
 
-  const headerPositionClass = isSticky ? "fixed top-0 left-0 right-0 z-50" : "relative";
-  const headerBgClass = isDarkHeader ? "bg-black text-white shadow-md" : "bg-transparent text-white";
+  const headerPositionClass = isSticky
+    ? "fixed top-0 left-0 right-0 z-50"
+    : "relative";
+  const headerBgClass = isDarkHeader
+    ? "bg-black text-white shadow-md"
+    : "bg-transparent text-white";
   const headerTransition = "transition-all duration-300 ease-in-out";
 
   const headerClassName = `${styles.header} ${styles.style2} ${styles.headerSticky} ${headerPositionClass} ${headerBgClass} ${headerTransition}`;
@@ -44,10 +49,12 @@ export default function Header() {
     <>
       {/* Desktop Header */}
       <header className={headerClassName}>
-        <div className={styles.headerInner}
+        <div
+          className={styles.headerInner}
           style={{
             backgroundColor: isDarkHeader ? "rgb(44 46 51)" : "transparent",
-          }}>
+          }}
+        >
           <div className="flex flex-wrap w-full">
             <div className="w-full">
               <div className="tf-container flex items-center justify-between">
@@ -66,7 +73,9 @@ export default function Header() {
                 </div>
 
                 {/* Desktop Menu */}
-                <div className={`${styles.headerRight} hidden lg:flex items-center`}>
+                <div
+                  className={`${styles.headerRight} hidden lg:flex items-center`}
+                >
                   <nav className={styles.mainMenu}>
                     <ul className={`${styles.navigation} flex space-x-1`}>
                       <li className={styles.currentMenu}>
@@ -81,7 +90,9 @@ export default function Header() {
                       </li>
 
                       {/* Projects Dropdown */}
-                      <li className={`${styles.hasChild} ${styles.style2} relative group`}>
+                      <li
+                        className={`${styles.hasChild} ${styles.style2} relative group`}
+                      >
                         <Link className={`${styles.a}`} href="/">
                           Projects <FaAngleDown className="inline-block" />
                         </Link>
@@ -135,31 +146,16 @@ export default function Header() {
                         <ul
                           className={`${styles.submenu} absolute bg-white shadow-lg transform opacity-0 translate-y-2 pointer-events-none transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto`}
                         >
-                          <li>
-                            <Link className={styles.a} href="/">
-                              Sales &amp; Collaboration
-                            </Link>
-                          </li>
-                          <li>
-                            <Link className={styles.a} href="/">
-                              Interior Design
-                            </Link>
-                          </li>
-                          <li>
-                            <Link className={styles.a} href="/">
-                              Turnkey Execution
-                            </Link>
-                          </li>
-                          <li>
-                            <Link className={styles.a} href="/">
-                              Commercial Leasing
-                            </Link>
-                          </li>
-                          <li>
-                            <Link className={styles.a} href="/">
-                              Building Management
-                            </Link>
-                          </li>
+                          {serviceDetails.map((service) => (
+                            <li key={service.id}>
+                              <Link
+                                className={styles.a}
+                                href={`/service/${service.slug}`}
+                              >
+                                {service.heading}
+                              </Link>
+                            </li>
+                          ))}
                         </ul>
                       </li>
 
@@ -171,7 +167,9 @@ export default function Header() {
                     </ul>
                   </nav>
 
-                  <div className={`${styles.boxUser} ${styles.linkOnHover} ml-12`}>
+                  <div
+                    className={`${styles.boxUser} ${styles.linkOnHover} ml-12`}
+                  >
                     <div className={`${styles.name} text-white`}>Menu</div>
                   </div>
                 </div>
@@ -201,18 +199,30 @@ export default function Header() {
 
       {/* Mobile Sidebar Menu */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-white z-50 transform transition-transform duration-300 ease-in-out ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
+        className={`fixed top-0 left-0 h-full w-64 bg-white z-50 transform transition-transform duration-300 ease-in-out ${
+          mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
         style={{ top: 0 }}
       >
         {/* Mobile Header */}
-        <div className={`${styles.topNavMobile} flex justify-between items-center p-4 border-b`}>
+        <div
+          className={`${styles.topNavMobile} flex justify-between items-center p-4 border-b`}
+        >
           <div className={styles.offcanvasLitle}>
             <Link className={styles.a} href="/">
-              <Image src="/images/logo.png" alt="logo" width={150} height={50} />
+              <Image
+                src="/images/logo.png"
+                alt="logo"
+                width={150}
+                height={50}
+              />
             </Link>
           </div>
-          <div className="cursor-pointer" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
+          <div
+            className="cursor-pointer"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="Close menu"
+          >
             <i className="icon-close"></i>
           </div>
         </div>
@@ -226,7 +236,10 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link className={`${styles.a} ${styles.itemMenuMobile}`} href="/about">
+              <Link
+                className={`${styles.a} ${styles.itemMenuMobile}`}
+                href="/about"
+              >
                 About
               </Link>
             </li>
@@ -241,8 +254,9 @@ export default function Header() {
                 Projects
               </button>
               <div
-                className={`transition-[max-height] duration-300 ease-in-out overflow-hidden ${openSubmenu === "projects" ? "max-h-[500px]" : "max-h-0"
-                  }`}
+                className={`transition-[max-height] duration-300 ease-in-out overflow-hidden ${
+                  openSubmenu === "projects" ? "max-h-[500px]" : "max-h-0"
+                }`}
               >
                 <ul className={`${styles.subMobile} pl-4 mt-2 space-y-2`}>
                   <li>
@@ -269,35 +283,21 @@ export default function Header() {
                 Services
               </button>
               <div
-                className={`transition-[max-height] duration-300 ease-in-out overflow-hidden ${openSubmenu === "services" ? "max-h-[500px]" : "max-h-0"
-                  }`}
+                className={`transition-[max-height] duration-300 ease-in-out overflow-hidden ${
+                  openSubmenu === "services" ? "max-h-[500px]" : "max-h-0"
+                }`}
               >
                 <ul className={`${styles.subMobile} pl-4 mt-2 space-y-2`}>
-                  <li>
-                    <Link className={styles.a} href="/">
-                      Sales &amp; Collaboration
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className={styles.a} href="/">
-                      Interior Design
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className={styles.a} href="/">
-                      Turnkey Execution
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className={styles.a} href="/">
-                      Commercial Leasing
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className={styles.a} href="/">
-                      Building Management
-                    </Link>
-                  </li>
+                  {serviceDetails.map((service) => (
+                    <li key={service.id}>
+                      <Link
+                        className={styles.a}
+                        href={`/service/${service.slug}`}
+                      >
+                        {service.heading}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </li>
@@ -327,7 +327,9 @@ export default function Header() {
               <li>
                 <div className={styles.wrapSocial}>
                   <p>Follow us:</p>
-                  <ul className={`${styles.tfSocial} ${styles.style2} flex space-x-2`}>
+                  <ul
+                    className={`${styles.tfSocial} ${styles.style2} flex space-x-2`}
+                  >
                     <li>
                       <Link className={styles.a} href="/">
                         <i className="icon-fb"></i>
