@@ -27,8 +27,8 @@ export default function Footer() {
             {[
               { name: "Home", href: "/" },
               { name: "About", href: "/about" },
-              { name: "Projects", href: "/projects" },
-              { name: "Services", href: "/service" },
+              { name: "Projects", href: "/projects/residential-projects" },
+              { name: "Services", href: "/service/sales-collaboration" },
               { name: "Contact", href: "/contact" },
             ].map((item, index) => (
               <div className={styles.contactItem} key={index}>

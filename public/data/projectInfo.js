@@ -23,6 +23,7 @@ const projectInfo = [
         title: "Residential Heading Two",
         details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
         images: [
+          {original: "/images/picture3.jpg", thumbnail: "/images/picture3.jpg"},
           {original: "/images/picture6.jpeg", thumbnail: "/images/picture6.jpeg"},
           {original: "/images/picture7.jpeg", thumbnail: "/images/picture7.jpeg"},
           {original: "/images/picture8.jpeg", thumbnail: "/images/picture8.jpeg"},
@@ -37,6 +38,7 @@ const projectInfo = [
         images: [
           {original: "/images/picture6.jpeg", thumbnail: "/images/picture6.jpeg"},
           {original: "/images/picture7.jpeg", thumbnail: "/images/picture7.jpeg"},
+          {original: "/images/picture3.jpg", thumbnail: "/images/picture3.jpg"},
           {original: "/images/picture8.jpeg", thumbnail: "/images/picture8.jpeg"},
           {original: "/images/picture12.jpg", thumbnail: "/images/picture12.jpg"},
           {original: "/images/picture13.jpg", thumbnail: "/images/picture13.jpg"},
@@ -82,6 +84,7 @@ const projectInfo = [
           {original: "/images/picture8.jpeg", thumbnail: "/images/picture8.jpeg"},
           {original: "/images/picture12.jpg", thumbnail: "/images/picture12.jpg"},
           {original: "/images/picture13.jpg", thumbnail: "/images/picture13.jpg"},
+          {original: "/images/picture8.jpeg", thumbnail: "/images/picture8.jpeg"},
         ],
       },
       {
@@ -94,6 +97,7 @@ const projectInfo = [
           {original: "/images/picture8.jpeg", thumbnail: "/images/picture8.jpeg"},
           {original: "/images/picture12.jpg", thumbnail: "/images/picture12.jpg"},
           {original: "/images/picture13.jpg", thumbnail: "/images/picture13.jpg"},
+          {original: "/images/picture8.jpeg", thumbnail: "/images/picture8.jpeg"},
         ],
       },
       

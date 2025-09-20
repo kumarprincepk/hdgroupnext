@@ -1,3 +1,4 @@
+import Gallery from "@/component/CommonGallery";
 import Footer from "@/component/footerSection/Footer";
 import Header from "@/component/headerSection/Header";
 import projectInfo from "@/public/data/projectInfo";
@@ -44,7 +45,6 @@ export default async function ServicePage({ params }) {
             {projectData.heading}
           </h1>
 
-          {/* 🔥 Use projectData.data instead of projectInfo */}
           {projectData.data.map((subProject) => (
             <div key={subProject.id} className="mb-12">
               <h2 className="text-2xl font-semibold text-gray-700 mb-4">
@@ -54,19 +54,15 @@ export default async function ServicePage({ params }) {
 
               {/* Images gallery */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-                {subProject.images.map((img, index) => (
                   <div
-                    key={index}
                     className="relative h-48 rounded-lg overflow-hidden"
                   >
-                    <Image
-                      src={img.original}
-                      alt={subProject.title}
-                      fill
-                      className="object-cover"
+                    <Gallery
+                      images={subProject.images}
+                      title="Travel Memories"
+                      description="Swipe through the best moments of our journey."
                     />
                   </div>
-                ))}
               </div>
             </div>
           ))}
