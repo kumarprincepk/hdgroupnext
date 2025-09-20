@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import PropTypes from "prop-types";
 
 // Icons
 const PlayIcon = () => <span aria-hidden="true">▶</span>;
@@ -25,7 +26,7 @@ export default function Gallery({ images = [], title, description }) {
   const touchStartX = useRef(null);
   const touchEndX = useRef(null);
 
-  const MAX_VISIBLE = 7;
+  const MAX_VISIBLE = 4;
   const visibleThumbnails = images.slice(0, MAX_VISIBLE);
   const hiddenImagesCount = Math.max(0, images.length - MAX_VISIBLE);
 
@@ -140,7 +141,7 @@ export default function Gallery({ images = [], title, description }) {
   return (
     <div className="mb-5 mx-auto">
       {/* Thumbnails grid */}
-      <section className="gallery" aria-label="Image gallery grid">
+      <section className="gallery-common" aria-label="Image gallery grid">
         {visibleThumbnails.map((img, idx) => {
           const areaClass = `image-${String.fromCharCode(97 + idx)}`;
           return (
@@ -156,14 +157,9 @@ export default function Gallery({ images = [], title, description }) {
                 alt={`Thumbnail ${idx + 1}`}
                 fill
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
-                className="gallery-thumb"
+                className="gallery-common-thumb"
                 priority={idx < 2}
               />
-              {hiddenImagesCount > 0 && idx === MAX_VISIBLE - 1 && (
-                <div className="absolute inset-0 bg-black/50 text-white flex items-center justify-center text-xl font-semibold">
-                  +{hiddenImagesCount} more
-                </div>
-              )}
             </button>
           );
         })}
@@ -292,27 +288,44 @@ export default function Gallery({ images = [], title, description }) {
 
       {/* Styles */}
       <style jsx global>{`
-        .gallery {
+        .gallery-common {
           display: grid;
-          grid-template-columns: repeat(6, 1fr);
-          grid-auto-rows: 200px;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: auto auto;
           gap: 8px;
           grid-template-areas:
-            "a a b b c d"
-            "a a e f g g";
+            "a b b"
+            "a c d";
+          height: 190px;
+          
         }
+        /* Assign grid areas */
+        .image-a {
+          grid-area: a;
+        }
+        .image-b {
+          grid-area: b;
+        }
+        .image-c {
+          grid-area: c;
+        }
+        .image-d {
+          grid-area: d;
+        }
+
         .image {
           position: relative;
           overflow: hidden;
           border-radius: 8px;
           background: #eee;
+          cursor: pointer;
         }
-        .gallery-thumb {
+        .gallery-common-thumb {
           object-fit: cover;
           border-radius: 8px;
           transition: transform 0.3s ease-in-out;
         }
-        .image:hover .gallery-thumb {
+        .image:hover .gallery-common-thumb {
           transform: scale(1.1);
         }
 
@@ -389,21 +402,22 @@ export default function Gallery({ images = [], title, description }) {
         }
 
         @media (max-width: 1024px) {
-          .gallery {
-            grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: 180px;
+          .gallery-common {
+            grid-template-columns: 1fr 1fr;
             grid-template-areas:
-              "a a b b"
-              "a a c d";
+              "a b"
+              "a c"
+              "a d";
           }
         }
         @media (max-width: 640px) {
-          .gallery {
-            grid-template-columns: repeat(2, 1fr);
-            grid-auto-rows: 160px;
+          .gallery-common {
+            grid-template-columns: 1fr;
             grid-template-areas:
-              "a a"
-              "b c";
+              "a"
+              "b"
+              "c"
+              "d";
             gap: 6px;
           }
         }
@@ -411,3 +425,14 @@ export default function Gallery({ images = [], title, description }) {
     </div>
   );
 }
+
+Gallery.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      thumbnail: PropTypes.string.isRequired,
+      original: PropTypes.string.isRequired,
+    })
+  ),
+  title: PropTypes.string,
+  description: PropTypes.string,
+};

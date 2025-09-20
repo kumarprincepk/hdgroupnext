@@ -40,29 +40,29 @@ export default async function ServicePage({ params }) {
     <>
       <Header />
       <div className="min-h-screen bg-gray-50 py-12">
-        <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
+        <div className="max-w-6xl mx-auto bg-white p-8 rounded-lg shadow-md">
           <h1 className="text-4xl font-bold text-gray-800 mb-6">
             {projectData.heading}
           </h1>
 
-          {projectData.data.map((subProject) => (
+          {projectData.data.map((subProject, index) => (
             <div key={subProject.id} className="mb-12">
-              <h2 className="text-2xl font-semibold text-gray-700 mb-4">
-                {subProject.title}
-              </h2>
-              <p className="text-gray-600 mb-6">{subProject.details}</p>
+              <div className={`flex flex-col md:flex-row items-center gap-8 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+                <div className="md:w-1/2">
+                  <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+                    {subProject.title}
+                  </h2>
+                  <p className="text-gray-600 mb-6 md:mb-0">{subProject.details}</p>
+                </div>
 
-              {/* Images gallery */}
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-                  <div
-                    className="relative h-48 rounded-lg overflow-hidden"
-                  >
+                {/* Images gallery */}
+                <div className="md:w-1/2">
+                  <div className="relative h-48 rounded-lg overflow-hidden" >
                     <Gallery
                       images={subProject.images}
-                      title="Travel Memories"
-                      description="Swipe through the best moments of our journey."
                     />
                   </div>
+                </div>
               </div>
             </div>
           ))}
