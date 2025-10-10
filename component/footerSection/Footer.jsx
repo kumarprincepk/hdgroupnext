@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./FooterSection.module.css";
-import { FaFacebookF } from "react-icons/fa";
-import { RiTwitterXFill } from "react-icons/ri";
-import { FaLinkedin } from "react-icons/fa6";
-
+import { FaFacebook } from "react-icons/fa";
+import { RiTwitterXLine } from "react-icons/ri";
+import { FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -63,22 +62,17 @@ export default function Footer() {
               <ul className={`flex justify-center lg:justify-start gap-4`}>
                 <li>
                   <Link href="/">
-                    <FaFacebookF />
+                    <FaFacebook />
                   </Link>
                 </li>
                 <li>
                   <Link href="/">
-                    <RiTwitterXFill />
+                    <RiTwitterXLine />
                   </Link>
                 </li>
                 <li>
                   <Link href="/">
                     <FaLinkedin />
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <i className="icon-ins"></i>
                   </Link>
                 </li>
               </ul>
