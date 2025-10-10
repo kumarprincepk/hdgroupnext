@@ -1,37 +1,16 @@
-"use client";
-import Loader from "@/component/Loader";
-import CounterScroll from "@/component/CounterScroll";
-import Header from "@/component/headerSection/Header";
-import Footer from "@/component/footerSection/Footer";
-import VideoSection from "@/component/heroSection/VideoSection";
-import AboutSection from "@/component/AboutSection";
-import WhatWeDoSection from "@/component/WhatWeDoSection";
-import WhyTrustUsSection from "@/component/whyTrustUsSection/WhyTrustUsSection";
-import ReadMoreSection from "@/component/ReadMoreSection";
-import TestimonialsSection from "@/component/TestimonialsSection";
-import GalleryImage from "@/component/GalleryImage";
+import Image from "next/image";
+import styles from "./page.module.css";
+import Header from "@/components/headerSection/Header";
+import Dashboard from "@/components/dashboard/Dashboard";
+import Footer from "@/components/footerSection/Footer";
+
 
 export default function Home() {
   return (
-    <div className="counter-scroll theme-color-1">
-      {/* <div className="theme-color-1"> */}
-      <div id="wrapper">
-        {/* <Loader />
-        <CounterScroll /> */}
-        <div className="tf-container">
-          <Header />
-        </div>
-        <VideoSection />
-        <div className="tf-container-all">
-          <AboutSection />
-          <GalleryImage />
-          <WhatWeDoSection />
-          <WhyTrustUsSection />
-          <TestimonialsSection />
-          <ReadMoreSection />
-        </div>
-        <Footer className="" />
-      </div>
-    </div>
+    <>
+       <Header/>
+       <Dashboard/>
+       <Footer/>
+    </>
   );
 }

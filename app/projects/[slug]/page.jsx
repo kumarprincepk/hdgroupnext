@@ -1,8 +1,7 @@
-import Gallery from "@/component/CommonGallery";
-import Footer from "@/component/footerSection/Footer";
-import Header from "@/component/headerSection/Header";
+import Gallery from "@/components/CommonGallery/CommonGallery";
+import Footer from "@/components/footerSection/Footer";
+import Header from "@/components/headerSection/Header";
 import projectInfo from "@/public/data/projectInfo";
-import Image from "next/image";
 import Link from "next/link";
 
 export function generateStaticParams() {
@@ -17,18 +16,13 @@ export default async function ServicePage({ params }) {
 
   if (!projectData) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md text-center">
-          <h1 className="text-2xl font-bold text-gray-800 mb-4">
-            Service Not Found
-          </h1>
-          <p className="text-gray-600 mb-6">
+      <div className="min-vh-100 d-flex align-items-center justify-content-center bg-light">
+        <div className="shadow p-4 rounded bg-white text-center" style={{ maxWidth: "500px", width: "100%" }}>
+          <h1 className="h4 fw-bold text-dark mb-3">Service Not Found</h1>
+          <p className="text-muted mb-4">
             The service you're looking for doesn't exist.
           </p>
-          <Link
-            href="/"
-            className="inline-block bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors"
-          >
+          <Link href="/" className="btn btn-primary px-4 py-2">
             Return to Home
           </Link>
         </div>
@@ -39,40 +33,52 @@ export default async function ServicePage({ params }) {
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-gray-50 py-12">
-        <div className="max-w-6xl mx-auto bg-white p-8 rounded-lg shadow-md">
-          <h1 className="text-4xl font-bold text-gray-800 mb-6">
-            {projectData.heading}
-          </h1>
-
-          {projectData.data.map((subProject, index) => (
-            <div key={subProject.id} className="mb-12">
-              <div className={`flex flex-col md:flex-row items-center gap-8 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-                <div className="md:w-1/2">
-                  <h2 className="text-2xl font-semibold text-gray-700 mb-4">
-                    {subProject.title}
-                  </h2>
-                  <p className="text-gray-600 mb-6 md:mb-0">{subProject.details}</p>
-                </div>
-
-                {/* Images gallery */}
-                <div className="md:w-1/2">
-                  <div className="relative h-48 rounded-lg overflow-hidden" >
-                    <Gallery
-                      images={subProject.images}
-                    />
-                  </div>
-                </div>
+        <div className="container-fluid">
+          <div className="mt-5 pt-5 inner-page pb-5">
+            <div className="row">
+              <div className="col">
+                <h2 className="mb-4">
+                  {projectData.heading}
+                </h2>
               </div>
             </div>
-          ))}
 
-          <Link
+            {projectData.data.map((subProject, index) => (
+                <div
+                  key={subProject.id} 
+                  className={`row mb-4 ${
+                    index % 2 === 1 ? "flex-md-row-reverse" : ""
+                  }`}
+                >
+                  <div className="col-md-6">
+                    <div className="d-flex flex-column align-item-center justify-content-center h-100">
+                      <h4 className="mb-3">
+                        {subProject.title}
+                      </h4>
+                      <p className="text-muted mb-2">
+                        {subProject.details}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Images gallery */}
+                  <div className="col-md-6">
+                    <div className="d-flex flex-column align-item-center justify-content-center h-100">
+                      <Gallery images={subProject.images} />
+                    </div>
+                  </div>
+                </div>
+            ))}
+          </div>
+
+          {/* <Link
             href="/"
-            className="inline-flex items-center text-blue-500 hover:text-blue-700 transition-colors"
+            className="d-inline-flex align-items-center text-primary text-decoration-none"
           >
             <svg
-              className="w-4 h-4 mr-2"
+              className="me-2"
+              width="16"
+              height="16"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -85,9 +91,8 @@ export default async function ServicePage({ params }) {
               />
             </svg>
             Back to Home
-          </Link>
+          </Link> */}
         </div>
-      </div>
       <Footer />
     </>
   );

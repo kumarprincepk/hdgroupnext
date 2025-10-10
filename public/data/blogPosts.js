@@ -5,7 +5,7 @@
       title: "1Building gains into housing stocks and how to trade the...",
       date: "26 August, 2024",
       category: "Real estate",
-      image: "/images/blog-grid-1.jpg",
+      image: "/images/blog/blog-grid-1.jpg",
       details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
     },
     {
@@ -14,7 +14,7 @@
       title: "2Building gains into housing stocks and how to trade the...",
       date: "26 August, 2024",
       category: "News",
-      image: "/images/blog-grid-2.jpg",
+      image: "/images/blog/blog-grid-2.jpg",
       details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
     },
     {
@@ -23,7 +23,7 @@
       title: "3Building gains into housing stocks and how to trade the...",
       date: "26 August, 2024",
       category: "Real estate",
-      image: "/images/blog-grid-3.jpg",
+      image: "/images/blog/blog-grid-3.jpg",
       details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
     },
     {
@@ -32,7 +32,7 @@
       title: "4Building gains into housing stocks and how to trade the...",
       date: "26 August, 2024",
       category: "Real estate",
-      image: "/images/blog-grid-3.jpg",
+      image: "/images/blog/blog-grid-3.jpg",
       details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
     },
     {
@@ -41,7 +41,7 @@
       title: "5Building gains into housing stocks and how to trade the...",
       date: "26 August, 2024",
       category: "Real estate",
-      image: "/images/blog-grid-3.jpg",
+      image: "/images/blog/blog-grid-3.jpg",
       details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
     },
     {
@@ -50,7 +50,7 @@
       title: "6Building gains into housing stocks and how to trade the...",
       date: "26 August, 2024",
       category: "Real estate",
-      image: "/images/blog-grid-3.jpg",
+      image: "/images/blog/blog-grid-3.jpg",
       details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
     },
   ];
