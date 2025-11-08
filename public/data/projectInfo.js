@@ -50,6 +50,92 @@ const projectInfo = [
           {original: "/images/residential/aanad/51-anand-1.jpg", thumbnail: "/images/residential/aanad/51-anand-1.jpg"},
         ],
       },
+       {
+        id: 5,
+        title: "E6/13, Vasant Vihar, New Delhi",
+        details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
+        images: [
+          {original: "/images/residential/aanad/e-6-13-vasant-1.jpg", thumbnail: "/images/residential/aanad/e-6-13-vasant-1.jpg"},
+          {original: "/images/residential/aanad/e-6-13-vasant-2.jpg", thumbnail: "/images/residential/aanad/e-6-13-vasant-2.jpg"},
+          {original: "/images/residential/aanad/e-6-13-vasant-3.jpg", thumbnail: "/images/residential/aanad/e-6-13-vasant-3.jpg"},
+          {original: "/images/residential/aanad/e-6-13-vasant-4.jpg", thumbnail: "/images/residential/aanad/e-6-13-vasant-4.jpg"},
+        ],
+      },
+      {
+        id: 6,
+        title: "C-288, Defence Colony, New Delhi",
+        details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
+        images: [
+          {original: "/images/residential/aanad/c-288-defcol-1.jpg", thumbnail: "/images/residential/aanad/c-288-defcol-1.jpg"},
+          {original: "/images/residential/aanad/c-288-defcol-2.jpg", thumbnail: "/images/residential/aanad/c-288-defcol-2.jpg"},
+          {original: "/images/residential/aanad/c-288-defcol-3.jpg", thumbnail: "/images/residential/aanad/c-288-defcol-3.jpg"},
+          {original: "/images/residential/aanad/c-288-defcol-4.jpg", thumbnail: "/images/residential/aanad/c-288-defcol-4.jpg"},
+        ],
+      },
+      {
+        id: 7,
+        title: "A 44, Gulmohar Park, New Delhi",
+        details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
+        images: [
+          {original: "/images/residential/aanad/a-44-gulmohar-park.jpg", thumbnail: "/images/residential/aanad/a-44-gulmohar-park.jpg"},
+        ],
+      },
+      {
+        id: 8,
+        title: "B 73, Gulmohar Park, New Delhi",
+        details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
+        images: [
+          {original: "/images/residential/aanad/b-73-gulmohar-park.jpg", thumbnail: "/images/residential/aanad/b-73-gulmohar-park.jpg"},
+        ],
+      },
+      {
+        id: 9,
+        title: "C 8/7, Vasant Vihar, New Delhi",
+        details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
+        images: [
+          {original: "/images/residential/aanad/c-8-7-vasant-vihar.jpg", thumbnail: "/images/residential/aanad/c-8-7-vasant-vihar.jpg"},
+        ],
+      },
+      {
+        id: 10,
+        title: "C-27, Defence Colony, New Delhi",
+        details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
+        images: [
+          {original: "/images/residential/aanad/c-27-defence.jpg", thumbnail: "/images/residential/aanad/c-27-defence.jpg"},
+        ],
+      },
+      {
+        id: 11,
+        title: "C-484, Defence Colony, New Delhi",
+        details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
+        images: [
+          {original: "/images/residential/aanad/c-484-defence.jpg", thumbnail: "/images/residential/aanad/c-484-defence.jpg"},
+        ],
+      },
+      {
+        id: 12,
+        title: "D-3, Soami Nagar, New Delhi",
+        details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
+        images: [
+          {original: "/images/residential/aanad/d-3-soami-nagar.jpg", thumbnail: "/images/residential/aanad/d-3-soami-nagar.jpg"},
+        ],
+      },
+      {
+        id: 13,
+        title: "D-241, Sarvodaya Enclave, New Delhi",
+        details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
+        images: [
+          {original: "/images/residential/aanad/d-241-sarvodaya-enclave-1.jpg", thumbnail: "/images/residential/aanad/d-241-sarvodaya-enclave-1.jpg"},
+        ],
+      },
+      {
+        id: 14,
+        title: "D-389, Defence Colony, New Delhi",
+        details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
+        images: [
+          {original: "/images/residential/aanad/d-389.jpg", thumbnail: "/images/residential/aanad/d-389.jpg"},
+        ],
+      },
     ],
   },
   {
