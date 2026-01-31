@@ -69,6 +69,11 @@ const AboutUs = () => {
             label: "Building Management",
             link: "/services/building-management",
           },
+          { label: "New Construction", link: "/services/new-construction" },
+          { label: "Real Estate Consultancy", link: "/services/real-estate-consultancy" },
+          { label: "Interior Design", link: "/services/interior-design" },
+          { label: "Maintenance Services", link: "/services/maintenance-services" },
+
         ],
         image: "/images/section-pre-approved1.jpg",
       },
@@ -188,7 +193,7 @@ const AboutUs = () => {
         <div className="container">
           <div className="row g-3 mt-4 bg-light">
             {/* Left Side: Image */}
-            <div className="col-md-6 position-relative">
+            <div className="col-md-6 position-relative order-md-0 order-1 mt-0">
               <div className="position-relative h-100">
                 <Image
                   src={tabData[activeTab][slide].image}
@@ -199,22 +204,35 @@ const AboutUs = () => {
                   fill
                   sizes="100vh"
                   style={{ objectFit: "cover", filter: "grayscale(100%)" }}
+                  className="d-none d-md-block"
                 />
                 {(tabData[activeTab][slide]?.caption ||
                   tabData[activeTab][slide]?.subcaption) && (
-                  <div className="position-absolute bottom-0 start-0 text-white p-3">
-                    <p className="fw-bold">
+                    <>
+
+                  <div className="position-absolute bottom-0 start-0 text-white p-3 d-none d-md-block">
+                    <p className="fw-bold text-white">
                       {tabData[activeTab][slide]?.caption}
                     </p>
-                    <p className="small">
+                    <p className="small text-white">
                       {tabData[activeTab][slide]?.subcaption}
                     </p>
                   </div>
+
+                  <div className="position-relative bottom-0 start-0 text-white p-3 d-block d-md-none">
+                    <p className="fw-bold text-dark">
+                      {tabData[activeTab][slide]?.caption}
+                    </p>
+                    <p className="small text-dark">
+                      {tabData[activeTab][slide]?.subcaption}
+                    </p>
+                  </div>
+                    </>
                 )}
               </div>
             </div>
 
-            <div className="col-md-6 px-4 py-5 d-flex flex-column justify-content-between">
+            <div className="col-md-6 px-4 py-4 pb-md-5 pb-0 mt-0 d-flex flex-column justify-content-between order-md-0 order-0">
               <div>
                 <h2 className="fs-3 fw-bold mb-4">
                   {tabData[activeTab][slide].heading}
@@ -327,127 +345,6 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
-      {/* About Page */}
-
-      {/* <section className="pb-0">
-        <div className="full-bg mb-5">
-          <h2>GURUGRAM</h2>
-          <img src='/images/gallery/picture1.jpg' />
-        </div>
-
-        <div className="container">
-          <div className="row">
-            <div className="col pt-2 pb-4">
-                <div className="about-text fw-bold lh-base">
-                  Home Developers Group is a wholistic group specializing in turnkey
-                  design and build services, as well as collaborations with plot owners for
-                  redeveloping and monetizing their assets.
-                </div>
-
-                <div className="about-text fw-bold lh-base mb-4 pb-4">
-                  With over 25 years of expertise, we have curated premium projects,
-                  luxury apartments, commercial complexes, and IT parks in New Delhi &
-                  beyond.
-                </div>
-
-                <div className="text-secondary other-text">
-                  <p>
-                    From the foundation to the furnishings, every project reflects
-                    our love for creating spaces that enhance the way people live and work.
-                  </p>
-                  <p>
-                    Our team of experts combines innovative real estate development
-                    with sophisticated interior design to deliver spaces that inspire.
-                    By identifying opportunities and partnering with leading
-                    professionals, we add value to every asset while unlocking new
-                    possibilities for our clients and partners.
-                  </p>
-                  <p>
-                    Our team of experts combines innovative real estate development
-                    with sophisticated interior design to deliver spaces that inspire.
-                    By identifying opportunities and partnering with leading
-                    professionals, we add value to every asset while unlocking new
-                    possibilities for our clients and partners.
-                  </p>
-                  <p>
-                    Our team of experts combines innovative real estate development
-                    with sophisticated interior design to deliver spaces that inspire.
-                    By identifying opportunities and partnering with leading
-                    professionals, we add value to every asset while unlocking new
-                    possibilities for our clients and partners.
-                  </p>
-                  <p>
-                    Our team of experts combines innovative real estate development
-                    with sophisticated interior design to deliver spaces that inspire.
-                    By identifying opportunities and partnering with leading
-                    professionals, we add value to every asset while unlocking new
-                    possibilities for our clients and partners.
-                  </p>
-                </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-5">
-          <img src='/images/whatWeDo/section-help.png' className="img-fluid" style={{filter: 'grayscale(1) contrast(0%) brightness(0)'}} />
-        </div>
-      </section> */}
-
-      {/* <section>
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-6 d-flex flex-column align-items-center justify-content-center">
-              <div className="">
-                <h4>Commercial Heading One</h4>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.</p>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.</p>
-              </div>
-            </div>
-            <div className="col-md-6">
-              <ul className="project-gallery" aria-label="Image gallery grid">
-                <li>
-                  <img src='/images/gallery/picture1.jpg' className="img-fluid" />
-                </li>
-                <li>
-                  <img src='/images/gallery/picture2.jpeg' className="img-fluid" />
-                </li>
-                <li>
-                  <img src='/images/gallery/picture3.jpg' className="img-fluid" />
-                </li>
-                <li>
-                  <img src='/images/gallery/picture4.jpg' className="img-fluid" />
-                </li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="row">
-            <div className="col-md-6 d-flex flex-column align-items-center justify-content-center">
-              <div className="">
-                <h4>Commercial Heading One</h4>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.</p>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.</p>
-              </div>
-            </div>
-            <div className="col-md-6">
-              <ul className="project-gallery" aria-label="Image gallery grid">
-                <li>
-                  <img src='/images/gallery/picture1.jpg' className="img-fluid" />
-                </li>
-                <li>
-                  <img src='/images/gallery/picture2.jpeg' className="img-fluid" />
-                </li>
-                <li>
-                  <img src='/images/gallery/picture3.jpg' className="img-fluid" />
-                </li>
-                <li>
-                  <img src='/images/gallery/picture4.jpg' className="img-fluid" />
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       <Footer />
     </>

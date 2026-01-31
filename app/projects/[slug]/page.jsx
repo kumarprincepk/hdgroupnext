@@ -1,3 +1,4 @@
+import AOSInit from "@/components/AOSInit";
 import Gallery from "@/components/CommonGallery/CommonGallery";
 import Footer from "@/components/footerSection/Footer";
 import Header from "@/components/headerSection/Header";
@@ -11,6 +12,8 @@ export function generateStaticParams() {
 }
 
 export default async function ServicePage({ params }) {
+  
+  
   const { slug } = await params;
   const projectData = projectInfo.find((item) => item.slug === slug);
 
@@ -32,16 +35,24 @@ export default async function ServicePage({ params }) {
 
   return (
     <>
-      <Header />
+    <AOSInit />
+    <Header />
+      <div className="heroBgVideo" data-aos="fade-up">
+        <h2>
+          {projectData.heading}
+        </h2>
+        <video autoPlay muted loop>
+          <source src={projectData.video} type="video/mp4" />
+        </video>
+      </div>
+
         <div className="container-fluid">
-          <div className="mt-5 pt-5 inner-page pb-5">
-            <div className="row">
-              <div className="col">
-                <h2 className="mb-4">
-                  {projectData.heading}
-                </h2>
+          <div className="mt-5 pt-3 inner-page pb-5">
+            {/* <div className="row">
+              <div className="col text-center mb-5">
+                <h2>{projectData.heading}</h2>
               </div>
-            </div>
+            </div> */}
 
             {projectData.data.map((subProject, index) => (
                 <div

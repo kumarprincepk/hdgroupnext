@@ -40,7 +40,7 @@ export default function Contact() {
                 <div className="contact-map">
                   <h2>OUR CONTACTS</h2>
                   <div className="d-flex align-items-center h-100">
-                    <a className="map">
+                    <a href="https://www.google.com/maps?ll=28.572262,77.22836&z=11&t=m&hl=en&gl=IN&mapclient=embed&cid=17195317542406935597" className="map" target="_blank">
                       <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56055.88806164287!2d77.15092854480741!3d28.584983353358897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce25a04d8f1f1%3A0xeea20a333b35542d!2sHome%20Developers%20India!5e0!3m2!1sen!2sin!4v1756556221088!5m2!1sen!2sin"
                         width="100%"

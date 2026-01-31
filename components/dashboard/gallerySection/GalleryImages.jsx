@@ -174,6 +174,18 @@ export default function GalleryImage() {
     <>
       <section>
         <div className="container-fluid">
+           <div className="row">
+            {/* <div className="col-12 mt-2 mt-md-4" data-aos="fade-right">
+              <h5>Spotlight</h5>
+            </div> */}
+            <div className="col-12 mt-0 mt-md-4" data-aos="fade-left">
+              <p className="mb-4 text">
+                Explore a curated selection of our latest shots. Tap any tile to
+                open the immersive gallery, swipe or use the arrows to navigate,
+                and hit play for a smooth slideshow experience.
+              </p>
+            </div>
+          </div>
           <div className="row">
             <div className="col-12">
               <ul className="gallery" aria-label="Image gallery grid" data-aos="fade-up">
@@ -201,20 +213,7 @@ export default function GalleryImage() {
                 })}
               </ul>
             </div>
-          </div>
-
-          <div className="row">
-            <div className="col-12 mt-2 mt-md-4" data-aos="fade-right">
-              <h5>Spotlight</h5>
-            </div>
-            <div className="col-12 mt-0 mt-md-4" data-aos="fade-left">
-              <p className="mb-4 text">
-                Explore a curated selection of our latest shots. Tap any tile to
-                open the immersive gallery, swipe or use the arrows to navigate,
-                and hit play for a smooth slideshow experience.
-              </p>
-            </div>
-          </div>
+          </div>       
         </div>
 
         {isOpen && (

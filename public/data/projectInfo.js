@@ -4,6 +4,7 @@ const projectInfo = [
     heading: "Residential",
     slug: "residential-projects",
     image: "/images/residential/residential.jpg",
+    video: "/videos/hd-group-desktop.mp4",
     data: [
       {
         id: 1,
@@ -143,6 +144,7 @@ const projectInfo = [
     heading: "Commercial",
     slug: "commercial-projects",
     image: "/images/commercial/commercial.jpg",
+    video: "/videos/hd-group-desktop.mp4",
     data: [
       {
         id: 1,
