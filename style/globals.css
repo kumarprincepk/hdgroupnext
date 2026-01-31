@@ -1971,7 +1971,6 @@ body.modal-open {
 }
 
 
-@import url("//fonts.googleapis.com/css?family=Arimo");
 .odometer.odometer-auto-theme, .odometer.odometer-theme-car {
   display: inline-block;
   vertical-align: middle;
@@ -2095,7 +2094,6 @@ body.modal-open {
   transition-timing-function: linear;
 }
 
-@import url("//fonts.googleapis.com/css?family=Wallpoet");
 .odometer.odometer-auto-theme, .odometer.odometer-theme-digital {
   display: inline-block;
   vertical-align: middle;
@@ -2354,7 +2352,6 @@ body.modal-open {
 }
 
 
-@import url("//fonts.googleapis.com/css?family=Rye");
 .odometer.odometer-auto-theme, .odometer.odometer-theme-slot-machine {
   display: inline-block;
   vertical-align: middle;
@@ -2484,7 +2481,6 @@ body.modal-open {
   text-align: center;
 }
 
-@import url("//fonts.googleapis.com/css?family=Economica");
 .odometer.odometer-auto-theme, .odometer.odometer-theme-train-station {
   display: inline-block;
   vertical-align: middle;
