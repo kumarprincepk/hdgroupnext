@@ -127,8 +127,8 @@
     },
      {
         id: 8,
-        heading: "Interior Design",
-        slug: "interior-design",
+        heading: "Property Management",
+        slug: "property-management",
         image: '/images/gallery/picture4.jpg',
         details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi, quasi fugiat, nemo necessitatibus ea 
         provident libero nulla placeat, alias itaque sequi earum enim velit. Fugiat facere sit dolores aperiam voluptatem provident. Perspiciatis, voluptates saepe dolor magnam 
