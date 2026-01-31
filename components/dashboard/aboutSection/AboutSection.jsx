@@ -2,6 +2,7 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import Link from "next/link";
 
 
 const AboutSection = () =>{
@@ -18,12 +19,12 @@ const AboutSection = () =>{
                     </div>
                     <div className="col-md-8" data-aos="fade-left" data-aos-duration="1000">
                         <p className="mb-4">We invest globally, seeking attractive, value-oriented opportunities across real asset classes. We prioritize sustainable growth, focusing on innovative strategies to maximize long-term returns for our stakeholders.</p>
-                        <a href="#"
+                        <Link href="/about"
                             className="btn-round bg-color-primary py-3 py-md-4 px-4 rounded-5 text-white">
                             About the firm
                             <i className="icon-arrow-up-right">
                             </i>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -102,7 +102,7 @@ export default function Header() {
                   <ul className="navbar-nav navigation me-lg-5">
                     <li className="current-menu">
                       <Link href="/">Home</Link>
-                    </li>
+                    </li> 
                     <li>
                       <Link href="/about">About</Link>
                     </li>
