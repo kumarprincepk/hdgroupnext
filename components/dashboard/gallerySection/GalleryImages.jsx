@@ -3,7 +3,6 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import styles from "./GalleryImages.module.css";
-// import GalleryImg from '../../../public/assets/images/gallery/picture1.jpg'
 
 const PlayIcon = () => <span aria-hidden="true">▶</span>;
 const PauseIcon = () => <span aria-hidden="true">⏸</span>;
@@ -27,60 +26,60 @@ export default function GalleryImage() {
 
   const images = [
     {
-      original: "/images/gallery/picture9.jpg",
-      thumbnail: "/images/gallery/picture9.jpg",
+      original: "/images/residential/aanad/a-44-gulmohar-park.jpg",
+      thumbnail: "/images/residential/aanad/a-44-gulmohar-park.jpg",
     },
     {
-      original: "/images/gallery/picture14.jpg",
-      thumbnail: "/images/gallery/picture14.jpg",
+      original: "/images/residential/aanad/anand-1.jpg",
+      thumbnail: "/images/residential/aanad/anand-1.jpg",
     },
     {
-      original: "/images/gallery/picture1.jpg",
-      thumbnail: "/images/gallery/picture1.jpg",
+      original: "/images/residential/aanad/anand-3.jpg",
+      thumbnail: "/images/residential/aanad/anand-3.jpg",
     },
     {
-      original: "/images/gallery/picture2.jpeg",
-      thumbnail: "/images/gallery/picture2.jpeg",
+      original: "/images/residential/aanad/151-anand-1.jpg",
+      thumbnail: "/images/residential/aanad/151-anand-1.jpg",
     },
     {
-      original: "/images/gallery/picture10.jpg",
-      thumbnail: "/images/gallery/picture10.jpg",
+      original: "/images/residential/aanad/151-anand-3.jpg",
+      thumbnail: "/images/residential/aanad/151-anand-3.jpg",
     },
     {
-      original: "/images/gallery/picture3.jpg",
-      thumbnail: "/images/gallery/picture3.jpg",
+      original: "/images/residential/aanad/102-anand-1.jpg",
+      thumbnail: "/images/residential/aanad/102-anand-1.jpg",
     },
     {
-      original: "/images/gallery/picture11.jpg",
-      thumbnail: "/images/gallery/picture11.jpg",
+      original: "/images/residential/aanad/102-anand-3.jpg",
+      thumbnail: "/images/residential/aanad/102-anand-3.jpg",
     },
     {
-      original: "/images/gallery/picture4.jpg",
-      thumbnail: "/images/gallery/picture4.jpg",
+      original: "/images/residential/aanad/51-anand-1.jpg",
+      thumbnail: "/images/residential/aanad/51-anand-1.jpg",
     },
     {
-      original: "/images/gallery/picture5.jpg",
-      thumbnail: "/images/gallery/picture5.jpg",
+      original: "/images/residential/aanad/51-anand-2.jpg",
+      thumbnail: "/images/residential/aanad/51-anand-2.jpg",
     },
     {
-      original: "/images/gallery/picture6.jpeg",
-      thumbnail: "/images/gallery/picture6.jpeg",
+      original: "/images/residential/aanad/e-6-13-vasant-1.jpg",
+      thumbnail: "/images/residential/aanad/e-6-13-vasant-1.jpg",
     },
     {
-      original: "/images/gallery/picture7.jpeg",
-      thumbnail: "/images/gallery/picture7.jpeg",
+      original: "/images/residential/aanad/e-6-13-vasant-2.jpg",
+      thumbnail: "/images/residential/aanad/e-6-13-vasant-2.jpg",
     },
     {
-      original: "/images/gallery/picture8.jpeg",
-      thumbnail: "/images/gallery/picture8.jpeg",
+      original: "/images/residential/aanad/e-6-13-vasant-3.jpg",
+      thumbnail: "/images/residential/aanad/e-6-13-vasant-3.jpg",
     },
     {
-      original: "/images/gallery/picture12.jpg",
-      thumbnail: "/images/gallery/picture12.jpg",
+      original: "/images/residential/aanad/c-288-defcol-1.jpg",
+      thumbnail: "/images/residential/aanad/c-288-defcol-1.jpg",
     },
     {
-      original: "/images/gallery/picture13.jpg",
-      thumbnail: "/images/gallery/picture13.jpg",
+      original: "/images/residential/aanad/c-288-defcol-2.jpg",
+      thumbnail: "/images/residential/aanad/c-288-defcol-2.jpg",
     },
   ];
 
