@@ -7,32 +7,48 @@ export default function WhyTrustUsSection() {
   const countersRef = useRef([]);
 
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      once: true, // animation + counter run only once
+      duration: 800,
+    });
 
     const speed = 200;
 
-    countersRef.current.forEach((counter) => {
+    const runCounter = (counter) => {
+      if (!counter || counter.dataset.started) return;
+      counter.dataset.started = "true";
+
       const target = Number(counter.dataset.target);
       const hasPlus = counter.dataset.plus === "true";
-
       let current = 0;
+      const increment = target / speed;
 
       const animate = () => {
-        const increment = target / speed;
-
+        current += increment;
         if (current < target) {
-          current = Math.ceil(current + increment);
           counter.innerText =
-            current.toLocaleString("en-IN") + (hasPlus ? "+" : "");
-          setTimeout(animate, 10);
+            Math.ceil(current).toLocaleString("en-IN") +
+            (hasPlus ? "" : "");
+          requestAnimationFrame(animate);
         } else {
           counter.innerText =
-            target.toLocaleString("en-IN") + (hasPlus ? "+" : "");
+            target.toLocaleString("en-IN") + (hasPlus ? "" : "");
         }
       };
 
       animate();
-    });
+    };
+
+    const handleAosIn = (event) => {
+      const values = event.detail.querySelectorAll(".odometer");
+      values.forEach(runCounter);
+    };
+
+    document.addEventListener("aos:in", handleAosIn);
+
+    return () => {
+      document.removeEventListener("aos:in", handleAosIn);
+    };
   }, []);
 
   return (
@@ -46,7 +62,7 @@ export default function WhyTrustUsSection() {
 
         <div className="row">
           <ul
-            className="counter list-unstyled d-flex flex-wrap gap-4"
+            className="counter list-unstyled d-flex flex-wrap gap-xl-4 gap-0"
             data-aos="fade-up"
           >
             {[
@@ -57,14 +73,14 @@ export default function WhyTrustUsSection() {
             ].map((item, index) => (
               <li key={index}>
                 <div
-                  className="value"
+                  className="odometer"
                   data-target={item.value}
-                  data-plus="true"
+                  // data-plus="true"
                   ref={(el) => (countersRef.current[index] = el)}
                 >
                   0
                 </div>
-                <span>{item.label}</span>
+                <span className="counter-text">{item.label}</span>
               </li>
             ))}
           </ul>
