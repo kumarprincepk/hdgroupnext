@@ -976,35 +976,37 @@ header.is-sticky {
 }
 
 .counter li {
-  list-style: none;
   text-align: center;
   border-right: 1px solid #bfbfbf;
-  padding: 15px;
   flex-grow: 1;
+  padding: 15px 5px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .counter li:last-child {
   border-right: none;
 }
 
-.counter-number {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .odometer {
   font-size: 60px;
+  font-weight: 700;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
 }
 
-.odometer + span {
-  font-size: 30px;
-  margin-left: 5px;
+.odometer::after {
+  content: "+";
+  font-size: 32px;
+  font-weight: 600;
+  margin-left: 6px;
 }
 
 .counter-text {
   color: var(--Secondary);
-  margin: 10px 0 0 0;
 }
 /* Counter */
 
@@ -1452,6 +1454,7 @@ body.modal-open {
   color: #fff !important;
   letter-spacing: 1px;
   transform: translateY(25%);
+  letter-spacing: 0;
 }
 
 
@@ -1526,6 +1529,24 @@ body.modal-open {
 .modal-backdrop {
   width: 100%;
   height: 100%;
+}
+
+.form-floating > .form-control {
+  height: 45px;
+  min-height: 45px;
+  font-size: 14px;
+}
+
+.form-floating > .form-select {
+  font-size: 14px;
+}
+
+.form-floating > label {
+  padding: .8rem .75rem;
+}
+
+.form-floating > label > span {
+  color: #de1300;
 }
 
 
@@ -1721,6 +1742,10 @@ body.modal-open {
     font-size: 16px;
   }
   
+  .navigation > li > .submenu.show > li {
+    opacity: 1;
+    transform: translateY(2px);
+  }
 }
 
 @media (max-width: 768px) {
@@ -1730,6 +1755,10 @@ body.modal-open {
   .container {
     padding: 0 15px;
     max-width: 100%;
+  }
+
+  .odometer {
+    font-size: 45px;
   }
 
   .gallery {
@@ -1810,6 +1839,7 @@ body.modal-open {
     padding: 20px 0;
   }
 
+  .full-bg h2,
   .odometer {
     font-size: 40px;
   }

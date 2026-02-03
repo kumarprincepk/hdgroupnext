@@ -16,6 +16,11 @@ export default function Header() {
   const router = useRouter();
 
   useEffect(() => {
+    AOS.init({
+      once: true,
+      duration: 800,
+      easing: "ease-in-out",
+    });
     if (pathname !== "/") return;
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -73,13 +78,14 @@ export default function Header() {
         <nav className="navbar navbar-expand-lg main-menu">
           <div className="container-fluid">
             <div className="position-relative w-100 d-flex align-items-center justify-content-between">
-              <Link className="navbar-brand" href="/" data-aos="fade-right" data-aos-duration="1000">
+              <Link className="navbar-brand" href="/" >
                 <Image
                   src="/images/logo/HDwhite.png"
                   alt="logo - hdg"
                   height={200}
                   width={200}
                   className="img-fluid"
+                  data-aos="fade-right" data-aos-duration="1200"
                 />
               </Link>
               <button
@@ -90,7 +96,7 @@ export default function Header() {
                 aria-label="Toggle navigation"
                 data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop"
-                data-aos="fade-left" data-aos-duration="1000"
+                data-aos="fade-left" data-aos-duration="1500"
               >
                 <span className="navbar-toggler-icon" />
               </button>
@@ -167,13 +173,14 @@ export default function Header() {
         <nav className="navbar navbar-expand-lg main-menu">
           <div className="container-fluid">
             <div className="position-relative w-100 d-flex align-items-center justify-content-between">
-              <Link className="navbar-brand" href="/" data-aos="fade-right" data-aos-duration="1000">
+              <Link className="navbar-brand" href="/">
                 <Image
                   src="/images/logo/HDwhite.png"
                   alt="logo Image"
-                  height={250}
+                  height={30}
                   width={200}
                   className="img-fluid"
+                  data-aos="fade-right" data-aos-duration="1200"
                 />
               </Link>
               <button
@@ -184,7 +191,7 @@ export default function Header() {
                 aria-label="Toggle navigation"
                 data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop"
-                data-aos="fade-left" data-aos-duration="1000"
+                data-aos="fade-left" data-aos-duration="1500"
               >
                 <span className="navbar-toggler-icon" />
               </button>

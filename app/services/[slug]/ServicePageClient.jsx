@@ -132,6 +132,17 @@ export default function ServicePageClient({ service, slug }) {
               >
                 {service.heading}
               </h2>
+              {/* <div className="container-fluid">
+                <div className="row">
+                  <div className="col d-flex align-items-center vh-100">
+                    <h2
+                      className="fw-bold text-uppercase"
+                    >
+                      {service.heading}
+                    </h2>
+                  </div>
+                </div>
+              </div> */}
             </div>
 
             <div className="container-fluid">
@@ -161,12 +172,10 @@ export default function ServicePageClient({ service, slug }) {
 
             <div className="container-fluid">
               <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="row g-3">
+                <div className="row">
                   {/* Name Field */}
                   <div className="col-md-6">
-                    <label htmlFor="name" className="form-label small fw-medium">
-                      Your Name *
-                    </label>
+                  <div className="form-floating mb-3">
                     <input
                       type="text"
                       id="name"
@@ -174,200 +183,232 @@ export default function ServicePageClient({ service, slug }) {
                       className="form-control"
                       placeholder="John Kumar Singh"
                     />
+                    <label htmlFor="name" className="form-label small fw-medium">
+                      Your Name<span>*</span>
+                    </label>
                     {errors.name && (
                       <p className="text-danger small mt-1">
                         {errors.name.message}
                       </p>
                     )}
                   </div>
+                  </div>
 
                   {/* Company Name Field */}
                   <div className="col-md-6">
-                    <label
-                      htmlFor="companyName"
-                      className="form-label small fw-medium"
-                    >
-                      Company Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="companyName"
-                      {...register("companyName")}
-                      className="form-control"
-                      placeholder="ABC Corporation"
-                    />
+                    <div className="form-floating mb-3">
+                      <input
+                        type="text"
+                        id="companyName"
+                        {...register("companyName")}
+                        className="form-control"
+                        placeholder="ABC Corporation"
+                      />
+                      <label
+                        htmlFor="companyName"
+                        className="form-label small fw-medium"
+                      >
+                        Company Name<span>*</span>
+                      </label>
                     {errors.companyName && (
                       <p className="text-danger small mt-1">
                         {errors.companyName.message}
                       </p>
                     )}
+                    </div>
                   </div>
 
                   {/* Subject Field */}
                   <div className="col-md-6">
-                    <label
-                      htmlFor="subject"
-                      className="form-label small fw-medium"
-                    >
-                      Subject *
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      {...register("subject")}
-                      className="form-control"
-                      placeholder="Service Inquiry"
-                    />
+                    <div className="form-floating mb-3">
+                      <input
+                        type="text"
+                        id="subject"
+                        {...register("subject")}
+                        className="form-control"
+                        placeholder="Service Inquiry"
+                      />
+                      <label
+                        htmlFor="subject"
+                        className="form-label small fw-medium"
+                      >
+                        Subject<span>*</span>
+                      </label>
                     {errors.subject && (
                       <p className="text-danger small mt-1">
                         {errors.subject.message}
                       </p>
                     )}
+                    </div> 
                   </div>
 
                   {/* Designation Field */}
                   <div className="col-md-6">
-                    <label
-                      htmlFor="designation"
-                      className="form-label small fw-medium"
-                    >
-                      Designation *
-                    </label>
-                    <input
-                      type="text"
-                      id="designation"
-                      {...register("designation")}
-                      className="form-control"
-                      placeholder="Project Manager"
-                    />
+                    <div className="form-floating mb-3">
+                      <input
+                        type="text"
+                        id="designation"
+                        {...register("designation")}
+                        className="form-control"
+                        placeholder="Project Manager"
+                      />
+                      <label
+                        htmlFor="designation"
+                        className="form-label small fw-medium"
+                      >
+                        Designation<span>*</span>
+                      </label>
                     {errors.designation && (
                       <p className="text-danger small mt-1">
                         {errors.designation.message}
                       </p>
                     )}
+                    </div>
                   </div>
 
                   {/* Location Field */}
                   <div className="col-md-6">
-                    <label
-                      htmlFor="location"
-                      className="form-label small fw-medium"
-                    >
-                      Location *
-                    </label>
-                    <select
-                      id="location"
-                      {...register("location")}
-                      className="form-select"
-                    >
-                      <option value="">Select Location</option>
-                      <option value="Noida">Noida</option>
-                      <option value="Delhi">Delhi</option>
-                      <option value="Gurugram">Gurugram</option>
-                      <option value="Faridabad">Faridabad</option>
-                      <option value="Goa">Goa</option>
-                    </select>
+                    <div className="form-floating mb-3">
+                      <select
+                        id="location"
+                        {...register("location")}
+                        className="form-select"
+                      >
+                        <option value="">Select Location</option>
+                        <option value="Noida">Noida</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Gurugram">Gurugram</option>
+                        <option value="Faridabad">Faridabad</option>
+                        <option value="Goa">Goa</option>
+                      </select>
+                      <label
+                        htmlFor="location"
+                        className="form-label small fw-medium"
+                      >
+                        Location<span>*</span>
+                      </label>
                     {errors.location && (
                       <p className="text-danger small mt-1">
                         {errors.location.message}
                       </p>
                     )}
+                    </div>
                   </div>
 
                   {/* Mobile Number Field */}
                   <div className="col-md-6">
-                    <label
-                      htmlFor="mobile"
-                      className="form-label small fw-medium"
-                    >
-                      Mobile Number *
-                    </label>
-                    <input
-                      type="text"
-                      id="mobile"
-                      {...register("mobile")}
-                      className="form-control"
-                      placeholder="9876543210"
-                    />
+                    <div className="form-floating mb-3">
+                      <input
+                        type="text"
+                        id="mobile"
+                        {...register("mobile")}
+                        className="form-control"
+                        placeholder="9876543210"
+                      />
+                      <label
+                        htmlFor="mobile"
+                        className="form-label small fw-medium"
+                      >
+                        Mobile Number<span>*</span>
+                      </label>
                     {errors.mobile && (
                       <p className="text-danger small mt-1">
                         {errors.mobile.message}
                       </p>
                     )}
+                    </div>
                   </div>
 
                   {/* Email Field */}
                   <div className="col-12">
-                    <label htmlFor="email" className="form-label small fw-medium">
-                      Email ID *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      {...register("email")}
-                      className="form-control"
-                      placeholder="john@example.com"
-                    />
+                    <div className="form-floating mb-3">
+                      <input
+                        type="email"
+                        id="email"
+                        {...register("email")}
+                        className="form-control"
+                        placeholder="john@example.com"
+                      />
+                      <label htmlFor="email" className="form-label small fw-medium">
+                        Email ID<span>*</span>
+                      </label>
                     {errors.email && (
                       <p className="text-danger small mt-1">
                         {errors.email.message}
                       </p>
                     )}
+                    </div>
                   </div>
 
                   {/* Requirement Field */}
                   <div className="col-12">
-                    <label
-                      htmlFor="requirement"
-                      className="form-label small fw-medium"
-                    >
-                      Requirement *
-                    </label>
-                    <select
-                      id="requirement"
-                      {...register("requirement")}
-                      className="form-select"
-                    >
-                      <option value="">Select Requirement</option>
-                      <option value="Sales & Collaboration">
-                        Sales & Collaboration
-                      </option>
-                      <option value="Interior Design">Interior Design</option>
-                      <option value="Turnkey Execution">Turnkey Execution</option>
-                      <option value="Commercial Leasing">
-                        Commercial Leasing
-                      </option>
-                      <option value="Building Management">
-                        Building Management
-                      </option>
-                    </select>
+                    <div className="form-floating mb-3">
+                      <select
+                        id="requirement"
+                        {...register("requirement")}
+                        className="form-select"
+                      >
+                        <option value="">Select Requirement</option>
+                        <option value="Sales & Collaboration">
+                          Sales & Collaboration
+                        </option>
+                        <option value="Interior Design">Interior Design</option>
+                        <option value="Turnkey Execution">Turnkey Execution</option>
+                        <option value="Commercial Leasing">
+                          Commercial Leasing
+                        </option>
+                        <option value="Building Management">
+                          Building Management
+                        </option>
+                        <option value="New Construction">
+                          New Construction
+                        </option>
+                        <option value="Real Estate Consultancy">
+                          Real Estate Consultancy
+                        </option>
+                        <option value="Property Management">
+                          Property Management
+                        </option>
+                        <option value="Maintenance Services">
+                          Maintenance Services
+                        </option>
+                      </select>
+                      <label
+                        htmlFor="requirement"
+                        className="form-label small fw-medium"
+                      >
+                        Requirement<span>*</span>
+                      </label>
                     {errors.requirement && (
                       <p className="text-danger small mt-1">
                         {errors.requirement.message}
                       </p>
                     )}
+                    </div>
                   </div>
 
                   {/* Message Field */}
                   <div className="col-12">
-                    <label
-                      htmlFor="message"
-                      className="form-label small fw-medium"
-                    >
-                      Message *
-                    </label>
-                    <textarea
-                      id="message"
-                      rows={4}
-                      {...register("message")}
-                      className="form-control"
-                      placeholder="Please describe your requirements in detail..."
-                    />
+                    <div className="form-floating mb-3">
+                      <textarea
+                        id="message"
+                        rows={4}
+                        {...register("message")}
+                        className="form-control"
+                        placeholder="Please describe your requirements in detail..."
+                      />
+                      <label
+                        htmlFor="message"
+                        className="form-label small fw-medium"
+                      >
+                        Message<span>*</span>
+                      </label>
                     {errors.message && (
                       <p className="text-danger small mt-1">
                         {errors.message.message}
                       </p>
                     )}
+                    </div>
                   </div>
                 </div>
 
