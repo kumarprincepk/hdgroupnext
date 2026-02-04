@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -11,24 +12,19 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import { useEffect, useState } from "react";
-import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/Page/AnnotationLayer.css";
-import "react-pdf/dist/Page/TextLayer.css";
 
-/* ✅ PDF.js worker */
-pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
+// Dynamically import PDF components to avoid server-side rendering issues
+const PdfViewer = dynamic(() => import("./PdfViewer"), { ssr: false });
 
 export default function ReadMoreSection() {
   /* ------------------ STATE ------------------ */
   const [selectedPdf, setSelectedPdf] = useState(null);
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
-  const [isClient, setIsClient] = useState(false);
 
   /* ------------------ EFFECTS ------------------ */
   useEffect(() => {
     AOS.init();
-    setIsClient(true);
   }, []);
 
   /* ------------------ DATA ------------------ */
@@ -157,72 +153,14 @@ export default function ReadMoreSection() {
 
       {/* ------------------ PDF MODAL ------------------ */}
       {selectedPdf && (
-        <div
-          className="modal fade show d-block"
-          style={{ backgroundColor: "rgba(0,0,0,0.8)" }}
-        >
-          <div className="modal-dialog modal-xl modal-dialog-centered">
-            <div className="modal-content">
-
-              <div className="modal-header">
-                <h5 className="modal-title">{selectedPdf.title}</h5>
-                <button className="btn-close" onClick={closePdfModal} />
-              </div>
-
-              <div
-                className="modal-body p-0"
-                style={{ height: "70vh", overflow: "auto" }}
-              >
-                <div className="d-flex justify-content-center align-items-center h-100">
-
-                  {isClient && (
-                    <Document
-                      file={selectedPdf.file}
-                      onLoadSuccess={onDocumentLoadSuccess}
-                      onLoadError={(err) =>
-                        console.error("PDF load error:", err)
-                      }
-                      loading={<p className="p-4">Loading PDF...</p>}
-                    >
-                      <Page
-                        pageNumber={pageNumber}
-                        width={Math.min(800, window.innerWidth - 40)}
-                        renderTextLayer={false}
-                        renderAnnotationLayer={false}
-                      />
-                    </Document>
-                  )}
-
-                </div>
-              </div>
-
-              {numPages > 1 && (
-                <div className="modal-footer justify-content-center">
-                  <button
-                    className="btn btn-outline-primary"
-                    disabled={pageNumber === 1}
-                    onClick={() => setPageNumber(pageNumber - 1)}
-                  >
-                    Previous
-                  </button>
-
-                  <span className="mx-3">
-                    Page {pageNumber} of {numPages}
-                  </span>
-
-                  <button
-                    className="btn btn-outline-primary"
-                    disabled={pageNumber === numPages}
-                    onClick={() => setPageNumber(pageNumber + 1)}
-                  >
-                    Next
-                  </button>
-                </div>
-              )}
-
-            </div>
-          </div>
-        </div>
+        <PdfViewer
+          selectedPdf={selectedPdf}
+          pageNumber={pageNumber}
+          numPages={numPages}
+          onPageChange={setPageNumber}
+          onLoadSuccess={onDocumentLoadSuccess}
+          onClose={closePdfModal}
+        />
       )}
     </section>
   );
