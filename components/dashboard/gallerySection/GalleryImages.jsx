@@ -41,11 +41,10 @@ export default function GalleryImage() {
       original: "/images/residential/aanad/151-anand-1.jpg",
       thumbnail: "/images/residential/aanad/151-anand-1.jpg",
     },
-    
-    {
-      original: "/images/residential/aanad/vasantVihar.jpg",
-      thumbnail: "/images/residential/aanad/vasantVihar.jpg", 
-    },
+    // {
+    //   original: "/images/residential/aanad/vasantVihar.jpg",
+    //   thumbnail: "/images/residential/aanad/vasantVihar.jpg", 
+    // },
     {
       original: "/images/residential/aanad/151-anand-3.jpg",
       thumbnail: "/images/residential/aanad/151-anand-3.jpg",
