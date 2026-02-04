@@ -27,7 +27,7 @@ export default function Footer() {
                 <Image
                   src="/images/logo/logo-white.png"
                   alt="logo-image"
-                  width={300}
+                  width={280}
                   height={50}
                   className="object-cover w-full"
                 />
