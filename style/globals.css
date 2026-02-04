@@ -1937,6 +1937,27 @@ body.modal-open {
   z-index: 99;
 }
 
+/* PDF Cards */
+.pdf-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.pdf-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.pdf-card .position-absolute {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.pdf-card:hover .position-absolute {
+  background: rgba(0, 0, 0, 0.5);
+}
+
 .transparent-header .navigation li a {
   color: var(--White);
 }
