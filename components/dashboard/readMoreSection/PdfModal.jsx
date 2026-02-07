@@ -1,11 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 const PdfModal = ({ isOpen, onClose, pdf }) => {
-  const [error, setError] = useState(false);
-
   if (!isOpen) return null;
 
   const handleBackdropClick = (e) => {
@@ -29,24 +27,17 @@ const PdfModal = ({ isOpen, onClose, pdf }) => {
 
           <div
             className="modal-body p-0"
-            style={{ height: "70vh", overflow: "auto" }}
+            style={{ height: "70vh", overflow: "hidden" }}
           >
-            {error ? (
-              <div className="p-4 text-center text-danger">
-                <p>Failed to load PDF. Please try again.</p>
-              </div>
-            ) : (
-              <iframe
-                src={pdf?.file}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  border: "none",
-                }}
-                title={pdf?.title}
-                onError={() => setError(true)}
-              />
-            )}
+            <iframe
+              src={`${pdf?.file}#toolbar=0&navpanes=0&scrollbar=1`}
+              style={{
+                width: "100%",
+                height: "100%",
+                border: "none",
+              }}
+              title={pdf?.title}
+            />
           </div>
         </div>
       </div>
