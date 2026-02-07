@@ -6,8 +6,24 @@ const projectInfo = [
     image: "/images/residential/residential.jpg",
     video: "/videos/hd-group-desktop.mp4",
     data: [
-      {
+       {
         id: 1,
+        title: "99, AnandLok, New Delhi",
+        details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
+        images: [
+          {original: "/images/residential/aanad/99-AnandLok.png", thumbnail: "/images/residential/aanad/99-AnandLok.png"},
+        ],
+      },
+       {
+        id: 2,
+        title: "A-1/5, Vasant Vihar, New Delhi",
+        details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
+        images: [
+          {original: "/images/residential/aanad/vasantVihar.jpg", thumbnail: "/images/residential/aanad/vasantVihar.jpg"},
+        ],
+      },
+      {
+        id: 3,
         title: "32, Anand Lok, New Delhi",
         details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
         images: [
@@ -18,7 +34,7 @@ const projectInfo = [
         ],
       },
       {
-        id: 2,
+        id: 4,
         title: "151, Anand Lok, New Delhi",
         details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
         images: [
@@ -29,7 +45,7 @@ const projectInfo = [
         ],
       },
       {
-        id: 3,
+        id: 5,
         title: "102, Anand Lok, New Delhi",
         details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
         images: [
@@ -41,7 +57,7 @@ const projectInfo = [
         ],
       },
        {
-        id: 4,
+        id: 6,
         title: "51, Anand Lok, New Delhi",
         details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
         images: [
@@ -52,7 +68,7 @@ const projectInfo = [
         ],
       },
        {
-        id: 5,
+        id: 7,
         title: "E6/13, Vasant Vihar, New Delhi",
         details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
         images: [
@@ -63,7 +79,7 @@ const projectInfo = [
         ],
       },
       {
-        id: 6,
+        id: 8,
         title: "C-288, Defence Colony, New Delhi",
         details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
         images: [
@@ -74,7 +90,7 @@ const projectInfo = [
         ],
       },
       {
-        id: 7,
+        id: 9,
         title: "A 44, Gulmohar Park, New Delhi",
         details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
         images: [
@@ -82,7 +98,7 @@ const projectInfo = [
         ],
       },
       {
-        id: 8,
+        id: 10,
         title: "B 73, Gulmohar Park, New Delhi",
         details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
         images: [
@@ -90,7 +106,7 @@ const projectInfo = [
         ],
       },
       {
-        id: 9,
+        id: 11,
         title: "C 8/7, Vasant Vihar, New Delhi",
         details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
         images: [
@@ -98,7 +114,7 @@ const projectInfo = [
         ],
       },
       {
-        id: 10,
+        id: 12,
         title: "C-27, Defence Colony, New Delhi",
         details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
         images: [
@@ -106,7 +122,7 @@ const projectInfo = [
         ],
       },
       {
-        id: 11,
+        id: 13,
         title: "C-484, Defence Colony, New Delhi",
         details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
         images: [
@@ -114,7 +130,7 @@ const projectInfo = [
         ],
       },
       {
-        id: 12,
+        id: 14,
         title: "D-3, Soami Nagar, New Delhi",
         details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
         images: [
@@ -122,7 +138,7 @@ const projectInfo = [
         ],
       },
       {
-        id: 13,
+        id: 15,
         title: "D-241, Sarvodaya Enclave, New Delhi",
         details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
         images: [
@@ -130,7 +146,7 @@ const projectInfo = [
         ],
       },
       {
-        id: 14,
+        id: 16,
         title: "D-389, Defence Colony, New Delhi",
         details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
         images: [
