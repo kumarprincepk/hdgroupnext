@@ -14,14 +14,14 @@ const projectInfo = [
           {original: "/images/residential/aanad/99-AnandLok.png", thumbnail: "/images/residential/aanad/99-AnandLok.png"},
         ],
       },
-       {
-        id: 2,
-        title: "A-1/5, Vasant Vihar, New Delhi",
-        details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
-        images: [
-          {original: "/images/residential/aanad/vasantVihar.jpg", thumbnail: "/images/residential/aanad/vasantVihar.jpg"},
-        ],
-      },
+      //  {
+      //   id: 2,
+      //   title: "A-1/5, Vasant Vihar, New Delhi",
+      //   details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi.`,
+      //   images: [
+      //     {original: "/images/residential/aanad/vasantVihar.jpg", thumbnail: "/images/residential/aanad/vasantVihar.jpg"},
+      //   ],
+      // },
       {
         id: 3,
         title: "32, Anand Lok, New Delhi",
