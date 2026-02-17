@@ -21,7 +21,7 @@
         id: 2,
         heading: "Interior Design",
         slug: "interior-design",
-        image: '/images/gallery/picture2.jpeg',
+        image: '/images/gallery/A1_5.jpg',
         details: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eum doloremque esse voluptate harum veniam excepturi, quasi fugiat, nemo necessitatibus ea 
         provident libero nulla placeat, alias itaque sequi earum enim velit. Fugiat facere sit dolores aperiam voluptatem provident. Perspiciatis, voluptates saepe dolor magnam 
         officia cupiditate voluptatum ducimus asperiores voluptatem dolorem! Deserunt sunt commodi a nostrum qui voluptates? Quasi in, fuga praesentium unde ullam magnam sunt pariatur 

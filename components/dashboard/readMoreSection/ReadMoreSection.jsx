@@ -30,28 +30,28 @@ export default function ReadMoreSection() {
       title: "Look Book FBD",
       file: "/pdfs/Lookbook-FBD.pdf",
       thumbnail: "/images/lookbookfbd.png",
-      date: "5 min read",
+      // date: "5 min read",
     },
     {
       id: 2,
       title: "Look Book D-112",
       file: "/pdfs/Lookbook-D-112.pdf",
       thumbnail: "/images/lookbookd112.png",
-      date: "7 min read",
+      // date: "7 min read",
     },
     {
       id: 3,
       title: "Look Book Okhla",
       file: "/pdfs/Lookbook-Okhla.pdf",
       thumbnail: "/images/lookbookOkhla.png",
-      date: "7 min read",
+      // date: "7 min read",
     },
     {
       id: 4,
       title: "Look Book Essentia Vasant Vihar",
       file: "/pdfs/HD-Essentia-V-Vihar.pdf",
       thumbnail: "/images/hdEssentiavVihar.png",
-      date: "7 min read",
+      // date: "7 min read",
     },
   ];
 
@@ -104,8 +104,8 @@ export default function ReadMoreSection() {
 
                 <div className="article-content">
                   <div className="time">
-                    <CiStopwatch />
-                    <p>{pdf.date}</p>
+                    {/* <CiStopwatch /> */}
+                    {/* <p>{pdf.date}</p> */}
                   </div>
 
                   {/* TITLE */}
