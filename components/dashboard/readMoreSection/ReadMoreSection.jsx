@@ -98,7 +98,7 @@ export default function ReadMoreSection() {
                     alt={pdf.title}
                     width={400}
                     height={250}
-                    style={{ width: "100%", height: "auto" }}
+                    style={{ width: "100%", height: "250px", borderRadius: "16px" }}
                   />
                 </div>
 
